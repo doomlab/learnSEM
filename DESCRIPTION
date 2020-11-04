@@ -18,9 +18,8 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     lavaan (>= 0.6.7),
-    semPlot (>= 1.1.2)
+    semPlot (>= 1.1.2),
+    learnr (>= 0.10.1)
 Depends:
     R (>= 2.10)
 RoxygenNote: 7.1.1
-Suggests: 
-    learnr

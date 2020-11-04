@@ -4,6 +4,9 @@ library(usethis)
 #usethis::use_dev_package("lavaan")
 #usethis::use_dev_package("semPlot")
 #usethis::use_dev_package("rio")
+#usethis::use_dev_package("learnr")
+
+#usethis::build_readme()
 
 library(rio)
 #introR <- import("data/introR.csv")

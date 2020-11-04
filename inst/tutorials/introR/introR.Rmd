@@ -4,6 +4,7 @@ tutorial:
   id: "introR"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: Check your R skills in this introduction to R assignment for Dr. B's SEM course. You will practice simple vectors, matrices, dataframes, and more. 
 ---
 
 ```{r setup, include=FALSE}
@@ -120,11 +121,13 @@ summary(USArrests)
 Next, we will import data provided directly with this package.  This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. Fill in the ____ to give the dataset your own variable name. 
 
 ```{r data-wrangle, exercise=TRUE}
+library(learnSEM)
 data(introR)
 _____ <- introR
 ```
 
 ```{r data-wrangle-solution}
+library(learnSEM)
 data(introR)
 DF <- introR
 ```

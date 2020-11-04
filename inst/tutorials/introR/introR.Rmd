@@ -117,18 +117,16 @@ summary(USArrests)
 
 ##	Data Wrangling
 
-Next, we will import our own data. This data has been included in this package, so you can import it using the `rio` library. This code has been provided to help you see how to import data included in the exercises. Give your new dataset a name by replacing `_____` with a variable name. 
-
-This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. 
+Next, we will import data provided directly with this package.  This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. Fill in the ____ to give the dataset your own variable name. 
 
 ```{r data-wrangle, exercise=TRUE}
-library(rio)
-______ <- import("introR.csv")
+data(introR)
+_____ <- introR
 ```
 
 ```{r data-wrangle-solution}
-library(rio)
-DF <- import("introR.csv")
+data(introR)
+DF <- introR
 ```
 
 Now we will work on editing the dataset. It has a lot of bad values, so we want to clean that data for our use in the next exercise. Let's create a summary of the whichhand column to first view what the issue is. Summary may not help us out if the column is a character vector, so you can also try the `table()` function to view character values.  

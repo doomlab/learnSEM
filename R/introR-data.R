@@ -4,8 +4,12 @@
 #' that examined how pleasant people felt about words, and the
 #' information about how the word is typed. This dataset
 #' examines the QWERTY effect.
+#' @docType data
+#'
+#' @usage data(introR)
 #'
 #' @format A data frame with 33949 rows and 14 variables:
+#'
 #' \describe{
 #'   \item{expno}{the experiment number we assigned to that
 #'   group of particpants}
@@ -27,4 +31,7 @@
 #'   \item{real_fake}{if the word was a real English word or not}
 #'   \item{speed_c}{z-scored speed values}
 #' }
+#'
+#' @keywords datasets
 "introR"
+

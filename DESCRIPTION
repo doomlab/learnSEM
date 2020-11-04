@@ -2,7 +2,7 @@ Package: learnSEM
 Type: Package
 Title: Learning Tutorials for Structural Equation Modeling
 Version: 0.1.0
-Authors@R: 
+Authors@R:
     person(given = "Erin M.",
            family = "Buchanan",
            role = "cre",
@@ -10,15 +10,15 @@ Authors@R:
            comment = c(ORCID = "0000-0002-9689-4189"))
 Maintainer: Erin M. Buchanan <buchananlab@gmail.com>
 Description: Do you want to learn Structural Equation Modeling in R?
-    You have come to the right place! You can use these learnr tutorials 
-    to teach yourself SEM in R, along with the lectures, and guided 
-    examples provided. 
+    You have come to the right place! You can use these learnr tutorials
+    to teach yourself SEM in R, along with the lectures, and guided
+    examples provided.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
     lavaan (>= 0.6.7),
-    semPlot (>= 1.1.2),
-    rio (>= 0.5.16)
-Depends: 
+    semPlot (>= 1.1.2)
+Depends:
     R (>= 2.10)
+RoxygenNote: 7.1.1

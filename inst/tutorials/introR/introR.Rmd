@@ -1,0 +1,222 @@
+---
+title: "Introduction to R Practice"
+tutorial: 
+  id: "introR"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction to R Practice
+
+This assignment is a quick supplement to Dr. Buchanan's Structural Equation Modeling course to get a judgment of your *R* skills. You should be able to complete this assignment without too much trouble to feel comfortable in the full SEM course. You will get plenty of coding practice, and it's ok if you need to Google some of the answers. 
+
+This course assumes you have the following skill sets:
+
+  - Some proficiency in *R* or at least a strong desire to learn a lot
+  - Some background knowledge of regression analyses
+  - Patience!
+  
+If you need more help, here are some resources:
+
+  - https://statisticsofdoom.com/ - Dr. B's complete courses with lots of videos on statistics, coding, and more. 
+  - https://learningstatisticswithr.com/ - Danielle Navarro's book on learning statistics with *R*.
+  - http://r-statistics.co/ - Selva Prabhakaran's *R* website with tutorials on linear regression.
+  
+## Introduction R Videos
+
+Placeholder text for the R videos, added after I record them. 
+
+## Exercises
+
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
+
+## Vectors
+
+Remember that vectors are similar to one row or one column of data. They must be all the same data type! In this section, create a vector of data using the `rep` or `seq` function. 
+
+```{r vectors, exercise=TRUE}
+
+```
+
+```{r vectors-solution}
+# Here are some examples, there are many right answers
+rep(1:5, times = 4)
+
+seq(from = 1, to = 5, by = 1)
+```
+
+Use the concatenate function `c()` to join together several values to create a vector.
+
+```{r vectors2, exercise=TRUE}
+
+```
+
+```{r vectors2-solution}
+# Here are some examples, there are many right answers
+c(1, 2, 5, 6)
+
+c("dogs", "cats", "birds", "squirrels")
+```
+
+##	Length
+
+First, include your vector from the last exercise. You will need to save your vector as a variable. Then, use the `length()` function to figure out how long your vector is. 
+
+```{r length, exercise=TRUE}
+# Save your vector
+
+# Use the length() function 
+```
+
+```{r length-solution}
+# Save your vector
+animals <- c("dogs", "cats", "birds", "squirrels")
+# Use the length() function 
+length(animals)
+```
+
+## Matrices
+
+Matrices are objects in *R* that have rows and columns. Remember, they also must be all the same type of data, like numbers or characters. Type in code that makes a matrix of 5 rows and 5 columns. Be sure to save your matrix as a variable. Then include code to subset or grab the value in row 2 column 3. This exercise helps you understanding slicing and how to grab only small parts of a set of data you are interested in. 
+    
+```{r matrices, exercise=TRUE}
+# Save your matrix
+
+# Row 2, Column 3
+```
+
+```{r matrices-solution}
+# Save your matrix
+myMatrix <- matrix(data = 1:25, nrow = 5, ncol = 5)
+# Row 2, Column 3
+myMatrix[2, 3]
+```
+
+##	Embedded Data
+
+*R* has several datasets that are included in packages, which we can use for learning how to work with dataframes. Dataframes are like matrices in that they have rows and columns; *however*, they do not have to be all the same type (each column can be a different form of data). Each column does have to have the same number of values (i.e., all columns must have the same number of rows, unlike lists). 
+
+Use the `head()` function to look at the embedded `USArrests` dataset. Then use the `summary()` function to view the overall statistics for `USArrests`. 
+    
+    - Use the head() function to look at the dataset USArrests. 
+    - Calculate a summary of USArrests.
+
+```{r open-data, exercise=TRUE}
+
+```
+
+```{r open-data-solution}
+head(USArrests)
+summary(USArrests)
+```
+
+##	Data Wrangling
+
+Next, we will import our own data. This data has been included in this package, so you can import it using the `rio` library. This code has been provided to help you see how to import data included in the exercises. Give your new dataset a name by replacing `_____` with a variable name. 
+
+This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. 
+
+```{r data-wrangle, exercise=TRUE}
+library(rio)
+______ <- import("introR.csv")
+```
+
+```{r data-wrangle-solution}
+library(rio)
+DF <- import("introR.csv")
+```
+
+Now we will work on editing the dataset. It has a lot of bad values, so we want to clean that data for our use in the next exercise. Let's create a summary of the whichhand column to first view what the issue is. Summary may not help us out if the column is a character vector, so you can also try the `table()` function to view character values.  
+
+```{r data-wrangle2, exercise=TRUE}
+
+```
+
+```{r data-wrangle2-solution}
+#Note I called my dataset DF in the previous exercise
+summary(DF$whichhand)
+table(DF$whichhand)
+```
+
+We can see that there are a bunch of different ways that people have listed which hand they wrote with. You should recode all the values so they are `LEFT` and `RIGHT`. There are many ways to handle this problem, but let's focus on slicing and subsetting. Below you can see an example of how to fix the left values. You should add code to fix the right values. The `table()` function has been included so you can see if your code worked. Be sure to fill in the `_____` with your dataframe name!
+
+```{r data-wrangle3, exercise=TRUE}
+# Left
+_____$whichhand[DF$whichhand == "left"] <- "LEFT"
+_____$whichhand[DF$whichhand == "Left"] <- "LEFT"
+_____$whichhand[DF$whichhand == "right_left"] <- "BOTH"
+
+# Right
+
+# Check 
+table(_____$whichhand)
+```
+
+```{r data-wrangle3-solution}
+# Left
+DF$whichhand[DF$whichhand == "left"] <- "LEFT"
+DF$whichhand[DF$whichhand == "Left"] <- "LEFT"
+DF$whichhand[DF$whichhand == "right_left"] <- "BOTH"
+
+# Right
+DF$whichhand[DF$whichhand == "right"] <- "RIGHT"
+DF$whichhand[DF$whichhand == "Right"] <- "RIGHT"
+DF$whichhand[DF$whichhand == "right hand"] <- "RIGHT"
+DF$whichhand[DF$whichhand == "Right."] <- "RIGHT"
+
+# Check 
+table(DF$whichhand)
+```
+
+Next, let's practice using the `subset()` function. Make a dataset of just the left handed participants. 
+
+```{r data-wrangle4, exercise=TRUE}
+
+```
+
+```{r data-wrangle4-solution}
+lefties <- subset(DF, whichhand == "LEFT")
+```
+
+Last, one more exercise on subsetting, but this time by column. First, exclude all the `NA` values in your original dataset. Then, calculate a correlation table of the following variables only: `LR_switch, finger_switch, rha, word_length, letter_freq`.
+
+```{r data-wrangle5, exercise=TRUE}
+# Omit na values
+
+# Correlation table 
+
+```
+
+```{r data-wrangle5-solution}
+# Omit na values
+DF_nomissing <- na.omit(DF)
+# Correlation table 
+cor(DF_nomissing[ , c("LR_switch", "finger_switch", "rha", 
+                      "word_length", "letter_freq")])
+```
+
+##	Regression Wrangling:
+
+Last, let us figure out how to pull information directly from saved output. First, a regression of the number of finger switches (i.e., the number of times you had to switch fingers when typing a word on a QWERTY keyboard) was used to predict the pleasantness rating of a word. It's assumed that things that are easier to type (more switches) should be more pleasant to us. Be sure to fill in the original dataframe name!
+
+Next, you should use the `coef()` function to find the coefficients from the regression. The intercept is listed first, and the slope is listed second. Can you create code to just get the slope value? 
+
+```{r regression-wrangle, exercise=TRUE}
+# Regression
+output <- lm(rating ~ finger_switch, data = _______)
+# Get only the slope 
+
+```
+
+```{r regression-wrangle-solution}
+# Regression
+output <- lm(rating ~ finger_switch, data = DF)
+# Get only the slope
+coef(output)[2]
+```
+

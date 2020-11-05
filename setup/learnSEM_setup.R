@@ -5,14 +5,15 @@ library(usethis)
 #usethis::use_dev_package("semPlot")
 #usethis::use_dev_package("rio")
 #usethis::use_dev_package("learnr")
+#usethis::use_dev_package("learnrhash")
 
 #usethis::build_readme()
 
 library(rio)
-#introR <- import("data/introR.csv")
-#usethis::use_data(introR, overwrite = T)
+#datascreen <- import("data/introR.csv")
+#usethis::use_data(datascreen, overwrite = T)
 
-usethis::use_tutorial("introR", "Your First Lesson", open = interactive())
+#usethis::use_tutorial("datascreen", "Your First Lesson", open = interactive())
 
 
 library(roxygen2)

@@ -1,6 +1,3 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 setup
-^inst/tutorials/lesson1/lesson1\.Rmd$
-^inst/tutorials/introR/introR\.Rmd$
-^inst/tutorials/datascreen/datascreen\.Rmd$

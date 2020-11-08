@@ -225,7 +225,7 @@ cor(introR_nomiss[ , c("LR_switch", "finger_switch", "rha",
                       "word_length", "letter_freq")])
 ```
 
-##	Regression Wrangling:
+##	Regression Wrangling
 
 Last, let us figure out how to pull information directly from saved output. First, a regression of the number of finger switches (i.e., the number of times you had to switch fingers when typing a word on a QWERTY keyboard) was used to predict the pleasantness rating of a word. It's assumed that things that are easier to type (more switches) should be more pleasant to us. Be sure to fill in the original dataframe name!
 

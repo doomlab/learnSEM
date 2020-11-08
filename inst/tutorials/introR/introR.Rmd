@@ -37,6 +37,18 @@ Placeholder text for the R videos, added after I record them.
 
 In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
 
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
+
+```{r details}
+question_text(
+  "Student Name:",
+  answer(NULL, correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
 ## Vectors
 
 Remember that vectors are similar to one row or one column of data. They must be all the same data type! In this section, create a vector of data using the `rep` or `seq` function. 
@@ -73,6 +85,7 @@ First, include your vector from the last exercise. You will need to save your ve
 # Save your vector
 
 # Use the length() function 
+
 ```
 
 ```{r length-solution}
@@ -104,9 +117,6 @@ myMatrix[2, 3]
 *R* has several datasets that are included in packages, which we can use for learning how to work with dataframes. Dataframes are like matrices in that they have rows and columns; *however*, they do not have to be all the same type (each column can be a different form of data). Each column does have to have the same number of values (i.e., all columns must have the same number of rows, unlike lists). 
 
 Use the `head()` function to look at the embedded `USArrests` dataset. Then use the `summary()` function to view the overall statistics for `USArrests`. 
-    
-    - Use the head() function to look at the dataset USArrests. 
-    - Calculate a summary of USArrests.
 
 ```{r open-data, exercise=TRUE}
 
@@ -119,39 +129,38 @@ summary(USArrests)
 
 ##	Data Wrangling
 
-Next, we will import data provided directly with this package.  This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. Fill in the ____ to give the dataset your own variable name. 
+Next, we will import data provided directly with this package.  This dataset includes data from a study our research team did on typing, looking at how pleasant people rated words based on the way a word is typed on a QWERTY keyboard, which hand the participant wrote with, and more. Type in `head(introR)` to see the dataframe. 
 
 ```{r data-wrangle, exercise=TRUE}
 library(learnSEM)
 data(introR)
-_____ <- introR
+
 ```
 
 ```{r data-wrangle-solution}
 library(learnSEM)
 data(introR)
-DF <- introR
+head(introR)
 ```
 
-Now we will work on editing the dataset. It has a lot of bad values, so we want to clean that data for our use in the next exercise. Let's create a summary of the whichhand column to first view what the issue is. Summary may not help us out if the column is a character vector, so you can also try the `table()` function to view character values.  
+Now we will work on editing the dataset. It has a lot of bad values, so we want to clean that data for our use in the next exercise. Let's create a `summary()` of the `whichhand` column to first view what the issue is. Summary may not help us out if the column is a character vector, so you can also try the `table()` function to view character values in the `whichhand` column.  
 
 ```{r data-wrangle2, exercise=TRUE}
 
 ```
 
 ```{r data-wrangle2-solution}
-#Note I called my dataset DF in the previous exercise
-summary(DF$whichhand)
-table(DF$whichhand)
+summary(introR$whichhand)
+table(introR$whichhand)
 ```
 
-We can see that there are a bunch of different ways that people have listed which hand they wrote with. You should recode all the values so they are `LEFT` and `RIGHT`. There are many ways to handle this problem, but let's focus on slicing and subsetting. Below you can see an example of how to fix the left values. You should add code to fix the right values. The `table()` function has been included so you can see if your code worked. Be sure to fill in the `_____` with your dataframe name!
+We can see that there are a bunch of different ways that people have listed which hand they wrote with. You should recode all the values so they are `LEFT` and `RIGHT`. There are many ways to handle this problem, but let's focus on slicing and subsetting. Below you can see an example of how to fix the left values. You should add code to fix the right values. The `table()` function has been included so you can see if your code worked. Be sure to fill in the `_____` with the dataframe name!
 
 ```{r data-wrangle3, exercise=TRUE}
 # Left
-_____$whichhand[DF$whichhand == "left"] <- "LEFT"
-_____$whichhand[DF$whichhand == "Left"] <- "LEFT"
-_____$whichhand[DF$whichhand == "right_left"] <- "BOTH"
+introR$whichhand[introR$whichhand == "left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "Left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "right_left"] <- "BOTH"
 
 # Right
 
@@ -161,21 +170,34 @@ table(_____$whichhand)
 
 ```{r data-wrangle3-solution}
 # Left
-DF$whichhand[DF$whichhand == "left"] <- "LEFT"
-DF$whichhand[DF$whichhand == "Left"] <- "LEFT"
-DF$whichhand[DF$whichhand == "right_left"] <- "BOTH"
+introR$whichhand[introR$whichhand == "left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "Left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "right_left"] <- "BOTH"
 
 # Right
-DF$whichhand[DF$whichhand == "right"] <- "RIGHT"
-DF$whichhand[DF$whichhand == "Right"] <- "RIGHT"
-DF$whichhand[DF$whichhand == "right hand"] <- "RIGHT"
-DF$whichhand[DF$whichhand == "Right."] <- "RIGHT"
+introR$whichhand[introR$whichhand == "right"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "Right"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "right hand"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "Right."] <- "RIGHT"
 
 # Check 
-table(DF$whichhand)
+table(introR$whichhand)
 ```
 
-Next, let's practice using the `subset()` function. Make a dataset of just the left handed participants. 
+Next, let's practice using the `subset()` function. Make a dataset of just the left handed participants. Use the `head()` function to print out the top couple rows. 
+
+```{r data-wrangle4-setup, echo = F}
+# Left
+introR$whichhand[introR$whichhand == "left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "Left"] <- "LEFT"
+introR$whichhand[introR$whichhand == "right_left"] <- "BOTH"
+
+# Right
+introR$whichhand[introR$whichhand == "right"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "Right"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "right hand"] <- "RIGHT"
+introR$whichhand[introR$whichhand == "Right."] <- "RIGHT"
+```
 
 ```{r data-wrangle4, exercise=TRUE}
 
@@ -183,6 +205,7 @@ Next, let's practice using the `subset()` function. Make a dataset of just the l
 
 ```{r data-wrangle4-solution}
 lefties <- subset(DF, whichhand == "LEFT")
+head(lefties)
 ```
 
 Last, one more exercise on subsetting, but this time by column. First, exclude all the `NA` values in your original dataset. Then, calculate a correlation table of the following variables only: `LR_switch, finger_switch, rha, word_length, letter_freq`.
@@ -196,9 +219,9 @@ Last, one more exercise on subsetting, but this time by column. First, exclude a
 
 ```{r data-wrangle5-solution}
 # Omit na values
-DF_nomissing <- na.omit(DF)
+introR_nomiss <- na.omit(introR)
 # Correlation table 
-cor(DF_nomissing[ , c("LR_switch", "finger_switch", "rha", 
+cor(introR_nomiss[ , c("LR_switch", "finger_switch", "rha", 
                       "word_length", "letter_freq")])
 ```
 
@@ -208,14 +231,14 @@ Last, let us figure out how to pull information directly from saved output. Firs
 
 Next, you should use the `coef()` function to find the coefficients from the regression. The intercept is listed first, and the slope is listed second. Can you create code to just get the slope value? 
 
-```{r regression-wrangle, exercise=TRUE}
+```{r regression, exercise=TRUE}
 # Regression
-output <- lm(rating ~ finger_switch, data = _______)
+output <- lm(rating ~ finger_switch, data = introR)
 # Get only the slope 
 
 ```
 
-```{r regression-wrangle-solution}
+```{r regression-solution}
 # Regression
 output <- lm(rating ~ finger_switch, data = DF)
 # Get only the slope

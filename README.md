@@ -21,10 +21,7 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 As of 08/11/2020 (DD/MM/YYYY), I have finished the following sections:
 
 1. Introduction to R: `learnr::run_tutorial("introR", "learnSEM")`
-  
-  - Tutorial Code Completed
-  - Recording in progress to add to the tutorial
 
-2. Data Screening Practice:
+2. Data Screening Practice: `learnr::run_tutorial("datascreen", "learnSEM")`
 
-  - You can see this tutorial but I'm currently working on it
+  - Working on the video for the lecture component! 

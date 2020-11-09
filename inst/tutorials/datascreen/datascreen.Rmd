@@ -104,10 +104,26 @@ question_text(
 )
 ```
 
-Calculate the missing scores by participant (rows), showing the final missing percentages using the `table()` function. 
+- Create a `percentmiss` function to calculate the percent of missing data. 
+- Calculate the missing scores by participant (rows) using the `apply()` function, and name that variable `missing`.
+- Show the final missing percentages using the `table()` function. 
 
 ```{r missing-rows, exercise = TRUE}
+# Create percent missing function
 
+# Calculate missing percentages on datascreen
+
+# How much missing data is there?
+
+```
+
+```{r missing-rows-solution}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) }
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+# How much missing data is there?
+table(missing)
 ```
 
 Exclude all participants with more than 5% missing data.

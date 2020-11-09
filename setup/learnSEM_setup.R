@@ -6,6 +6,7 @@ library(usethis)
 #usethis::use_dev_package("rio")
 #usethis::use_dev_package("learnr")
 #usethis::use_dev_package("learnrhash")
+#usethis::use_dev_package("corrplot")
 
 #usethis::build_readme()
 

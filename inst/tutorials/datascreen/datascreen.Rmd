@@ -30,7 +30,7 @@ Placeholder while these videos process!
 
 ## Data Screening Data
 
-Study: This dataset includes a male body dissatisfaction scale with the following questions: 
+Study: This `datascreen` dataset includes a male body dissatisfaction scale with the following questions: 
 
 1.	I think my body should be leaner
 2.	I am concerned that my stomach is too flabby
@@ -88,7 +88,7 @@ question_text(
 )
 ```
 
-## Missing data:
+## Missing data
 
 ```{r}
 summary(datascreen)
@@ -98,7 +98,7 @@ summary(datascreen)
 question_text(
   "Using the summary function from above, what type of missing data do you appear to have?",
   answer("Missing Completely at Random", correct = TRUE),
-  incorrect = "You should note that it's likely this data is missing completely at random.",
+  incorrect = "You should note that it is likely this data is missing completely at random.",
   try_again_button = "Modify your answer",
   allow_retry = TRUE
 )
@@ -119,89 +119,350 @@ question_text(
 
 ```{r missing-rows-solution}
 # Create percent missing function
-percentmiss <- function(x){ sum(is.na(x)) / length(x) }
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100 }
 # Calculate missing percentages on datascreen
 missing <- apply(datascreen, 1, percentmiss)
 # How much missing data is there?
 table(missing)
 ```
 
-Exclude all participants with more than 5% missing data.
+Exclude all participants with more than 5% missing data, and call this dataset `nomissing`.
 
-```{r}
+```{r missing-rows2-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100 }
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+```
 
+```{r missing-rows2, exercise = TRUE}
+
+```
+
+```{r missing-rows2-solution}
+nomissing <- subset(datascreen, missing <= 5)
 ```
 
 Calculate missing scores by variable (columns) on the dataset with participants who have less than 5% missing.  
 
-```{r}
+```{r missing-columns-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+```
+
+```{r missing-columns, exercise = TRUE}
 
 ```
 
-### Outliers:
+```{r missing-columns-solution}
+apply(nomissing, 2, percentmiss)
+```
 
-Calculate Mahalanobis distance scores for your data.
+```{r missing2-open}
+question_text(
+  "Do you need to estimate any missing data? ",
+  answer("No", correct = TRUE),
+  incorrect = "No, it appears that the there is no missing data after excluding participants with MNAR data.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
-```{r}
+## Outliers
+
+- Calculate Mahalanobis distance scores on the `nomissing` dataset, and be sure to exclude the first column `Participant_ID`.
+- Calculate the `cutoff` score using *p* < .001 as your criterion. 
+- Use the `table()` function to determine the number of outliers you have in the dataset. 
+
+```{r mahal-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+```
+
+```{r mahal, exercise = TRUE}
 
 ```
 
-QUESTION: What is the *df* for your cut off score?
-ANSWER:
+```{r mahal-solution}
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+table(mahal < cutoff)
+```
 
-QUESTION: What is the cut off score? 
-ANSWER:
+```{r df-open}
+question_text(
+  "What is the *df* for your cut off score?",
+  answer("11", correct = TRUE),
+  incorrect = "We have 11 df because there are 11 columns as part of the calculation of mahalanobis.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
-QUESTION: How many outliers did you have? 
-ANSWER:
+```{r cutoff-open}
+question_text(
+  "What is the cut off score? ",
+  answer("31.26", correct = TRUE),
+  incorrect = "The cut off score is 31.26.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
-Exclude the outliers, if you have any. 
+```{r outliers-open}
+question_text(
+  "How many outliers did you have?",
+  answer("16", correct = TRUE),
+  incorrect = "We have 16 outliers (the FALSE answers in your table).",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
-```{r}
+Exclude the outliers, and name that dataset `noout`. 
+
+```{r mahal2-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+```
+
+```{r mahal2, exercise = TRUE}
 
 ```
 
-### Additivity:
+```{r mahal2-solution}
+noout <- subset(nomissing, mahal < cutoff)
+```
 
-Include a depiction of the correlation between scale items with `corplot`. 
+## Additivity
 
-```{r}
+Include a depiction of the correlation between scale items with `corrplot`, and be sure to use the `noout` dataset. 
+
+```{r add-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+noout <- subset(nomissing, mahal < cutoff)
+```
+
+```{r add, exercise = TRUE}
+library(corrplot)
 
 ```
 
-QUESTION: Do you meet the assumption of additivity?
-ANSWER:
+```{r add-solution}
+library(corrplot)
+corrplot(cor(noout[ , -1]))
+```
 
-### Normality:
+```{r add-open}
+question_text(
+  "Do you meet the assumption of additivity?",
+  answer("Yes", correct = TRUE),
+  incorrect = "Yes, it appears we do not have any perfect correlations, although some are highly correlated.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
-Include the multivariate normality histogram.
+## Assumption Set Up
 
-```{r}
+Set up the rest of the assumption testing by doing the following:
+
+- Create a `random` variable that's the length of the `noout` dataset using the `rchisq()` function.
+- Create `fake` output using the `lm()` function where in the random variable is predicted by the data.
+- Create the `standardized` variable by using the `rstudent()` function on the `fake` regression.
+- Create the `fitted` variable by using `scale()` on the `fitted.values` from the `fake` regression. 
+
+```{r assumption-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+noout <- subset(nomissing, mahal < cutoff)
+```
+
+```{r assumption, exercise = TRUE}
 
 ```
 
-QUESTION: Interpret the graph.  Does it indicate multivariate normality?
-ANSWER:
+```{r assumption-solution}
+random <- rchisq(nrow(noout), 7)
+fake <- lm(random ~ ., data = noout[ , -1])
+standardized <- rstudent(fake)
+fitted <- scale(fake$fitted.values)
+```
 
-### Linearity: 
+## Normality
 
-Include the multivariate QQ plot.
+Include the multivariate normality histogram by using `hist()` on the `standardized` variable.
 
-```{r}
+```{r normal-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+noout <- subset(nomissing, mahal < cutoff)
+random <- rchisq(nrow(noout), 7)
+fake <- lm(random ~ ., data = noout[ , -1])
+standardized <- rstudent(fake)
+fitted <- scale(fake$fitted.values)
+```
+
+```{r normal, exercise = TRUE}
 
 ```
 
-QUESTION: Interpret the graph. Does it indicate multivariate linearity?
-ANSWER: 
+```{r normal-solution}
+hist(standardized)
+```
 
-### Homogeneity/Homoscedasticity:
+```{r normal-open}
+question_text(
+  "Interpret the graph.  Does it indicate multivariate normality?",
+  answer("No, it appears the data may be a bit skewed.", correct = TRUE),
+  incorrect = "You should note that the data appears a bit skewed because of the longer tail on the right, as the data is not even centered over 0.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Linearity
+
+Include the multivariate QQ plot. 
+
+```{r linear-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+noout <- subset(nomissing, mahal < cutoff)
+random <- rchisq(nrow(noout), 7)
+fake <- lm(random ~ ., data = noout[ , -1])
+standardized <- rstudent(fake)
+fitted <- scale(fake$fitted.values)
+```
+
+```{r linear, exercise = TRUE}
+
+```
+
+```{r linear-solution}
+{qqnorm(standardized)
+abline(0,1)}
+
+#or
+plot(fake, 2)
+```
+
+```{r linear-open}
+question_text(
+  "Interpret the graph.  Does it indicate multivariate linearity?",
+  answer("Maybe, the data appears to bend away at the edges a bit.", correct = TRUE),
+  incorrect = "You should note that the line mostly indicates linearity with a bit of non-linearity towards the edges (i.e., it bends away from the graph around -1 and 1.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Homogeneity/Homoscedasticity
 
 Include the multivariate residuals plot.
 
-```{r}
+```{r homogs-setup}
+# Create percent missing function
+percentmiss <- function(x){ sum(is.na(x)) / length(x) * 100}
+# Calculate missing percentages on datascreen
+missing <- apply(datascreen, 1, percentmiss)
+nomissing <- subset(datascreen, missing <= 5)
+mahal <- mahalanobis(nomissing[ , -1],
+                     colMeans(nomissing[ , -1]),
+                     cov(nomissing[ , -1]))
+cutoff <- qchisq(1-.001, ncol(nomissing[ , -1]))
+noout <- subset(nomissing, mahal < cutoff)
+random <- rchisq(nrow(noout), 7)
+fake <- lm(random ~ ., data = noout[ , -1])
+standardized <- rstudent(fake)
+fitted <- scale(fake$fitted.values)
+```
+
+```{r homogs, exercise = TRUE}
 
 ```
 
-QUESTION: Interpret the graph. Does it indicate homoscedasticity and homogeneity?
-ANSWER: 
+```{r homogs-solution}
+{plot(standardized, fitted)
+abline(v = 1)
+abline(h = 1)}
+```
+
+```{r homogs-open}
+question_text(
+  "Interpret the graph.  Does it indicate multivariate linearity?",
+  answer("Yes, it mostly appears to support homogeneity and homoscedasticity.", correct = TRUE),
+  incorrect = "You should note that more of the data is below 0 on the left side, but in general, this plot shows an even distribution of residuals.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Submit
+
+On this page, you will create a `hash`, which is a really long code that contains all your answers. You will submit this code online. Your instructor can decode it to view your answers. Click the "Generate Submission" to get your code. 
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(ui_before = NULL)
+```
+
+## Decode
+
+Want to see what you are submitting? You can copy the code from the previous page to see how the function works. The instructor will be able to use this function to view your work. 
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r decode, echo=FALSE}
+learnrhash::decoder_ui()
+```
 

@@ -29,9 +29,13 @@ If you need more help, here are some resources:
   - https://learningstatisticswithr.com/ - Danielle Navarro's book on learning statistics with *R*.
   - http://r-statistics.co/ - Selva Prabhakaran's *R* website with tutorials on linear regression.
   
-## Introduction R Videos
+## Introduction R Video Part 1
 
-Placeholder text for the R videos, added after I record them. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_xhnjCUxTQo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Introduction R Video Part 2
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z80eYiCJ5aU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

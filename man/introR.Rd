@@ -9,7 +9,7 @@ A data frame with 33949 rows and 14 variables:
 
 \describe{
   \item{expno}{the experiment number we assigned to that
-  group of particpants}
+  group of participants}
   \item{rating}{the pleasantness rating of that word}
   \item{originalcode}{the word the particpiant saw}
   \item{id}{the participant ID number}

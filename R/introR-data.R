@@ -12,7 +12,7 @@
 #'
 #' \describe{
 #'   \item{expno}{the experiment number we assigned to that
-#'   group of particpants}
+#'   group of participants}
 #'   \item{rating}{the pleasantness rating of that word}
 #'   \item{originalcode}{the word the particpiant saw}
 #'   \item{id}{the participant ID number}

@@ -1,5 +1,7 @@
 ---
 title: "Data Screening Practice"
+tutorial: 
+  id: "datascreen"
 output: learnr::tutorial
 runtime: shiny_prerendered
 description: In this tutorial, you will get to practice cleaning a dataset for use in a structural equation model. 
@@ -7,69 +9,183 @@ description: In this tutorial, you will get to practice cleaning a dataset for u
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnrhash)
+library(learnSEM)
 knitr::opts_chunk$set(echo = FALSE)
+data(datascreen)
 ```
 
+## Data Screening Practice
 
-## Topic 1
+This exercise will give you practice working on data screening for multivariate analysis. You should work through data screening a particular order:
 
-### Exercise 
+- Accuracy: are all the data in range? 
+- Missing Data: are there missing data, and what should I do with them? 
+- Outliers: are there outliers, and what should I do with them? 
+- Assumptions: additivity, linearity, normality, homogeneity, and homoscedasticity
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+## Data Screening Videos
 
-Write the R code required to add two plus two:
+Placeholder while these videos process!
 
-```{r two-plus-two, exercise=TRUE}
+## Data Screening Data
 
-```
+Study: This dataset includes a male body dissatisfaction scale with the following questions: 
 
-### Exercise with Code
+1.	I think my body should be leaner
+2.	I am concerned that my stomach is too flabby
+3.	I feel dissatisfied with my overall body build
+4.	I think I have too much fat on my body
+5.	I think my abs are not thin enough
+6.	I feel satisfied with the size and shape of my body
+7.	Has eating sweets, cakes, or other high calorie food made you feel fat or weak?
+8.	Have you felt excessively large and rounded (i.e., fat)?
+9.	Have you felt ashamed of your body size or shape?
+10.	Has seeing your reflection (e.g., in a mirror or window) made you feel badly about your size or shape?
+11.	Have you been so worried about your body size or shape that you have been feeling that you ought to diet?
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+The `datascreen` dataset also includes a participant ID for each person in the study.
 
-Now write a function that adds any two numbers and then call it:
+## Exercises
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
-```
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
 
-## Topic 2
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
 
-### Exercise with Hint
-
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
 )
 ```
+
+## Accuracy
+
+Check the data for out of range scores.  The scale ranges from 1 (*never*) to 6 (*always*). Use the `summary()` function to inspect the scores. 
+
+```{r accuracy, exercise = TRUE}
+library(learnSEM)
+data(datascreen)
+
+```
+
+```{r accuracy-solution}
+library(learnSEM)
+data(datascreen)
+summary(datascreen)
+```
+
+```{r accuracy-open}
+question_text(
+  "What are the problems you see in the dataset?",
+  answer("There are no accuracy errors.", correct = TRUE),
+  incorrect = "You should note that there are no accuracy errors.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Missing data:
+
+```{r}
+summary(datascreen)
+```
+
+```{r missing-open}
+question_text(
+  "Using the summary function from above, what type of missing data do you appear to have?",
+  answer("Missing Completely at Random", correct = TRUE),
+  incorrect = "You should note that it's likely this data is missing completely at random.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+Calculate the missing scores by participant (rows), showing the final missing percentages using the `table()` function. 
+
+```{r missing-rows, exercise = TRUE}
+
+```
+
+Exclude all participants with more than 5% missing data.
+
+```{r}
+
+```
+
+Calculate missing scores by variable (columns) on the dataset with participants who have less than 5% missing.  
+
+```{r}
+
+```
+
+### Outliers:
+
+Calculate Mahalanobis distance scores for your data.
+
+```{r}
+
+```
+
+QUESTION: What is the *df* for your cut off score?
+ANSWER:
+
+QUESTION: What is the cut off score? 
+ANSWER:
+
+QUESTION: How many outliers did you have? 
+ANSWER:
+
+Exclude the outliers, if you have any. 
+
+```{r}
+
+```
+
+### Additivity:
+
+Include a depiction of the correlation between scale items with `corplot`. 
+
+```{r}
+
+```
+
+QUESTION: Do you meet the assumption of additivity?
+ANSWER:
+
+### Normality:
+
+Include the multivariate normality histogram.
+
+```{r}
+
+```
+
+QUESTION: Interpret the graph.  Does it indicate multivariate normality?
+ANSWER:
+
+### Linearity: 
+
+Include the multivariate QQ plot.
+
+```{r}
+
+```
+
+QUESTION: Interpret the graph. Does it indicate multivariate linearity?
+ANSWER: 
+
+### Homogeneity/Homoscedasticity:
+
+Include the multivariate residuals plot.
+
+```{r}
+
+```
+
+QUESTION: Interpret the graph. Does it indicate homoscedasticity and homogeneity?
+ANSWER: 
+

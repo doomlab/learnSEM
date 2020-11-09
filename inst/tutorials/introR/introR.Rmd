@@ -42,7 +42,7 @@ Please enter your name for submission. If you do not need to submit, just type a
 ```{r details}
 question_text(
   "Student Name:",
-  answer(NULL, correct = TRUE),
+  answer("Your Name", correct = TRUE),
   incorrect = "Thanks!",
   try_again_button = "Modify your answer",
   allow_retry = TRUE

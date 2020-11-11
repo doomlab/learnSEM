@@ -7,6 +7,7 @@ library(usethis)
 #usethis::use_dev_package("learnr")
 #usethis::use_dev_package("learnrhash")
 #usethis::use_dev_package("corrplot")
+#usethis::use_dev_package("shiny")
 
 #usethis::build_readme()
 

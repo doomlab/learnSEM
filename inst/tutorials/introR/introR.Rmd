@@ -9,7 +9,7 @@ description: Check your R skills in this introduction to R assignment for Dr. B'
 
 ```{r setup, include=FALSE}
 library(learnr)
-library(learnrhash)
+library(learnSEM)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
@@ -251,25 +251,12 @@ coef(output)[2]
 
 ## Submit
 
-On this page, you will create a `hash`, which is a really long code that contains all your answers. You will submit this code online. Your instructor can decode it to view your answers. Click the "Generate Submission" to get your code. 
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
 
 ```{r context="server"}
-learnrhash::encoder_logic()
+encoder_logic()
 ```
 
 ```{r encode, echo=FALSE}
-learnrhash::encoder_ui(ui_before = NULL)
+encoder_ui()
 ```
-
-## Decode
-
-Want to see what you are submitting? You can copy the code from the previous page to see how the function works. The instructor will be able to use this function to view your work. 
-
-```{r context="server"}
-learnrhash::decoder_logic()
-```
-
-```{r decode, echo=FALSE}
-learnrhash::decoder_ui()
-```
-

@@ -18,10 +18,12 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 
 ### Course Schedule and Updates
 
-As of 08/11/2020 (DD/MM/YYYY), I have finished the following sections:
+As of 11/11/2020 (DD/MM/YYYY), I have finished the following sections:
 
 1. Introduction to R: `learnr::run_tutorial("introR", "learnSEM")`
 
 2. Data Screening Practice: `learnr::run_tutorial("datascreen", "learnSEM")`
 
-  - Working on the video for the lecture component! 
+3. Exploratory Factor Analysis: `learnr::run_tutorial("efa", "learnSEM")`
+
+Lecture videos are being updated every Friday - they will become active in the tutorial when they are shared. 

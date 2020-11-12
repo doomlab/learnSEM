@@ -1,0 +1,276 @@
+---
+title: "Your First Lesson"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(learnSEM)
+knitr::opts_chunk$set(echo = FALSE)
+data(efa)
+```
+
+## Exploratory Factor Analysis
+
+This section should help you begin to think about how structural equation models are described. In the lecture, we will discuss manifest and latent variables and how EFA can be used to explore the relationship of measured items to their underlying constructs. In this assignment, you will get the following practice:
+
+- Determining the number of potential factors
+- Creating simple structure 
+- Determining if that simple structure provides an adequate model fit 
+
+## EFA Videos
+
+Placeholder while these videos process!
+
+## EFA Data
+
+What is in the dataset? The Openness to Experience dataset includes the following:
+
+**Instructions**: Below are some phrases describing people's behaviors. Please use the rating scale below to describe how accurately each statement describes you. Describe yourself as you generally are now, not as you wish to be in the future. Describe yourself as you honestly see yourself in relation to other people of your gender and of roughly your same age.  Please read each statement carefully, and then check the box that corresponds to your response.
+
+**Scale**: very inaccurate, moderately inaccurate, neither inaccurate nor accurate, moderately accurate, very accurate
+
+**Items**:
+
+1.	Believe in the importance of art.
+2.	Have a vivid imagination.
+3.	Tend to vote for liberal political candidates.
+4.	Carry the conversation to a higher level.
+5.	Enjoy hearing new ideas.
+6.	Enjoy thinking about things.
+7.	Can say things beautifully.
+8.	Enjoy wild flights of fantasy.
+9.	Get excited by new ideas.
+10.	Have a rich vocabulary.
+11.	Am not interested in abstract ideas.
+12.	Do not like art.
+13.	Avoid philosophical discussions.
+14.	Do not enjoy going to art museums.
+15.	Tend to vote for conservative political candidates.
+16.	Do not like poetry.
+17.	Rarely look for a deeper meaning in things.
+18.	Believe that too much tax money goes to support artists.
+19.	Am not interested in theoretical discussions.
+20.	Have difficulty understanding abstract ideas.
+
+## Exercises
+
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
+
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
+
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Import the Data
+
+Let's start by taking a look at the dataset. Use the `head()` function to see the first few rows of data.
+
+```{r data-import, exercise = TRUE}
+library(learnSEM)
+data(efa)
+
+```
+
+```{r data-import-solution}
+library(learnSEM)
+data(efa)
+head(efa)
+```
+
+## Data Screening (Short!)
+
+First, exclude any participants that have missing data, and call the dataset `nomissing`. Then, you can also drop the group variable to help make the EFA section easier. 
+
+```{r data-setup, exercise = TRUE}
+
+```
+
+```{r data-setup-solution}
+nomissing <- na.omit(efa)
+nomissing <- nomissing[ , -ncol(nomissing)]
+
+#or you can do it all at once
+nomissing <- na.omit(efa[ , -ncol(efa)])
+```
+
+## Number of Factors
+
+Include a parallel analysis and scree plot on the `nomissing` dataset. Be sure to save the parallel analysis as `EFA_parallel` to be able to complete the next question. You should use `maximum likelihood` for the math and `fa` for the output. 
+```{r parallel-setup}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+```
+
+```{r parallel, exercise = TRUE}
+library(psych)
+library(GPArotation)
+
+```
+
+```{r parallel-solution}
+library(psych)
+library(GPArotation)
+EFA_parallel <- fa.parallel(nomissing, fm = "ml", fa = "fa")
+```
+
+Include a summary of the eigenvalues for the Kaiser criterion. You should determine how many of the `fa.values` are over the cut off score of `1` and of `.7`. 
+
+```{r kaiser-setup, message = F}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+library(psych)
+library(GPArotation)
+EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
+```
+
+```{r kaiser, exercise = TRUE}
+
+```
+
+```{r kaiser-solution}
+sum(EFA_parallel$fa.values > 1)
+sum(EFA_parallel$fa.values > .7)
+```
+
+```{r kaiser-open}
+question_text(
+  "How many factors should you use given the results of the parallel analysis, scree plot, and eigenvalues?",
+  answer("Between 2 and 3", correct = TRUE),
+  incorrect = "You should describe the different answers given by the diagnostics, and potentially, they suggest between 2 and 5 factors.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Simple Structure
+
+- Using `oblimin` rotation and `maximum likelihood` as your math, run the EFA analysis with two factors. Save this analysis as `EFA_fit`.
+- Next, examine the loadings provided in the output. If you find items that do not load or cross load on multiple factors, you should exclude them as part of your `EFA_fit` (just edit your model by excluding columns).
+
+```{r simple-setup, message = F}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+library(psych)
+library(GPArotation)
+EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
+```
+
+```{r simple, exercise = TRUE}
+#run the analysis
+EFA_fit <- ______
+#examine the output 
+EFA_fit
+```
+
+```{r simple-solution}
+#run the analysis
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+#examine the output 
+EFA_fit
+```
+
+## Fit Indices
+
+Show the RMSR, RMSEA, TLI, and CFI fit indices by printing them directly from the `EFA_fit` model. Remember, you will need the formula for CFI: `1 - ((model chi square / df) / (null chi square / df))`.
+
+```{r fit-setup, message = F}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+library(psych)
+library(GPArotation)
+EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+```
+
+```{r fit, exercise = TRUE}
+
+```
+
+```{r fit-solution}
+EFA_fit$rms 
+EFA_fit$RMSEA 
+EFA_fit$TLI 
+1 - ((EFA_fit$STATISTIC-EFA_fit$dof)/
+       (EFA_fit$null.chisq-EFA_fit$null.dof)) 
+```
+
+```{r fit-open}
+question_text(
+  "Interpret these fit indices. What do they tell you about your model?",
+  answer("The model shows mixed fit indices.", correct = TRUE),
+  incorrect = "You should note that the model a mix of ok and poor fit indices.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Reliablity
+
+Calculate Cronbach's alpha for each factor, and remember to use the `nomissing` dataset. Because we did not reverse score any items, use the `check.keys = TRUE` argument as part of `alpha`. 
+
+```{r reliability-setup, message = F}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+library(psych)
+library(GPArotation)
+EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+```
+
+```{r reliability, exercise = TRUE}
+
+```
+
+```{r reliability-solution}
+factor1 <- c(4:10,13,17,19,20)
+factor2 <- c(1,2,12,14,18)
+alpha(nomissing[ , factor1], check.keys = T)
+alpha(nomissing[ , factor2], check.keys = T)
+```
+
+## Interpretation
+
+Create a plot of the factors using either `fa.plot` or `fa.diagram`.
+
+```{r plot-setup, message = F}
+nomissing <- na.omit(efa[ , -ncol(efa)])
+library(psych)
+library(GPArotation)
+EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+```
+
+```{r plot, exercise = TRUE}
+
+```
+
+```{r plot-solution}
+fa.plot(EFA_fit)
+fa.diagram(EFA_fit)
+```
+
+```{r plot-open}
+question_text(
+  "What do you think the factors are measuring? Try describing your factors.",
+  answer("Art and ideas.", correct = TRUE),
+  incorrect = "One factor appears to be about the arts, while the other factor appears to be about new ideas and thinking.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
+```

@@ -21,7 +21,9 @@ Imports:
     semPlot (>= 1.1.2),
     learnr (>= 0.10.1),
     corrplot (>= 0.84),
-    shiny (>= 1.5.0)
+    shiny (>= 1.5.0),
+    psych (>= 2.0.9),
+    GPArotation (>= 2014.11.1)
 Depends:
     R (>= 2.10)
 RoxygenNote: 7.1.1

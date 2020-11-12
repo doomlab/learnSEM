@@ -46,6 +46,7 @@ encoder_logic <- function() {
           report <- paste(report, "<br>", "<b><h3>Question ID: ", objs[[level1]]$id,
                           "</h3></b>")
 
+          objs[[level1]]$data$code <- gsub("\n", "<br>", objs[[level1]]$data$code)
           #if code exercise
           if (objs[[level1]]$type == "exercise_submission"){
 

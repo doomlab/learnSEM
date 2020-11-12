@@ -1,7 +1,10 @@
 ---
-title: "Your First Lesson"
+title: "Exploratory Factor Analysis Practice"
+tutorial: 
+  id: "efa"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: In this tutorial, you will get to practice analyzing a scale using exploratory factor analysis. 
 ---
 
 ```{r setup, include=FALSE}

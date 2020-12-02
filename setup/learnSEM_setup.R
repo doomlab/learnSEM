@@ -17,7 +17,7 @@ library(rio)
 #efa <- import("data/assignment_efa.csv")
 #usethis::use_data(efa, overwrite = T)
 
-#usethis::use_tutorial("terms", "Terminology in SEM Practice", open = interactive())
+#usethis::use_tutorial("path2", "Path Analysis Practice 2", open = interactive())
 
 
 library(roxygen2)

@@ -18,7 +18,7 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 
 ### Course Schedule and Updates
 
-As of 30/11/2020 (DD/MM/YYYY), I have finished the following sections:
+As of 02/12/2020 (DD/MM/YYYY), I have finished the following sections:
 
 1. Introduction to R: `learnr::run_tutorial("introR", "learnSEM")`
 
@@ -27,5 +27,7 @@ As of 30/11/2020 (DD/MM/YYYY), I have finished the following sections:
 3. Exploratory Factor Analysis: `learnr::run_tutorial("efa", "learnSEM")`
 
 4. Terminology: `learnr::run_tutorial("terms", "learnSEM")`
+
+5. Path Models: `learnr::run_tutorial("path1", "learnSEM")` and `learnr::run_tutorial("path2", "learnSEM")`
 
 Lecture videos are being updated every Friday - they will become active in the tutorial when they are shared. 

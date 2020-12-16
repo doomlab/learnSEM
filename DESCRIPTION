@@ -23,7 +23,9 @@ Imports:
     corrplot (>= 0.84),
     shiny (>= 1.5.0),
     psych (>= 2.0.9),
-    GPArotation (>= 2014.11.1)
+    GPArotation (>= 2014.11.1),
+    parameters (>= 0.10.1),
+    broom (>= 0.7.2)
 Depends:
     R (>= 2.10)
 RoxygenNote: 7.1.1

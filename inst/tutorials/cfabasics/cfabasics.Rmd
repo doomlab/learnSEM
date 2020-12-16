@@ -1,0 +1,337 @@
+---
+title: "CFA: Basics"
+tutorial:
+  id: "cfabasics"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: In this tutorial, you will learn how to create confirmatory factor analysis models and compare several models. 
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(learnSEM)
+knitr::opts_chunk$set(echo = FALSE)
+library(lavaan)
+library(semPlot)
+data(caafidata)
+```
+
+## Confirmatory Factor Analysis
+
+This section of the course expands your knowledge of structural equation modeling and `lavaan` by covering confirmatory factor analysis models (CFA). CFA models are often described as the measurement model, as they are comprised of one of more latent variables and their indicators. You will learn how to create latent variables, analyze using the `cfa()` function, and summarize those models. You will also be able to compare and decide which models is a better representation of the data. The learning outcomes are:
+
+- Build, analyze, summarize, and diagram a CFA model
+- Explore parameter estimates and modification indices
+- Compare two nested CFA models
+- Learn how to tidy the output from a `lavaan` model 
+
+## CFA Videos
+
+Placeholder screen for videos after they are completed. 
+
+## Exercises
+
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
+
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
+
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## The Data
+
+The data is provided for you as `caafidata`, and it has been loaded for you in the background, along with the `lavaan` and `semPlot` libraries. The CAAFI was a questionnaire that examined the anxiety, attitudes, and familiarity surrounding computers. 
+
+To learn more about the questionnaire, use `?caafidata` to bring up the description of the data. 
+
+```{r seedata, exercise = TRUE}
+
+```
+
+```{r seedata-solution}
+?caafidata
+```
+
+## Specify Your Model
+
+In this section, we will specify two models. First, we will create a one-factor model of the CAAFI as a comparison for our theoretical model. The one-factor model includes all items on one latent variable, which would represent "computers" or a basic response to computers. 
+
+Create the `lavaan` model code for the one-factor model below, and name it `one.model`. While we have used `~` for regressions, remember that latent variables are created with `=~`. You should call your latent variable `computer` to match the solution. You can put the items in any order for the code, and the solution organizes them by proposed factor for the three-factor solution. 
+
+```{r model1, exercise = TRUE}
+
+```
+
+```{r model1-solution}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+```
+
+Next, we will create the model for the three-factor solution. In this model, we propose that there are three facets to interacting with computers (albeit, this scale is nearly 20 years old!): anxiety, attitudes, and familiarity. Here's how the scale should break down:
+
+- Computer Familiarity: Items 3, 13-14, 16, 20-23, 27, and 30. 
+- Computer Attitudes: Items 1-2, 4-5, 8, 11, 18-19, and 28-29.
+- Computer Aversion: Items 6-7, 9-10, 12, 15, 17, and 24-26.
+
+Below, create the `three.model` code. You should name your three factors: `familiar`, `attitudes`, and `aversion` to match the solution. You can put the latent variables and items in any order, as long as they match up to the right latent variable! 
+
+```{r model2, exercise = TRUE}
+
+```
+
+```{r model2-solution}
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+```
+
+## Analyze the Model
+
+Analyze your one-factor model using the `cfa()` function, and name the output `one.fit`. In this same exercise, analyze your three-factor model, and name the output `three.fit`. 
+
+```{r analyze1-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+```
+
+```{r analyze1, exercise = TRUE}
+
+```
+
+```{r analyze1-solution}
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+## Summarize Your Model
+
+Let's summarize the two models you just created. Use the `summary()` function on both models with the standardized solution, rsquare values, and fit.measures all included. 
+
+You will see a lot of output! We will learn in a few exercises how to "tidy" that output and examine some of the individual pages separately. This exercise is just a reminder of the steps: build, analyze, summarize, and ... diagram is next.
+
+```{r summarize1-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+```{r summarize1, exercise = TRUE}
+
+```
+
+```{r summarize1-solution}
+summary(one.fit,
+        standardized = TRUE,
+        rsquare = TRUE,
+        fit.measures = TRUE)
+
+summary(three.fit,
+        standardized = TRUE,
+        rsquare = TRUE,
+        fit.measures = TRUE)
+```
+
+## Create a Picture
+
+Use `semPaths()` to create a picture of your three-factor model. Use `std` for the `whatLabels` argument, any layout you would like, and `edge.label.cex = 1` to increase the font size. We will also add the `what` and `edge.color` arguments to help us understand how to visually depict the strengths of the loadings for the model. 
+
+```{r diagram1-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+```{r diagram1, exercise = TRUE}
+
+```
+
+```{r diagram1-solution}
+semPaths(three.fit, 
+         whatLabels = "std", 
+         layout = "spring",
+         edge.label.cex = 1, 
+         what = "std",
+         edge.color = "blue")
+```
+
+## Model Comparison
+
+Use the `anova()` function to compare the models directly using the chi-square difference test. Include the `fitmeasures()` of `aic` and `ecvi` to show the non-nested model comparison. 
+
+```{r compare-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+```{r compare, exercise = TRUE}
+
+```
+
+```{r compare-solution}
+anova(one.fit, three.fit)
+fitmeasures(one.fit, c("aic", "ecvi"))
+fitmeasures(three.fit, c("aic", "ecvi"))
+```
+
+```{r bettermodel-open}
+question_text(
+  "Which model is better? ",
+  answer("The three factor model.", correct = TRUE),
+  incorrect = "You should find the model with the lower AIC and ECVI (three-factor).",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Clean Output
+
+We can use `parameterestimates()` to create a data frame of the parameter estimates and their confidence intervals. However, there are a few other packages that also make cleaning up parameters and fit indices easy.
+
+In this exercise, load the `parameters` library. Use the `model_parameters()` function to print out the standardized estimates for the three-factor model. In this exercise, it will print as a nice table, but if you use this code in a markdown document, it will automatically format the parameters as a table in markdown style. 
+
+If you like `tibbles` better than data frames, you can use the `broom` library to print out the parameter estimates using the `tidy()` function. Each are equally useful, as it may depend on what you would like do with the parameters which one you want to use. The `parameters` library output may be a bit easier to read for the open questions below. 
+
+```{r parameters-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+```{r parameters, exercise = TRUE}
+
+```
+
+```{r parameters-solution}
+library(parameters)
+model_parameters(three.fit, standardize = TRUE)
+#or
+library(broom)
+tidy(three.fit)
+```
+
+```{r parameter-open}
+question_text(
+  "Look at the parameters shown in your table. Which item has the lowest relationship to its latent variable using the standardized solution?",
+  answer("Question 19", correct = TRUE),
+  incorrect = "Question 19 on our attitudes scale is the lowest at .37.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r correlation-open}
+question_text(
+  "Looking at the correlation table, do you think these are three separate factors?",
+  answer("The correlation between attitudes and aversion is high at .74 but otherwise these seem separate from familarity.", correct = TRUE),
+  incorrect = "The correlation between attitudes and aversion is high at .74 but otherwise these seem separate from familarity.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Modifications
+
+Now that we've decided the three-factor model is a better model, let's examine for potential modification indices. Be sure to use the `sort` option to see the strongest modification indices. 
+
+```{r mods-setup}
+one.model <- '
+computer =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30 + q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29 + q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+three.model <- '
+familiar =~ q3 + q13 + q14 + q16 + q20 + q21 + q22 + q23 + q27 + q30
+attitudes =~ q1 + q2 + q4 + q5 + q8 + q11 + q18 + q19 + q28 + q29
+aversion =~ q6 + q7 + q9 + q10 + q12 + q15 + q17 + q24 + q25 + q26
+'
+
+one.fit <- cfa(one.model, data = caafidata)
+three.fit <- cfa(three.model, data = caafidata)
+```
+
+```{r mods, exercise = TRUE}
+
+```
+
+```{r mods-solution}
+modificationindices(three.fit, sort = T)
+```
+
+- Computer Familiarity: Items 3, 13-14, 16, 20-23, 27, and 30. 
+- Computer Attitudes: Items 1-2, 4-5, 8, 11, 18-19, and 28-29.
+- Computer Aversion: Items 6-7, 9-10, 12, 15, 17, and 24-26.
+
+```{r mods-open}
+question_text(
+  "Given the relationship between the latent variables and the measured variables, which modification might you suggest adding?",
+  answer("Question 14 and 23 are the highest modification, and they are both on the familiarity scale.", correct = TRUE),
+  incorrect = "Question 14 and 23 are the highest modification, and they are both on the familiarity scale.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
+```

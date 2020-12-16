@@ -10,14 +10,16 @@ library(usethis)
 #usethis::use_dev_package("shiny")
 #usethis::use_dev_package("psych")
 #usethis::use_dev_package("GPArotation")
+#usethis::use_dev_package("parameters")
+#usethis::use_dev_package("broom")
 
 #usethis::build_readme()
 
 library(rio)
 #efa <- import("data/assignment_efa.csv")
-#usethis::use_data(efa, overwrite = T)
+#usethis::use_data(caafidata, overwrite = T)
 
-#usethis::use_tutorial("path2", "Path Analysis Practice 2", open = interactive())
+#usethis::use_tutorial("cfabasics", "CFA: Basics", open = interactive())
 
 
 library(roxygen2)

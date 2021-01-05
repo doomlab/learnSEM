@@ -25,6 +25,7 @@ library(rio)
 library(roxygen2)
 roxygenize()
 devtools::check()
+tools::buildVignettes(dir = ".", tangle=TRUE)
 
 #dir.create("inst")
 dir.create("inst/doc")

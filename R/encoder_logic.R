@@ -3,17 +3,12 @@
 #' This function grabs the student answers from a learnr
 #' tutorial and returns them as an HTML output for
 #' printing to the tutorial screen.
-#'
-#' @param dodebug A logical variable to use to
-#' print out the objects saved in a tutorial. This
-#' argument can help you figure out what you are not
-#' getting back from your submission.
 #' @return HTML output for the student tutorial
 #'
 #' @keywords shiny, learnr, student answers
 #' @import learnr
 #' @import shiny
-#' @export
+#' @import utils
 #' @examples
 #'
 #' # Be sure to put this into a server-context chunk.

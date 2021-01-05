@@ -6,12 +6,6 @@
 \usage{
 encoder_logic()
 }
-\arguments{
-\item{dodebug}{A logical variable to use to
-print out the objects saved in a tutorial. This
-argument can help you figure out what you are not
-getting back from your submission.}
-}
 \value{
 HTML output for the student tutorial
 }

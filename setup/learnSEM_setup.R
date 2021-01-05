@@ -25,3 +25,7 @@ library(rio)
 library(roxygen2)
 roxygenize()
 devtools::check()
+
+#dir.create("inst")
+dir.create("inst/doc")
+file.copy(dir("vignettes", full.names=TRUE), "inst/doc", overwrite=TRUE)

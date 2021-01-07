@@ -1,5 +1,5 @@
 ---
-title: "CFA: Second Order`"
+title: "CFA: Second Order"
 tutorial:
   id: "cfasecond"
 output: learnr::tutorial
@@ -10,7 +10,7 @@ description: In this tutorial, you will how to examine models for a second order
 ```{r setup, include=FALSE}
 library(learnr)
 library(learnSEM)
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 library(lavaan)
 library(semPlot)
 data("dassdata")
@@ -63,6 +63,10 @@ To learn more about the questionnaire, use `?dassdata` to bring up the descripti
 In this section, we will specify three different models below. For each one, you should call the latent variables `depression`, `anxiety`, and `stress`. You can put the items in any order for the code, and the solution organizes them by proposed factor for the three-factor solution. 
 
 Create a three-factor model of the DASS as your measurement model, and call this model `measurement.model`. 
+
+- Depression: Questions 3, 5, 10, 13, 16, 17, 21
+- Anxiety: Questions 2, 4, 7, 9, 15, 19, 20
+- Stress: 1, 6, 8, 11, 12, 14, 18
 
 ```{r model1, exercise = TRUE}
 
@@ -209,6 +213,8 @@ bifactor.fit <- cfa(model = bifactor.model,
                     orthogonal = TRUE,
                     check.gradient = F)
 ```
+
+Oh no! Your model has a negative variance. This result means this model hasn't run correctly. We will deal with these more later, so ignore it for now. 
 
 ## Summarize Your Model
 

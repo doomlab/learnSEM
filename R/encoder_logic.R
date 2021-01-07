@@ -3,12 +3,14 @@
 #' This function grabs the student answers from a learnr
 #' tutorial and returns them as an HTML output for
 #' printing to the tutorial screen.
+#'
 #' @return HTML output for the student tutorial
 #'
 #' @keywords shiny, learnr, student answers
 #' @import learnr
 #' @import shiny
 #' @import utils
+#' @export
 #' @examples
 #'
 #' # Be sure to put this into a server-context chunk.

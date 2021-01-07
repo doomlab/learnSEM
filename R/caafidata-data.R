@@ -23,7 +23,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(efa)
+#' @usage data(caafidata)
 #'
 #' @format A data frame with 794 rows and 30 variables.
 #'

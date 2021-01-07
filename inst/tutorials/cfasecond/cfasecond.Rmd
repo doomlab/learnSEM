@@ -1,0 +1,398 @@
+---
+title: "CFA: Second Order`"
+tutorial:
+  id: "cfasecond"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: In this tutorial, you will how to examine models for a second order confirmatory factor analysis using hierarchical and bi-factor models. 
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(learnSEM)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(lavaan)
+library(semPlot)
+data("dassdata")
+```
+
+## CFA: Second Order Models
+
+This section of the course follows our section on confirmatory factor models with second order CFAs. You will learn how to account for high intercorrelations between proposed latent variables using hierarchical and bi-factor models. You'll program these models and compare them for their fit to understand how we can change from correlation to prediction structure. The learning outcomes are:
+
+- Build, analyze, and summarize both hierarchical and bi-factor models
+- Explore the fit and parameter estimates for these models
+- Understand issues with identification with these models
+
+## CFA Second Order Videos
+
+Placeholder screen for videos after they are completed. 
+
+## Exercises
+
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
+
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
+
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## The Data
+
+The data is provided for you as `dassdata`, and it has been loaded for you in the background, along with the `lavaan` and `semPlot` libraries. 
+
+To learn more about the questionnaire, use `?dassdata` to bring up the description of the data. 
+
+```{r seedata, exercise = TRUE}
+
+```
+
+```{r seedata-solution}
+?dassdata
+```
+
+## Specify Your Models
+
+In this section, we will specify three different models below. For each one, you should call the latent variables `depression`, `anxiety`, and `stress`. You can put the items in any order for the code, and the solution organizes them by proposed factor for the three-factor solution. 
+
+Create a three-factor model of the DASS as your measurement model, and call this model `measurement.model`. 
+
+```{r model1, exercise = TRUE}
+
+```
+
+```{r model1-solution}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+```
+
+Create a second-order model of the DASS with one general factor that predicts depression, anxiety, and stress. This general factor should be called `g`, and the overall model should be called `second.model`. 
+
+
+```{r model2, exercise = TRUE}
+
+```
+
+```{r model2-solution}
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+```
+
+Create a bi-factor model of the DASS with one general factor that predicts the items on the DASS. The general factor should be called `g`, and the overall model should be called `bifactor.model`.
+
+```{r model3, exercise = TRUE}
+
+```
+
+```{r model3-solution}
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+```
+
+## Analyze the Model
+
+Analyze the measurement model of the DASS `measurement.model` using the `cfa()` function and name it `measurement.fit`.
+
+```{r analyze1-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+```
+
+```{r analyze1, exercise = TRUE}
+
+```
+
+```{r analyze1-solution}
+measurement.fit <- cfa(model = measurement.model,
+                       data = dassdata)
+```
+
+Analyze the second-order model of the DASS `second.model` and name it `second.fit`.
+
+```{r analyze2-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+```
+
+```{r analyze2, exercise = TRUE}
+
+```
+
+```{r analyze2-solution}
+second.fit <- cfa(model = second.model,
+                  data = dassdata)
+```
+
+Analyze the bi-factor model of the DASS `bifactor.model` and name it `bifactor.fit`. Do not forget the special bifactor requirements! You will need to add `check.gradient = F` for this exercise to converge correctly. 
+
+```{r analyze3-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+```
+
+```{r analyze3, exercise = TRUE}
+
+```
+
+```{r analyze3-solution}
+bifactor.fit <- cfa(model = bifactor.model,
+                    data = dassdata,
+                    orthogonal = TRUE,
+                    check.gradient = F)
+```
+
+## Summarize Your Model
+
+Let's summarize the three models you just created. Use the `summary()` function on both models with the standardized solution, rsquare values, and fit.measures all included. 
+
+In this first block, summarize the measurement model.
+
+```{r summarize1-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+measurement.fit <- cfa(model = measurement.model, data = dassdata)
+second.fit <- cfa(model = second.model, data = dassdata)
+bifactor.fit <- cfa(model = bifactor.model, data = dassdata, orthogonal = TRUE, check.gradient = F)
+```
+
+```{r summarize1, exercise = TRUE}
+
+```
+
+```{r summarize1-solution}
+summary(measurement.fit,
+        standardized = TRUE,
+        rsquare = TRUE,
+        fit.measures = TRUE)
+```
+
+```{r measurementmodel-open}
+question_text(
+  "Does the measurement model (the first one) appear to be a good model? Use both the loadings and fit indices to answer this question. ",
+  answer("Yes, somewhat!", correct = TRUE),
+  incorrect = "The model has a mix of good (RSMEA, SRMR) and mediocre fit (CFI, TLI) indices. The loadings indicate each item was related to its latent variable.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r correlations-open}
+question_text(
+  "Are the correlations high in the measurement model to support a second order model? ",
+  answer("Yes!", correct = TRUE),
+  incorrect = "The correlations between latents on the DASS are very high.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Summarize Your Model
+
+Let's summarize the three models you just created. Use the `summary()` function on both models with the standardized solution, rsquare values, and fit.measures all included. 
+
+In this block, summarize the second order model of the DASS.
+
+```{r summarize2-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+measurement.fit <- cfa(model = measurement.model, data = dassdata)
+second.fit <- cfa(model = second.model, data = dassdata)
+bifactor.fit <- cfa(model = bifactor.model, data = dassdata, orthogonal = TRUE, check.gradient = F)
+```
+
+```{r summarize2, exercise = TRUE}
+
+```
+
+```{r summarize2-solution}
+summary(second.fit,
+        standardized = TRUE,
+        rsquare = TRUE,
+        fit.measures = TRUE)
+```
+
+In this section, summarize the bifactor version of the DASS model. 
+
+```{r summarize3-setup}
+measurement.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+second.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ depression + anxiety + stress
+'
+
+bifactor.model <- '
+depression =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21
+anxiety =~ Q2+Q4+Q7+Q9+Q15+Q19+Q20
+stress =~ Q1+Q6+Q8+Q11+Q12+Q14+Q18
+g =~ Q3+Q5+Q10+Q13+Q16+Q17+Q21+Q2+Q4+Q7+Q9+Q15+Q19+Q20+Q1+Q6+Q8+Q11+Q12+Q14+Q18
+'
+
+measurement.fit <- cfa(model = measurement.model, data = dassdata)
+second.fit <- cfa(model = second.model, data = dassdata)
+bifactor.fit <- cfa(model = bifactor.model, data = dassdata, orthogonal = TRUE, check.gradient = F)
+```
+
+```{r summarize3, exercise = TRUE}
+
+```
+
+```{r summarize3-solution}
+summary(bifactor.fit,
+        standardized = TRUE,
+        rsquare = TRUE,
+        fit.measures = TRUE)
+```
+
+```{r whichmodel-open}
+question_text(
+  "Examine the summaries of each model. Does a second order or bi-factor model appear to fit the DASS better? ",
+  answer("Bifactor", correct = TRUE),
+  incorrect = "The bi-factor model appears to have slightly better fit indices.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r domain-open}
+question_text(
+  "Do the questions load on to the domain specific factors in the bi-factor model? ",
+  answer("Not all of them.", correct = TRUE),
+  incorrect = "After controlling for g, it appears that many items do not load with their domain specific areas. Examples include Question 5, 9, 8, etc.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r general-open}
+question_text(
+  "Do the questions load on to the general factor in the bi-factor model? ",
+  answer("Yes!", correct = TRUE),
+  incorrect = "All items appear to load with the general factor at or above .300.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
+```

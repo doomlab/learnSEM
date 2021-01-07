@@ -41,7 +41,7 @@ A data frame with 794 rows and 30 variables.
 }
 }
 \usage{
-data(efa)
+data(caafidata)
 }
 \description{
 Study: This dataset has data collected on the computer

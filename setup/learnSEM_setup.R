@@ -17,9 +17,9 @@ library(usethis)
 
 library(rio)
 #efa <- import("data/assignment_efa.csv")
-#usethis::use_data(caafidata, overwrite = T)
+#usethis::use_data(dassdata, overwrite = T)
 
-#usethis::use_tutorial("cfabasics", "CFA: Basics", open = interactive())
+#usethis::use_tutorial("cfasecond", "CFA: Second Order", open = interactive())
 
 
 library(roxygen2)

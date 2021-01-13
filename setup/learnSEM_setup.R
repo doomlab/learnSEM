@@ -19,7 +19,7 @@ library(rio)
 #efa <- import("data/assignment_efa.csv")
 #usethis::use_data(dassdata, overwrite = T)
 
-#usethis::use_tutorial("cfasecond", "CFA: Second Order", open = interactive())
+#usethis::use_tutorial("fullsem", "Full SEM", open = interactive())
 
 
 library(roxygen2)

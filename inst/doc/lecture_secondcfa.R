@@ -1,21 +1,21 @@
-## ---- include = FALSE------------------------------------------------------
+## ---- include = FALSE--------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----echo = F, message = F, warning = F------------------------------------
+## ----echo = F, message = F, warning = F--------------------------
 knitr::opts_chunk$set(echo = TRUE)
 library(lavaan)
 library(semPlot)
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"---------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----------
 knitr::include_graphics("pictures/second_order.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"---------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----------
 knitr::include_graphics("pictures/bi_factor.png")
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 library(lavaan)
 library(semPlot)
 
@@ -40,7 +40,7 @@ names(wisc4.sd) <-
                          "Similarities", "Vocabulary",  "Digit.Span", 
                          "Letter.Number",  "Coding", "Symbol.Search") 
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 ##first order model
 wisc4.fourFactor.model <- '
 gc =~ Comprehension + Information +  Similarities + Vocabulary 
@@ -49,18 +49,18 @@ gsm =~  Digit.Span + Letter.Number
 gs =~ Coding + Symbol.Search
 '   
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 wisc4.fourFactor.fit <- cfa(model = wisc4.fourFactor.model, 
                             sample.cov = wisc4.cov, 
                             sample.nobs = 550)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 summary(wisc4.fourFactor.fit, 
         fit.measure = TRUE, 
         standardized = TRUE,
         rsquare = TRUE)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 semPaths(wisc4.fourFactor.fit, 
          whatLabels="std", 
          edge.label.cex = 1,
@@ -68,7 +68,7 @@ semPaths(wisc4.fourFactor.fit,
          what = "std",
          layout="tree")
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 wisc4.higherOrder.model <- '
 gc =~ Comprehension + Information + Similarities + Vocabulary 
 gf =~ Matrix.Reasoning + Picture.Concepts
@@ -78,18 +78,18 @@ gs =~ Coding + Symbol.Search
 g =~ gf + gc  + gsm + gs 
 '
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 wisc4.higherOrder.fit <- cfa(model = wisc4.higherOrder.model, 
                              sample.cov = wisc4.cov, 
                              sample.nobs = 550)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 summary(wisc4.higherOrder.fit, 
         fit.measure=TRUE, 
         standardized=TRUE, 
         rsquare = TRUE)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 semPaths(wisc4.higherOrder.fit, 
          whatLabels="std", 
          edge.label.cex = 1,
@@ -97,7 +97,7 @@ semPaths(wisc4.higherOrder.fit,
          what = "std",
          layout="tree")
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 wisc4.bifactor.model <- '
 gc =~ Comprehension + Information +  Similarities + Vocabulary 
 gf =~ a*Matrix.Reasoning + a*Picture.Concepts  
@@ -106,19 +106,19 @@ gs =~ c*Coding + c*Symbol.Search
 g =~ Information + Comprehension + Matrix.Reasoning + Picture.Concepts + Similarities + Vocabulary +  Digit.Span + Letter.Number + Coding + Symbol.Search
 '
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 wisc4.bifactor.fit <- cfa(model = wisc4.bifactor.model, 
                           sample.cov = wisc4.cov,
                           sample.nobs = 550, 
                           orthogonal = TRUE)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 summary(wisc4.bifactor.fit, 
         fit.measure = TRUE, 
         rsquare = TRUE, 
         standardized = TRUE)
 
-## --------------------------------------------------------------------------
+## ----------------------------------------------------------------
 semPaths(wisc4.bifactor.fit, 
          whatLabels="std", 
          edge.label.cex = 1,

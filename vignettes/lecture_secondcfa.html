@@ -747,103 +747,63 @@ list-style-type: none;
 <span id="cb4-54"><a href="#cb4-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb4-55"><a href="#cb4-55"></a><span class="co">#&gt; </span></span>
 <span id="cb4-56"><a href="#cb4-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb4-57"><a href="#cb4-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb4-58"><a href="#cb4-58"></a><span class="co">#&gt;   gc =~                                                        </span></span>
-<span id="cb4-59"><a href="#cb4-59"></a><span class="co">#&gt;     Comprehension     1.000                               2.193</span></span>
-<span id="cb4-60"><a href="#cb4-60"></a><span class="co">#&gt;     Information       1.160    0.056   20.802    0.000    2.544</span></span>
-<span id="cb4-61"><a href="#cb4-61"></a><span class="co">#&gt;     Similarities      1.166    0.056   20.772    0.000    2.558</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a><span class="co">#&gt;     Vocabulary        1.218    0.056   21.860    0.000    2.670</span></span>
-<span id="cb4-63"><a href="#cb4-63"></a><span class="co">#&gt;   gf =~                                                        </span></span>
-<span id="cb4-64"><a href="#cb4-64"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                               2.000</span></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="co">#&gt;     Picture.Cncpts    0.839    0.078   10.775    0.000    1.677</span></span>
-<span id="cb4-66"><a href="#cb4-66"></a><span class="co">#&gt;   gsm =~                                                       </span></span>
-<span id="cb4-67"><a href="#cb4-67"></a><span class="co">#&gt;     Digit.Span        1.000                               1.967</span></span>
-<span id="cb4-68"><a href="#cb4-68"></a><span class="co">#&gt;     Letter.Number     1.172    0.086   13.560    0.000    2.304</span></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="co">#&gt;   gs =~                                                        </span></span>
-<span id="cb4-70"><a href="#cb4-70"></a><span class="co">#&gt;     Coding            1.000                               1.779</span></span>
-<span id="cb4-71"><a href="#cb4-71"></a><span class="co">#&gt;     Symbol.Search     1.429    0.139   10.283    0.000    2.542</span></span>
-<span id="cb4-72"><a href="#cb4-72"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb4-73"><a href="#cb4-73"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-74"><a href="#cb4-74"></a><span class="co">#&gt;     0.762</span></span>
-<span id="cb4-75"><a href="#cb4-75"></a><span class="co">#&gt;     0.846</span></span>
-<span id="cb4-76"><a href="#cb4-76"></a><span class="co">#&gt;     0.845</span></span>
-<span id="cb4-77"><a href="#cb4-77"></a><span class="co">#&gt;     0.885</span></span>
-<span id="cb4-78"><a href="#cb4-78"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-79"><a href="#cb4-79"></a><span class="co">#&gt;     0.693</span></span>
-<span id="cb4-80"><a href="#cb4-80"></a><span class="co">#&gt;     0.563</span></span>
-<span id="cb4-81"><a href="#cb4-81"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-82"><a href="#cb4-82"></a><span class="co">#&gt;     0.661</span></span>
-<span id="cb4-83"><a href="#cb4-83"></a><span class="co">#&gt;     0.771</span></span>
-<span id="cb4-84"><a href="#cb4-84"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-85"><a href="#cb4-85"></a><span class="co">#&gt;     0.601</span></span>
-<span id="cb4-86"><a href="#cb4-86"></a><span class="co">#&gt;     0.816</span></span>
-<span id="cb4-87"><a href="#cb4-87"></a><span class="co">#&gt; </span></span>
-<span id="cb4-88"><a href="#cb4-88"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb4-89"><a href="#cb4-89"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb4-90"><a href="#cb4-90"></a><span class="co">#&gt;   gc ~~                                                        </span></span>
-<span id="cb4-91"><a href="#cb4-91"></a><span class="co">#&gt;     gf                3.412    0.337   10.130    0.000    0.778</span></span>
-<span id="cb4-92"><a href="#cb4-92"></a><span class="co">#&gt;     gsm               3.302    0.336    9.826    0.000    0.766</span></span>
-<span id="cb4-93"><a href="#cb4-93"></a><span class="co">#&gt;     gs                2.180    0.290    7.511    0.000    0.559</span></span>
-<span id="cb4-94"><a href="#cb4-94"></a><span class="co">#&gt;   gf ~~                                                        </span></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="co">#&gt;     gsm               3.245    0.352    9.220    0.000    0.825</span></span>
-<span id="cb4-96"><a href="#cb4-96"></a><span class="co">#&gt;     gs                2.507    0.329    7.608    0.000    0.705</span></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="co">#&gt;   gsm ~~                                                       </span></span>
-<span id="cb4-98"><a href="#cb4-98"></a><span class="co">#&gt;     gs                2.474    0.324    7.627    0.000    0.707</span></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb4-100"><a href="#cb4-100"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-101"><a href="#cb4-101"></a><span class="co">#&gt;     0.778</span></span>
-<span id="cb4-102"><a href="#cb4-102"></a><span class="co">#&gt;     0.766</span></span>
-<span id="cb4-103"><a href="#cb4-103"></a><span class="co">#&gt;     0.559</span></span>
-<span id="cb4-104"><a href="#cb4-104"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-105"><a href="#cb4-105"></a><span class="co">#&gt;     0.825</span></span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="co">#&gt;     0.705</span></span>
-<span id="cb4-107"><a href="#cb4-107"></a><span class="co">#&gt;          </span></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="co">#&gt;     0.707</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a><span class="co">#&gt; </span></span>
-<span id="cb4-110"><a href="#cb4-110"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb4-111"><a href="#cb4-111"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb4-112"><a href="#cb4-112"></a><span class="co">#&gt;    .Comprehension     3.467    0.240   14.452    0.000    3.467</span></span>
-<span id="cb4-113"><a href="#cb4-113"></a><span class="co">#&gt;    .Information       2.571    0.203   12.637    0.000    2.571</span></span>
-<span id="cb4-114"><a href="#cb4-114"></a><span class="co">#&gt;    .Similarities      2.622    0.207   12.672    0.000    2.622</span></span>
-<span id="cb4-115"><a href="#cb4-115"></a><span class="co">#&gt;    .Vocabulary        1.973    0.181   10.920    0.000    1.973</span></span>
-<span id="cb4-116"><a href="#cb4-116"></a><span class="co">#&gt;    .Matrix.Reasnng    4.336    0.424   10.224    0.000    4.336</span></span>
-<span id="cb4-117"><a href="#cb4-117"></a><span class="co">#&gt;    .Picture.Cncpts    6.051    0.434   13.944    0.000    6.051</span></span>
-<span id="cb4-118"><a href="#cb4-118"></a><span class="co">#&gt;    .Digit.Span        4.996    0.377   13.239    0.000    4.996</span></span>
-<span id="cb4-119"><a href="#cb4-119"></a><span class="co">#&gt;    .Letter.Number     3.614    0.381    9.499    0.000    3.614</span></span>
-<span id="cb4-120"><a href="#cb4-120"></a><span class="co">#&gt;    .Coding            5.581    0.428   13.053    0.000    5.581</span></span>
-<span id="cb4-121"><a href="#cb4-121"></a><span class="co">#&gt;    .Symbol.Search     3.249    0.573    5.668    0.000    3.249</span></span>
-<span id="cb4-122"><a href="#cb4-122"></a><span class="co">#&gt;     gc                4.807    0.468   10.270    0.000    1.000</span></span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="co">#&gt;     gf                3.999    0.544    7.353    0.000    1.000</span></span>
-<span id="cb4-124"><a href="#cb4-124"></a><span class="co">#&gt;     gsm               3.868    0.497    7.790    0.000    1.000</span></span>
-<span id="cb4-125"><a href="#cb4-125"></a><span class="co">#&gt;     gs                3.163    0.484    6.535    0.000    1.000</span></span>
-<span id="cb4-126"><a href="#cb4-126"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb4-127"><a href="#cb4-127"></a><span class="co">#&gt;     0.419</span></span>
-<span id="cb4-128"><a href="#cb4-128"></a><span class="co">#&gt;     0.284</span></span>
-<span id="cb4-129"><a href="#cb4-129"></a><span class="co">#&gt;     0.286</span></span>
-<span id="cb4-130"><a href="#cb4-130"></a><span class="co">#&gt;     0.217</span></span>
-<span id="cb4-131"><a href="#cb4-131"></a><span class="co">#&gt;     0.520</span></span>
-<span id="cb4-132"><a href="#cb4-132"></a><span class="co">#&gt;     0.683</span></span>
-<span id="cb4-133"><a href="#cb4-133"></a><span class="co">#&gt;     0.564</span></span>
-<span id="cb4-134"><a href="#cb4-134"></a><span class="co">#&gt;     0.405</span></span>
-<span id="cb4-135"><a href="#cb4-135"></a><span class="co">#&gt;     0.638</span></span>
-<span id="cb4-136"><a href="#cb4-136"></a><span class="co">#&gt;     0.335</span></span>
-<span id="cb4-137"><a href="#cb4-137"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb4-138"><a href="#cb4-138"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb4-139"><a href="#cb4-139"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb4-140"><a href="#cb4-140"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb4-141"><a href="#cb4-141"></a><span class="co">#&gt; </span></span>
-<span id="cb4-142"><a href="#cb4-142"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb4-143"><a href="#cb4-143"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb4-144"><a href="#cb4-144"></a><span class="co">#&gt;     Comprehension     0.581</span></span>
-<span id="cb4-145"><a href="#cb4-145"></a><span class="co">#&gt;     Information       0.716</span></span>
-<span id="cb4-146"><a href="#cb4-146"></a><span class="co">#&gt;     Similarities      0.714</span></span>
-<span id="cb4-147"><a href="#cb4-147"></a><span class="co">#&gt;     Vocabulary        0.783</span></span>
-<span id="cb4-148"><a href="#cb4-148"></a><span class="co">#&gt;     Matrix.Reasnng    0.480</span></span>
-<span id="cb4-149"><a href="#cb4-149"></a><span class="co">#&gt;     Picture.Cncpts    0.317</span></span>
-<span id="cb4-150"><a href="#cb4-150"></a><span class="co">#&gt;     Digit.Span        0.436</span></span>
-<span id="cb4-151"><a href="#cb4-151"></a><span class="co">#&gt;     Letter.Number     0.595</span></span>
-<span id="cb4-152"><a href="#cb4-152"></a><span class="co">#&gt;     Coding            0.362</span></span>
-<span id="cb4-153"><a href="#cb4-153"></a><span class="co">#&gt;     Symbol.Search     0.665</span></span></code></pre></div>
+<span id="cb4-57"><a href="#cb4-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb4-58"><a href="#cb4-58"></a><span class="co">#&gt;   gc =~                                                                 </span></span>
+<span id="cb4-59"><a href="#cb4-59"></a><span class="co">#&gt;     Comprehension     1.000                               2.193    0.762</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="co">#&gt;     Information       1.160    0.056   20.802    0.000    2.544    0.846</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="co">#&gt;     Similarities      1.166    0.056   20.772    0.000    2.558    0.845</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="co">#&gt;     Vocabulary        1.218    0.056   21.860    0.000    2.670    0.885</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a><span class="co">#&gt;   gf =~                                                                 </span></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                               2.000    0.693</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="co">#&gt;     Picture.Cncpts    0.839    0.078   10.775    0.000    1.677    0.563</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="co">#&gt;   gsm =~                                                                </span></span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="co">#&gt;     Digit.Span        1.000                               1.967    0.661</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="co">#&gt;     Letter.Number     1.172    0.086   13.560    0.000    2.304    0.771</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a><span class="co">#&gt;   gs =~                                                                 </span></span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="co">#&gt;     Coding            1.000                               1.779    0.601</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a><span class="co">#&gt;     Symbol.Search     1.429    0.139   10.283    0.000    2.542    0.816</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="co">#&gt; </span></span>
+<span id="cb4-73"><a href="#cb4-73"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="co">#&gt;   gc ~~                                                                 </span></span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="co">#&gt;     gf                3.412    0.337   10.130    0.000    0.778    0.778</span></span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="co">#&gt;     gsm               3.302    0.336    9.826    0.000    0.766    0.766</span></span>
+<span id="cb4-78"><a href="#cb4-78"></a><span class="co">#&gt;     gs                2.180    0.290    7.511    0.000    0.559    0.559</span></span>
+<span id="cb4-79"><a href="#cb4-79"></a><span class="co">#&gt;   gf ~~                                                                 </span></span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="co">#&gt;     gsm               3.245    0.352    9.220    0.000    0.825    0.825</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a><span class="co">#&gt;     gs                2.507    0.329    7.608    0.000    0.705    0.705</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="co">#&gt;   gsm ~~                                                                </span></span>
+<span id="cb4-83"><a href="#cb4-83"></a><span class="co">#&gt;     gs                2.474    0.324    7.627    0.000    0.707    0.707</span></span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="co">#&gt; </span></span>
+<span id="cb4-85"><a href="#cb4-85"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb4-86"><a href="#cb4-86"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a><span class="co">#&gt;    .Comprehension     3.467    0.240   14.452    0.000    3.467    0.419</span></span>
+<span id="cb4-88"><a href="#cb4-88"></a><span class="co">#&gt;    .Information       2.571    0.203   12.637    0.000    2.571    0.284</span></span>
+<span id="cb4-89"><a href="#cb4-89"></a><span class="co">#&gt;    .Similarities      2.622    0.207   12.672    0.000    2.622    0.286</span></span>
+<span id="cb4-90"><a href="#cb4-90"></a><span class="co">#&gt;    .Vocabulary        1.973    0.181   10.920    0.000    1.973    0.217</span></span>
+<span id="cb4-91"><a href="#cb4-91"></a><span class="co">#&gt;    .Matrix.Reasnng    4.336    0.424   10.224    0.000    4.336    0.520</span></span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="co">#&gt;    .Picture.Cncpts    6.051    0.434   13.944    0.000    6.051    0.683</span></span>
+<span id="cb4-93"><a href="#cb4-93"></a><span class="co">#&gt;    .Digit.Span        4.996    0.377   13.239    0.000    4.996    0.564</span></span>
+<span id="cb4-94"><a href="#cb4-94"></a><span class="co">#&gt;    .Letter.Number     3.614    0.381    9.499    0.000    3.614    0.405</span></span>
+<span id="cb4-95"><a href="#cb4-95"></a><span class="co">#&gt;    .Coding            5.581    0.428   13.053    0.000    5.581    0.638</span></span>
+<span id="cb4-96"><a href="#cb4-96"></a><span class="co">#&gt;    .Symbol.Search     3.249    0.573    5.668    0.000    3.249    0.335</span></span>
+<span id="cb4-97"><a href="#cb4-97"></a><span class="co">#&gt;     gc                4.807    0.468   10.270    0.000    1.000    1.000</span></span>
+<span id="cb4-98"><a href="#cb4-98"></a><span class="co">#&gt;     gf                3.999    0.544    7.353    0.000    1.000    1.000</span></span>
+<span id="cb4-99"><a href="#cb4-99"></a><span class="co">#&gt;     gsm               3.868    0.497    7.790    0.000    1.000    1.000</span></span>
+<span id="cb4-100"><a href="#cb4-100"></a><span class="co">#&gt;     gs                3.163    0.484    6.535    0.000    1.000    1.000</span></span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="co">#&gt; </span></span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb4-104"><a href="#cb4-104"></a><span class="co">#&gt;     Comprehension     0.581</span></span>
+<span id="cb4-105"><a href="#cb4-105"></a><span class="co">#&gt;     Information       0.716</span></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="co">#&gt;     Similarities      0.714</span></span>
+<span id="cb4-107"><a href="#cb4-107"></a><span class="co">#&gt;     Vocabulary        0.783</span></span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="co">#&gt;     Matrix.Reasnng    0.480</span></span>
+<span id="cb4-109"><a href="#cb4-109"></a><span class="co">#&gt;     Picture.Cncpts    0.317</span></span>
+<span id="cb4-110"><a href="#cb4-110"></a><span class="co">#&gt;     Digit.Span        0.436</span></span>
+<span id="cb4-111"><a href="#cb4-111"></a><span class="co">#&gt;     Letter.Number     0.595</span></span>
+<span id="cb4-112"><a href="#cb4-112"></a><span class="co">#&gt;     Coding            0.362</span></span>
+<span id="cb4-113"><a href="#cb4-113"></a><span class="co">#&gt;     Symbol.Search     0.665</span></span></code></pre></div>
 </div>
 <div id="examples-wisc-diagram-the-model" class="slide section level2">
 <h1>Examples: WISC Diagram the Model</h1>
@@ -951,97 +911,61 @@ list-style-type: none;
 <span id="cb8-54"><a href="#cb8-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb8-55"><a href="#cb8-55"></a><span class="co">#&gt; </span></span>
 <span id="cb8-56"><a href="#cb8-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb8-57"><a href="#cb8-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb8-58"><a href="#cb8-58"></a><span class="co">#&gt;   gc =~                                                        </span></span>
-<span id="cb8-59"><a href="#cb8-59"></a><span class="co">#&gt;     Comprehension     1.000                               2.194</span></span>
-<span id="cb8-60"><a href="#cb8-60"></a><span class="co">#&gt;     Information       1.160    0.056   20.832    0.000    2.545</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a><span class="co">#&gt;     Similarities      1.164    0.056   20.767    0.000    2.555</span></span>
-<span id="cb8-62"><a href="#cb8-62"></a><span class="co">#&gt;     Vocabulary        1.217    0.056   21.882    0.000    2.670</span></span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="co">#&gt;   gf =~                                                        </span></span>
-<span id="cb8-64"><a href="#cb8-64"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                               1.991</span></span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="co">#&gt;     Picture.Cncpts    0.846    0.079   10.758    0.000    1.685</span></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="co">#&gt;   gsm =~                                                       </span></span>
-<span id="cb8-67"><a href="#cb8-67"></a><span class="co">#&gt;     Digit.Span        1.000                               1.966</span></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="co">#&gt;     Letter.Number     1.173    0.087   13.503    0.000    2.306</span></span>
-<span id="cb8-69"><a href="#cb8-69"></a><span class="co">#&gt;   gs =~                                                        </span></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="co">#&gt;     Coding            1.000                               1.771</span></span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="co">#&gt;     Symbol.Search     1.441    0.142   10.149    0.000    2.553</span></span>
-<span id="cb8-72"><a href="#cb8-72"></a><span class="co">#&gt;   g =~                                                         </span></span>
-<span id="cb8-73"><a href="#cb8-73"></a><span class="co">#&gt;     gf                1.000                               0.930</span></span>
-<span id="cb8-74"><a href="#cb8-74"></a><span class="co">#&gt;     gc                0.968    0.079   12.241    0.000    0.817</span></span>
-<span id="cb8-75"><a href="#cb8-75"></a><span class="co">#&gt;     gsm               0.984    0.087   11.319    0.000    0.927</span></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="co">#&gt;     gs                0.698    0.080    8.689    0.000    0.730</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="co">#&gt;          </span></span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="co">#&gt;     0.763</span></span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#&gt;     0.846</span></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="co">#&gt;     0.844</span></span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="co">#&gt;     0.885</span></span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="co">#&gt;          </span></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="co">#&gt;     0.690</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="co">#&gt;     0.566</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a><span class="co">#&gt;          </span></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="co">#&gt;     0.660</span></span>
-<span id="cb8-88"><a href="#cb8-88"></a><span class="co">#&gt;     0.772</span></span>
-<span id="cb8-89"><a href="#cb8-89"></a><span class="co">#&gt;          </span></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#&gt;     0.599</span></span>
-<span id="cb8-91"><a href="#cb8-91"></a><span class="co">#&gt;     0.819</span></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="co">#&gt;          </span></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="co">#&gt;     0.930</span></span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="co">#&gt;     0.817</span></span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="co">#&gt;     0.927</span></span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="co">#&gt;     0.730</span></span>
-<span id="cb8-97"><a href="#cb8-97"></a><span class="co">#&gt; </span></span>
-<span id="cb8-98"><a href="#cb8-98"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb8-100"><a href="#cb8-100"></a><span class="co">#&gt;    .Comprehension     3.460    0.240   14.440    0.000    3.460</span></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="co">#&gt;    .Information       2.565    0.203   12.614    0.000    2.565</span></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="co">#&gt;    .Similarities      2.635    0.208   12.692    0.000    2.635</span></span>
-<span id="cb8-103"><a href="#cb8-103"></a><span class="co">#&gt;    .Vocabulary        1.973    0.181   10.906    0.000    1.973</span></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#&gt;    .Matrix.Reasnng    4.372    0.424   10.306    0.000    4.372</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a><span class="co">#&gt;    .Picture.Cncpts    6.025    0.434   13.871    0.000    6.025</span></span>
-<span id="cb8-106"><a href="#cb8-106"></a><span class="co">#&gt;    .Digit.Span        5.000    0.378   13.219    0.000    5.000</span></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="co">#&gt;    .Letter.Number     3.608    0.382    9.441    0.000    3.608</span></span>
-<span id="cb8-108"><a href="#cb8-108"></a><span class="co">#&gt;    .Coding            5.606    0.430   13.040    0.000    5.606</span></span>
-<span id="cb8-109"><a href="#cb8-109"></a><span class="co">#&gt;    .Symbol.Search     3.197    0.584    5.473    0.000    3.197</span></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="co">#&gt;    .gc                1.599    0.226    7.082    0.000    0.332</span></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="co">#&gt;    .gf                0.534    0.340    1.569    0.117    0.135</span></span>
-<span id="cb8-112"><a href="#cb8-112"></a><span class="co">#&gt;    .gsm               0.540    0.241    2.246    0.025    0.140</span></span>
-<span id="cb8-113"><a href="#cb8-113"></a><span class="co">#&gt;    .gs                1.467    0.262    5.590    0.000    0.468</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="co">#&gt;     g                 3.429    0.452    7.591    0.000    1.000</span></span>
-<span id="cb8-115"><a href="#cb8-115"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb8-116"><a href="#cb8-116"></a><span class="co">#&gt;     0.418</span></span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="co">#&gt;     0.284</span></span>
-<span id="cb8-118"><a href="#cb8-118"></a><span class="co">#&gt;     0.288</span></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="co">#&gt;     0.217</span></span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="co">#&gt;     0.525</span></span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="co">#&gt;     0.680</span></span>
-<span id="cb8-122"><a href="#cb8-122"></a><span class="co">#&gt;     0.564</span></span>
-<span id="cb8-123"><a href="#cb8-123"></a><span class="co">#&gt;     0.404</span></span>
-<span id="cb8-124"><a href="#cb8-124"></a><span class="co">#&gt;     0.641</span></span>
-<span id="cb8-125"><a href="#cb8-125"></a><span class="co">#&gt;     0.329</span></span>
-<span id="cb8-126"><a href="#cb8-126"></a><span class="co">#&gt;     0.332</span></span>
-<span id="cb8-127"><a href="#cb8-127"></a><span class="co">#&gt;     0.135</span></span>
-<span id="cb8-128"><a href="#cb8-128"></a><span class="co">#&gt;     0.140</span></span>
-<span id="cb8-129"><a href="#cb8-129"></a><span class="co">#&gt;     0.468</span></span>
-<span id="cb8-130"><a href="#cb8-130"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb8-131"><a href="#cb8-131"></a><span class="co">#&gt; </span></span>
-<span id="cb8-132"><a href="#cb8-132"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb8-133"><a href="#cb8-133"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb8-134"><a href="#cb8-134"></a><span class="co">#&gt;     Comprehension     0.582</span></span>
-<span id="cb8-135"><a href="#cb8-135"></a><span class="co">#&gt;     Information       0.716</span></span>
-<span id="cb8-136"><a href="#cb8-136"></a><span class="co">#&gt;     Similarities      0.712</span></span>
-<span id="cb8-137"><a href="#cb8-137"></a><span class="co">#&gt;     Vocabulary        0.783</span></span>
-<span id="cb8-138"><a href="#cb8-138"></a><span class="co">#&gt;     Matrix.Reasnng    0.475</span></span>
-<span id="cb8-139"><a href="#cb8-139"></a><span class="co">#&gt;     Picture.Cncpts    0.320</span></span>
-<span id="cb8-140"><a href="#cb8-140"></a><span class="co">#&gt;     Digit.Span        0.436</span></span>
-<span id="cb8-141"><a href="#cb8-141"></a><span class="co">#&gt;     Letter.Number     0.596</span></span>
-<span id="cb8-142"><a href="#cb8-142"></a><span class="co">#&gt;     Coding            0.359</span></span>
-<span id="cb8-143"><a href="#cb8-143"></a><span class="co">#&gt;     Symbol.Search     0.671</span></span>
-<span id="cb8-144"><a href="#cb8-144"></a><span class="co">#&gt;     gc                0.668</span></span>
-<span id="cb8-145"><a href="#cb8-145"></a><span class="co">#&gt;     gf                0.865</span></span>
-<span id="cb8-146"><a href="#cb8-146"></a><span class="co">#&gt;     gsm               0.860</span></span>
-<span id="cb8-147"><a href="#cb8-147"></a><span class="co">#&gt;     gs                0.532</span></span></code></pre></div>
+<span id="cb8-57"><a href="#cb8-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb8-58"><a href="#cb8-58"></a><span class="co">#&gt;   gc =~                                                                 </span></span>
+<span id="cb8-59"><a href="#cb8-59"></a><span class="co">#&gt;     Comprehension     1.000                               2.194    0.763</span></span>
+<span id="cb8-60"><a href="#cb8-60"></a><span class="co">#&gt;     Information       1.160    0.056   20.832    0.000    2.545    0.846</span></span>
+<span id="cb8-61"><a href="#cb8-61"></a><span class="co">#&gt;     Similarities      1.164    0.056   20.767    0.000    2.555    0.844</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a><span class="co">#&gt;     Vocabulary        1.217    0.056   21.882    0.000    2.670    0.885</span></span>
+<span id="cb8-63"><a href="#cb8-63"></a><span class="co">#&gt;   gf =~                                                                 </span></span>
+<span id="cb8-64"><a href="#cb8-64"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                               1.991    0.690</span></span>
+<span id="cb8-65"><a href="#cb8-65"></a><span class="co">#&gt;     Picture.Cncpts    0.846    0.079   10.758    0.000    1.685    0.566</span></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="co">#&gt;   gsm =~                                                                </span></span>
+<span id="cb8-67"><a href="#cb8-67"></a><span class="co">#&gt;     Digit.Span        1.000                               1.966    0.660</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a><span class="co">#&gt;     Letter.Number     1.173    0.087   13.503    0.000    2.306    0.772</span></span>
+<span id="cb8-69"><a href="#cb8-69"></a><span class="co">#&gt;   gs =~                                                                 </span></span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="co">#&gt;     Coding            1.000                               1.771    0.599</span></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="co">#&gt;     Symbol.Search     1.441    0.142   10.149    0.000    2.553    0.819</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a><span class="co">#&gt;   g =~                                                                  </span></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="co">#&gt;     gf                1.000                               0.930    0.930</span></span>
+<span id="cb8-74"><a href="#cb8-74"></a><span class="co">#&gt;     gc                0.968    0.079   12.241    0.000    0.817    0.817</span></span>
+<span id="cb8-75"><a href="#cb8-75"></a><span class="co">#&gt;     gsm               0.984    0.087   11.319    0.000    0.927    0.927</span></span>
+<span id="cb8-76"><a href="#cb8-76"></a><span class="co">#&gt;     gs                0.698    0.080    8.689    0.000    0.730    0.730</span></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="co">#&gt; </span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#&gt;    .Comprehension     3.460    0.240   14.440    0.000    3.460    0.418</span></span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="co">#&gt;    .Information       2.565    0.203   12.614    0.000    2.565    0.284</span></span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="co">#&gt;    .Similarities      2.635    0.208   12.692    0.000    2.635    0.288</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="co">#&gt;    .Vocabulary        1.973    0.181   10.906    0.000    1.973    0.217</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="co">#&gt;    .Matrix.Reasnng    4.372    0.424   10.306    0.000    4.372    0.525</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="co">#&gt;    .Picture.Cncpts    6.025    0.434   13.871    0.000    6.025    0.680</span></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="co">#&gt;    .Digit.Span        5.000    0.378   13.219    0.000    5.000    0.564</span></span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="co">#&gt;    .Letter.Number     3.608    0.382    9.441    0.000    3.608    0.404</span></span>
+<span id="cb8-88"><a href="#cb8-88"></a><span class="co">#&gt;    .Coding            5.606    0.430   13.040    0.000    5.606    0.641</span></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="co">#&gt;    .Symbol.Search     3.197    0.584    5.473    0.000    3.197    0.329</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#&gt;    .gc                1.599    0.226    7.082    0.000    0.332    0.332</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a><span class="co">#&gt;    .gf                0.534    0.340    1.569    0.117    0.135    0.135</span></span>
+<span id="cb8-92"><a href="#cb8-92"></a><span class="co">#&gt;    .gsm               0.540    0.241    2.246    0.025    0.140    0.140</span></span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="co">#&gt;    .gs                1.467    0.262    5.590    0.000    0.468    0.468</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="co">#&gt;     g                 3.429    0.452    7.591    0.000    1.000    1.000</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="co">#&gt; </span></span>
+<span id="cb8-96"><a href="#cb8-96"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="co">#&gt;     Comprehension     0.582</span></span>
+<span id="cb8-99"><a href="#cb8-99"></a><span class="co">#&gt;     Information       0.716</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a><span class="co">#&gt;     Similarities      0.712</span></span>
+<span id="cb8-101"><a href="#cb8-101"></a><span class="co">#&gt;     Vocabulary        0.783</span></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="co">#&gt;     Matrix.Reasnng    0.475</span></span>
+<span id="cb8-103"><a href="#cb8-103"></a><span class="co">#&gt;     Picture.Cncpts    0.320</span></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#&gt;     Digit.Span        0.436</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="co">#&gt;     Letter.Number     0.596</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a><span class="co">#&gt;     Coding            0.359</span></span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="co">#&gt;     Symbol.Search     0.671</span></span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="co">#&gt;     gc                0.668</span></span>
+<span id="cb8-109"><a href="#cb8-109"></a><span class="co">#&gt;     gf                0.865</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="co">#&gt;     gsm               0.860</span></span>
+<span id="cb8-111"><a href="#cb8-111"></a><span class="co">#&gt;     gs                0.532</span></span></code></pre></div>
 </div>
 <div id="examples-second-order-wisc-3" class="slide section level2">
 <h1>Examples: Second-Order WISC</h1>
@@ -1151,137 +1075,80 @@ list-style-type: none;
 <span id="cb12-54"><a href="#cb12-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb12-55"><a href="#cb12-55"></a><span class="co">#&gt; </span></span>
 <span id="cb12-56"><a href="#cb12-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb12-57"><a href="#cb12-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb12-58"><a href="#cb12-58"></a><span class="co">#&gt;   gc =~                                                        </span></span>
-<span id="cb12-59"><a href="#cb12-59"></a><span class="co">#&gt;     Comprehnsn        1.000                               1.426</span></span>
-<span id="cb12-60"><a href="#cb12-60"></a><span class="co">#&gt;     Informatin        0.883    0.100    8.820    0.000    1.259</span></span>
-<span id="cb12-61"><a href="#cb12-61"></a><span class="co">#&gt;     Similarits        0.965    0.106    9.134    0.000    1.375</span></span>
-<span id="cb12-62"><a href="#cb12-62"></a><span class="co">#&gt;     Vocabulary        1.168    0.121    9.670    0.000    1.665</span></span>
-<span id="cb12-63"><a href="#cb12-63"></a><span class="co">#&gt;   gf =~                                                        </span></span>
-<span id="cb12-64"><a href="#cb12-64"></a><span class="co">#&gt;     Mtrx.Rsnng (a)    1.000                               0.634</span></span>
-<span id="cb12-65"><a href="#cb12-65"></a><span class="co">#&gt;     Pctr.Cncpt (a)    1.000                               0.634</span></span>
-<span id="cb12-66"><a href="#cb12-66"></a><span class="co">#&gt;   gsm =~                                                       </span></span>
-<span id="cb12-67"><a href="#cb12-67"></a><span class="co">#&gt;     Digit.Span (b)    1.000                               0.863</span></span>
-<span id="cb12-68"><a href="#cb12-68"></a><span class="co">#&gt;     Lettr.Nmbr (b)    1.000                               0.863</span></span>
-<span id="cb12-69"><a href="#cb12-69"></a><span class="co">#&gt;   gs =~                                                        </span></span>
-<span id="cb12-70"><a href="#cb12-70"></a><span class="co">#&gt;     Coding     (c)    1.000                               1.461</span></span>
-<span id="cb12-71"><a href="#cb12-71"></a><span class="co">#&gt;     Symbl.Srch (c)    1.000                               1.461</span></span>
-<span id="cb12-72"><a href="#cb12-72"></a><span class="co">#&gt;   g =~                                                         </span></span>
-<span id="cb12-73"><a href="#cb12-73"></a><span class="co">#&gt;     Informatin        1.000                               2.191</span></span>
-<span id="cb12-74"><a href="#cb12-74"></a><span class="co">#&gt;     Comprehnsn        0.780    0.051   15.388    0.000    1.709</span></span>
-<span id="cb12-75"><a href="#cb12-75"></a><span class="co">#&gt;     Mtrx.Rsnng        0.859    0.066   13.107    0.000    1.883</span></span>
-<span id="cb12-76"><a href="#cb12-76"></a><span class="co">#&gt;     Pctr.Cncpt        0.716    0.067   10.704    0.000    1.568</span></span>
-<span id="cb12-77"><a href="#cb12-77"></a><span class="co">#&gt;     Similarits        0.972    0.051   18.880    0.000    2.130</span></span>
-<span id="cb12-78"><a href="#cb12-78"></a><span class="co">#&gt;     Vocabulary        0.974    0.047   20.528    0.000    2.134</span></span>
-<span id="cb12-79"><a href="#cb12-79"></a><span class="co">#&gt;     Digit.Span        0.818    0.068   11.971    0.000    1.792</span></span>
-<span id="cb12-80"><a href="#cb12-80"></a><span class="co">#&gt;     Lettr.Nmbr        0.965    0.069   13.900    0.000    2.113</span></span>
-<span id="cb12-81"><a href="#cb12-81"></a><span class="co">#&gt;     Coding            0.584    0.065    8.975    0.000    1.280</span></span>
-<span id="cb12-82"><a href="#cb12-82"></a><span class="co">#&gt;     Symbl.Srch        0.851    0.069   12.262    0.000    1.865</span></span>
-<span id="cb12-83"><a href="#cb12-83"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb12-84"><a href="#cb12-84"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-85"><a href="#cb12-85"></a><span class="co">#&gt;     0.496</span></span>
-<span id="cb12-86"><a href="#cb12-86"></a><span class="co">#&gt;     0.419</span></span>
-<span id="cb12-87"><a href="#cb12-87"></a><span class="co">#&gt;     0.454</span></span>
-<span id="cb12-88"><a href="#cb12-88"></a><span class="co">#&gt;     0.552</span></span>
-<span id="cb12-89"><a href="#cb12-89"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-90"><a href="#cb12-90"></a><span class="co">#&gt;     0.220</span></span>
-<span id="cb12-91"><a href="#cb12-91"></a><span class="co">#&gt;     0.213</span></span>
-<span id="cb12-92"><a href="#cb12-92"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-93"><a href="#cb12-93"></a><span class="co">#&gt;     0.290</span></span>
-<span id="cb12-94"><a href="#cb12-94"></a><span class="co">#&gt;     0.289</span></span>
-<span id="cb12-95"><a href="#cb12-95"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-96"><a href="#cb12-96"></a><span class="co">#&gt;     0.494</span></span>
-<span id="cb12-97"><a href="#cb12-97"></a><span class="co">#&gt;     0.469</span></span>
-<span id="cb12-98"><a href="#cb12-98"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-99"><a href="#cb12-99"></a><span class="co">#&gt;     0.728</span></span>
-<span id="cb12-100"><a href="#cb12-100"></a><span class="co">#&gt;     0.594</span></span>
-<span id="cb12-101"><a href="#cb12-101"></a><span class="co">#&gt;     0.652</span></span>
-<span id="cb12-102"><a href="#cb12-102"></a><span class="co">#&gt;     0.527</span></span>
-<span id="cb12-103"><a href="#cb12-103"></a><span class="co">#&gt;     0.704</span></span>
-<span id="cb12-104"><a href="#cb12-104"></a><span class="co">#&gt;     0.707</span></span>
-<span id="cb12-105"><a href="#cb12-105"></a><span class="co">#&gt;     0.602</span></span>
-<span id="cb12-106"><a href="#cb12-106"></a><span class="co">#&gt;     0.707</span></span>
-<span id="cb12-107"><a href="#cb12-107"></a><span class="co">#&gt;     0.433</span></span>
-<span id="cb12-108"><a href="#cb12-108"></a><span class="co">#&gt;     0.598</span></span>
-<span id="cb12-109"><a href="#cb12-109"></a><span class="co">#&gt; </span></span>
-<span id="cb12-110"><a href="#cb12-110"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb12-111"><a href="#cb12-111"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb12-112"><a href="#cb12-112"></a><span class="co">#&gt;   gc ~~                                                        </span></span>
-<span id="cb12-113"><a href="#cb12-113"></a><span class="co">#&gt;     gf                0.000                               0.000</span></span>
-<span id="cb12-114"><a href="#cb12-114"></a><span class="co">#&gt;     gsm               0.000                               0.000</span></span>
-<span id="cb12-115"><a href="#cb12-115"></a><span class="co">#&gt;     gs                0.000                               0.000</span></span>
-<span id="cb12-116"><a href="#cb12-116"></a><span class="co">#&gt;     g                 0.000                               0.000</span></span>
-<span id="cb12-117"><a href="#cb12-117"></a><span class="co">#&gt;   gf ~~                                                        </span></span>
-<span id="cb12-118"><a href="#cb12-118"></a><span class="co">#&gt;     gsm               0.000                               0.000</span></span>
-<span id="cb12-119"><a href="#cb12-119"></a><span class="co">#&gt;     gs                0.000                               0.000</span></span>
-<span id="cb12-120"><a href="#cb12-120"></a><span class="co">#&gt;     g                 0.000                               0.000</span></span>
-<span id="cb12-121"><a href="#cb12-121"></a><span class="co">#&gt;   gsm ~~                                                       </span></span>
-<span id="cb12-122"><a href="#cb12-122"></a><span class="co">#&gt;     gs                0.000                               0.000</span></span>
-<span id="cb12-123"><a href="#cb12-123"></a><span class="co">#&gt;     g                 0.000                               0.000</span></span>
-<span id="cb12-124"><a href="#cb12-124"></a><span class="co">#&gt;   gs ~~                                                        </span></span>
-<span id="cb12-125"><a href="#cb12-125"></a><span class="co">#&gt;     g                 0.000                               0.000</span></span>
-<span id="cb12-126"><a href="#cb12-126"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb12-127"><a href="#cb12-127"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-128"><a href="#cb12-128"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-129"><a href="#cb12-129"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-130"><a href="#cb12-130"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-131"><a href="#cb12-131"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-132"><a href="#cb12-132"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-133"><a href="#cb12-133"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-134"><a href="#cb12-134"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-135"><a href="#cb12-135"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-136"><a href="#cb12-136"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-137"><a href="#cb12-137"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-138"><a href="#cb12-138"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-139"><a href="#cb12-139"></a><span class="co">#&gt;          </span></span>
-<span id="cb12-140"><a href="#cb12-140"></a><span class="co">#&gt;     0.000</span></span>
-<span id="cb12-141"><a href="#cb12-141"></a><span class="co">#&gt; </span></span>
-<span id="cb12-142"><a href="#cb12-142"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb12-143"><a href="#cb12-143"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb12-144"><a href="#cb12-144"></a><span class="co">#&gt;    .Comprehension     3.323    0.250   13.275    0.000    3.323</span></span>
-<span id="cb12-145"><a href="#cb12-145"></a><span class="co">#&gt;    .Information       2.660    0.202   13.179    0.000    2.660</span></span>
-<span id="cb12-146"><a href="#cb12-146"></a><span class="co">#&gt;    .Similarities      2.737    0.212   12.914    0.000    2.737</span></span>
-<span id="cb12-147"><a href="#cb12-147"></a><span class="co">#&gt;    .Vocabulary        1.777    0.208    8.560    0.000    1.777</span></span>
-<span id="cb12-148"><a href="#cb12-148"></a><span class="co">#&gt;    .Matrix.Reasnng    4.388    0.383   11.450    0.000    4.388</span></span>
-<span id="cb12-149"><a href="#cb12-149"></a><span class="co">#&gt;    .Picture.Cncpts    6.004    0.444   13.534    0.000    6.004</span></span>
-<span id="cb12-150"><a href="#cb12-150"></a><span class="co">#&gt;    .Digit.Span        4.908    0.381   12.890    0.000    4.908</span></span>
-<span id="cb12-151"><a href="#cb12-151"></a><span class="co">#&gt;    .Letter.Number     3.713    0.345   10.751    0.000    3.713</span></span>
-<span id="cb12-152"><a href="#cb12-152"></a><span class="co">#&gt;    .Coding            4.971    0.408   12.174    0.000    4.971</span></span>
-<span id="cb12-153"><a href="#cb12-153"></a><span class="co">#&gt;    .Symbol.Search     4.100    0.391   10.489    0.000    4.100</span></span>
-<span id="cb12-154"><a href="#cb12-154"></a><span class="co">#&gt;     gc                2.032    0.373    5.450    0.000    1.000</span></span>
-<span id="cb12-155"><a href="#cb12-155"></a><span class="co">#&gt;     gf                0.402    0.280    1.437    0.151    1.000</span></span>
-<span id="cb12-156"><a href="#cb12-156"></a><span class="co">#&gt;     gsm               0.745    0.282    2.640    0.008    1.000</span></span>
-<span id="cb12-157"><a href="#cb12-157"></a><span class="co">#&gt;     gs                2.136    0.333    6.412    0.000    1.000</span></span>
-<span id="cb12-158"><a href="#cb12-158"></a><span class="co">#&gt;     g                 4.798    0.543    8.841    0.000    1.000</span></span>
-<span id="cb12-159"><a href="#cb12-159"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb12-160"><a href="#cb12-160"></a><span class="co">#&gt;     0.402</span></span>
-<span id="cb12-161"><a href="#cb12-161"></a><span class="co">#&gt;     0.294</span></span>
-<span id="cb12-162"><a href="#cb12-162"></a><span class="co">#&gt;     0.299</span></span>
-<span id="cb12-163"><a href="#cb12-163"></a><span class="co">#&gt;     0.195</span></span>
-<span id="cb12-164"><a href="#cb12-164"></a><span class="co">#&gt;     0.526</span></span>
-<span id="cb12-165"><a href="#cb12-165"></a><span class="co">#&gt;     0.677</span></span>
-<span id="cb12-166"><a href="#cb12-166"></a><span class="co">#&gt;     0.554</span></span>
-<span id="cb12-167"><a href="#cb12-167"></a><span class="co">#&gt;     0.416</span></span>
-<span id="cb12-168"><a href="#cb12-168"></a><span class="co">#&gt;     0.568</span></span>
-<span id="cb12-169"><a href="#cb12-169"></a><span class="co">#&gt;     0.422</span></span>
-<span id="cb12-170"><a href="#cb12-170"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb12-171"><a href="#cb12-171"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb12-172"><a href="#cb12-172"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb12-173"><a href="#cb12-173"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb12-174"><a href="#cb12-174"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb12-175"><a href="#cb12-175"></a><span class="co">#&gt; </span></span>
-<span id="cb12-176"><a href="#cb12-176"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb12-177"><a href="#cb12-177"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb12-178"><a href="#cb12-178"></a><span class="co">#&gt;     Comprehension     0.598</span></span>
-<span id="cb12-179"><a href="#cb12-179"></a><span class="co">#&gt;     Information       0.706</span></span>
-<span id="cb12-180"><a href="#cb12-180"></a><span class="co">#&gt;     Similarities      0.701</span></span>
-<span id="cb12-181"><a href="#cb12-181"></a><span class="co">#&gt;     Vocabulary        0.805</span></span>
-<span id="cb12-182"><a href="#cb12-182"></a><span class="co">#&gt;     Matrix.Reasnng    0.474</span></span>
-<span id="cb12-183"><a href="#cb12-183"></a><span class="co">#&gt;     Picture.Cncpts    0.323</span></span>
-<span id="cb12-184"><a href="#cb12-184"></a><span class="co">#&gt;     Digit.Span        0.446</span></span>
-<span id="cb12-185"><a href="#cb12-185"></a><span class="co">#&gt;     Letter.Number     0.584</span></span>
-<span id="cb12-186"><a href="#cb12-186"></a><span class="co">#&gt;     Coding            0.432</span></span>
-<span id="cb12-187"><a href="#cb12-187"></a><span class="co">#&gt;     Symbol.Search     0.578</span></span></code></pre></div>
+<span id="cb12-57"><a href="#cb12-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb12-58"><a href="#cb12-58"></a><span class="co">#&gt;   gc =~                                                                 </span></span>
+<span id="cb12-59"><a href="#cb12-59"></a><span class="co">#&gt;     Comprehnsn        1.000                               1.426    0.496</span></span>
+<span id="cb12-60"><a href="#cb12-60"></a><span class="co">#&gt;     Informatin        0.883    0.100    8.820    0.000    1.259    0.419</span></span>
+<span id="cb12-61"><a href="#cb12-61"></a><span class="co">#&gt;     Similarits        0.965    0.106    9.134    0.000    1.375    0.454</span></span>
+<span id="cb12-62"><a href="#cb12-62"></a><span class="co">#&gt;     Vocabulary        1.168    0.121    9.670    0.000    1.665    0.552</span></span>
+<span id="cb12-63"><a href="#cb12-63"></a><span class="co">#&gt;   gf =~                                                                 </span></span>
+<span id="cb12-64"><a href="#cb12-64"></a><span class="co">#&gt;     Mtrx.Rsnng (a)    1.000                               0.634    0.220</span></span>
+<span id="cb12-65"><a href="#cb12-65"></a><span class="co">#&gt;     Pctr.Cncpt (a)    1.000                               0.634    0.213</span></span>
+<span id="cb12-66"><a href="#cb12-66"></a><span class="co">#&gt;   gsm =~                                                                </span></span>
+<span id="cb12-67"><a href="#cb12-67"></a><span class="co">#&gt;     Digit.Span (b)    1.000                               0.863    0.290</span></span>
+<span id="cb12-68"><a href="#cb12-68"></a><span class="co">#&gt;     Lettr.Nmbr (b)    1.000                               0.863    0.289</span></span>
+<span id="cb12-69"><a href="#cb12-69"></a><span class="co">#&gt;   gs =~                                                                 </span></span>
+<span id="cb12-70"><a href="#cb12-70"></a><span class="co">#&gt;     Coding     (c)    1.000                               1.461    0.494</span></span>
+<span id="cb12-71"><a href="#cb12-71"></a><span class="co">#&gt;     Symbl.Srch (c)    1.000                               1.461    0.469</span></span>
+<span id="cb12-72"><a href="#cb12-72"></a><span class="co">#&gt;   g =~                                                                  </span></span>
+<span id="cb12-73"><a href="#cb12-73"></a><span class="co">#&gt;     Informatin        1.000                               2.191    0.728</span></span>
+<span id="cb12-74"><a href="#cb12-74"></a><span class="co">#&gt;     Comprehnsn        0.780    0.051   15.388    0.000    1.709    0.594</span></span>
+<span id="cb12-75"><a href="#cb12-75"></a><span class="co">#&gt;     Mtrx.Rsnng        0.859    0.066   13.107    0.000    1.883    0.652</span></span>
+<span id="cb12-76"><a href="#cb12-76"></a><span class="co">#&gt;     Pctr.Cncpt        0.716    0.067   10.704    0.000    1.568    0.527</span></span>
+<span id="cb12-77"><a href="#cb12-77"></a><span class="co">#&gt;     Similarits        0.972    0.051   18.880    0.000    2.130    0.704</span></span>
+<span id="cb12-78"><a href="#cb12-78"></a><span class="co">#&gt;     Vocabulary        0.974    0.047   20.528    0.000    2.134    0.707</span></span>
+<span id="cb12-79"><a href="#cb12-79"></a><span class="co">#&gt;     Digit.Span        0.818    0.068   11.971    0.000    1.792    0.602</span></span>
+<span id="cb12-80"><a href="#cb12-80"></a><span class="co">#&gt;     Lettr.Nmbr        0.965    0.069   13.900    0.000    2.113    0.707</span></span>
+<span id="cb12-81"><a href="#cb12-81"></a><span class="co">#&gt;     Coding            0.584    0.065    8.975    0.000    1.280    0.433</span></span>
+<span id="cb12-82"><a href="#cb12-82"></a><span class="co">#&gt;     Symbl.Srch        0.851    0.069   12.262    0.000    1.865    0.598</span></span>
+<span id="cb12-83"><a href="#cb12-83"></a><span class="co">#&gt; </span></span>
+<span id="cb12-84"><a href="#cb12-84"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb12-85"><a href="#cb12-85"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb12-86"><a href="#cb12-86"></a><span class="co">#&gt;   gc ~~                                                                 </span></span>
+<span id="cb12-87"><a href="#cb12-87"></a><span class="co">#&gt;     gf                0.000                               0.000    0.000</span></span>
+<span id="cb12-88"><a href="#cb12-88"></a><span class="co">#&gt;     gsm               0.000                               0.000    0.000</span></span>
+<span id="cb12-89"><a href="#cb12-89"></a><span class="co">#&gt;     gs                0.000                               0.000    0.000</span></span>
+<span id="cb12-90"><a href="#cb12-90"></a><span class="co">#&gt;     g                 0.000                               0.000    0.000</span></span>
+<span id="cb12-91"><a href="#cb12-91"></a><span class="co">#&gt;   gf ~~                                                                 </span></span>
+<span id="cb12-92"><a href="#cb12-92"></a><span class="co">#&gt;     gsm               0.000                               0.000    0.000</span></span>
+<span id="cb12-93"><a href="#cb12-93"></a><span class="co">#&gt;     gs                0.000                               0.000    0.000</span></span>
+<span id="cb12-94"><a href="#cb12-94"></a><span class="co">#&gt;     g                 0.000                               0.000    0.000</span></span>
+<span id="cb12-95"><a href="#cb12-95"></a><span class="co">#&gt;   gsm ~~                                                                </span></span>
+<span id="cb12-96"><a href="#cb12-96"></a><span class="co">#&gt;     gs                0.000                               0.000    0.000</span></span>
+<span id="cb12-97"><a href="#cb12-97"></a><span class="co">#&gt;     g                 0.000                               0.000    0.000</span></span>
+<span id="cb12-98"><a href="#cb12-98"></a><span class="co">#&gt;   gs ~~                                                                 </span></span>
+<span id="cb12-99"><a href="#cb12-99"></a><span class="co">#&gt;     g                 0.000                               0.000    0.000</span></span>
+<span id="cb12-100"><a href="#cb12-100"></a><span class="co">#&gt; </span></span>
+<span id="cb12-101"><a href="#cb12-101"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb12-102"><a href="#cb12-102"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
+<span id="cb12-103"><a href="#cb12-103"></a><span class="co">#&gt;    .Comprehension     3.323    0.250   13.275    0.000    3.323    0.402</span></span>
+<span id="cb12-104"><a href="#cb12-104"></a><span class="co">#&gt;    .Information       2.660    0.202   13.179    0.000    2.660    0.294</span></span>
+<span id="cb12-105"><a href="#cb12-105"></a><span class="co">#&gt;    .Similarities      2.737    0.212   12.914    0.000    2.737    0.299</span></span>
+<span id="cb12-106"><a href="#cb12-106"></a><span class="co">#&gt;    .Vocabulary        1.777    0.208    8.560    0.000    1.777    0.195</span></span>
+<span id="cb12-107"><a href="#cb12-107"></a><span class="co">#&gt;    .Matrix.Reasnng    4.388    0.383   11.450    0.000    4.388    0.526</span></span>
+<span id="cb12-108"><a href="#cb12-108"></a><span class="co">#&gt;    .Picture.Cncpts    6.004    0.444   13.534    0.000    6.004    0.677</span></span>
+<span id="cb12-109"><a href="#cb12-109"></a><span class="co">#&gt;    .Digit.Span        4.908    0.381   12.890    0.000    4.908    0.554</span></span>
+<span id="cb12-110"><a href="#cb12-110"></a><span class="co">#&gt;    .Letter.Number     3.713    0.345   10.751    0.000    3.713    0.416</span></span>
+<span id="cb12-111"><a href="#cb12-111"></a><span class="co">#&gt;    .Coding            4.971    0.408   12.174    0.000    4.971    0.568</span></span>
+<span id="cb12-112"><a href="#cb12-112"></a><span class="co">#&gt;    .Symbol.Search     4.100    0.391   10.489    0.000    4.100    0.422</span></span>
+<span id="cb12-113"><a href="#cb12-113"></a><span class="co">#&gt;     gc                2.032    0.373    5.450    0.000    1.000    1.000</span></span>
+<span id="cb12-114"><a href="#cb12-114"></a><span class="co">#&gt;     gf                0.402    0.280    1.437    0.151    1.000    1.000</span></span>
+<span id="cb12-115"><a href="#cb12-115"></a><span class="co">#&gt;     gsm               0.745    0.282    2.640    0.008    1.000    1.000</span></span>
+<span id="cb12-116"><a href="#cb12-116"></a><span class="co">#&gt;     gs                2.136    0.333    6.412    0.000    1.000    1.000</span></span>
+<span id="cb12-117"><a href="#cb12-117"></a><span class="co">#&gt;     g                 4.798    0.543    8.841    0.000    1.000    1.000</span></span>
+<span id="cb12-118"><a href="#cb12-118"></a><span class="co">#&gt; </span></span>
+<span id="cb12-119"><a href="#cb12-119"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb12-120"><a href="#cb12-120"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb12-121"><a href="#cb12-121"></a><span class="co">#&gt;     Comprehension     0.598</span></span>
+<span id="cb12-122"><a href="#cb12-122"></a><span class="co">#&gt;     Information       0.706</span></span>
+<span id="cb12-123"><a href="#cb12-123"></a><span class="co">#&gt;     Similarities      0.701</span></span>
+<span id="cb12-124"><a href="#cb12-124"></a><span class="co">#&gt;     Vocabulary        0.805</span></span>
+<span id="cb12-125"><a href="#cb12-125"></a><span class="co">#&gt;     Matrix.Reasnng    0.474</span></span>
+<span id="cb12-126"><a href="#cb12-126"></a><span class="co">#&gt;     Picture.Cncpts    0.323</span></span>
+<span id="cb12-127"><a href="#cb12-127"></a><span class="co">#&gt;     Digit.Span        0.446</span></span>
+<span id="cb12-128"><a href="#cb12-128"></a><span class="co">#&gt;     Letter.Number     0.584</span></span>
+<span id="cb12-129"><a href="#cb12-129"></a><span class="co">#&gt;     Coding            0.432</span></span>
+<span id="cb12-130"><a href="#cb12-130"></a><span class="co">#&gt;     Symbol.Search     0.578</span></span></code></pre></div>
 </div>
 <div id="examples-bi-factor-wisc-3" class="slide section level2">
 <h1>Examples: Bi-factor WISC</h1>

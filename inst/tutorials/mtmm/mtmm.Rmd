@@ -1,0 +1,477 @@
+---
+title: "MTMM"
+tutorial:
+  id: "mtmm"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: In this tutorial, you will learn about the multi-trait multi-method procedure and how to analyze for convergent and divergent validity. 
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(learnSEM)
+knitr::opts_chunk$set(echo = FALSE)
+library(lavaan)
+library(semPlot)
+data(meaningdata)
+```
+
+## Multi-Trait Multi-Method
+
+This section of the course examines the nature of using multiple scales to assess the same underlying latent traits. We will cover the procedure to examine if multiple methods converge on measuring the same traits, if the traits are divergent (i.e., not the same), and if the methods measure different portions of each latent trait. You will learn how to interpret parameter estimates in this fashion as well. The learning outcomes are:
+
+- Build, analyze, and summarize the steps to a MTMM model 
+- Learn specific MTMM set ups that demonstrate how to change `~~` parameters
+- Explore how to print results in a table 
+
+## MTMM Videos
+
+Placeholder screen for videos after they are completed. 
+
+## Exercises
+
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
+
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
+
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## The Data
+
+The data is provided for you below, and it has been loaded for you in the background, along with the `lavaan` and `semPlot` libraries. The data contains three scales that measure meaning and purpose: The Meaning in Life Questionnaire, the Purpose in Life Questionnaire, and the Seeking of Noetic Goals test. 
+
+```{r echo = T}
+head(meaningdata)
+```
+
+## The Traits and Methods
+
+The mapping of traits and methods are:
+
+- Traits:
+    - Meaning: 
+        - MLQ 1, 2, 5, 10
+        - SONG 1, 9
+        - PIL 4, 17
+    - Purpose:
+        - MLQ 3, 4, 6, 8, 9
+        - SONG 2, 8
+        - PIL 3, 20
+- Methods
+    - MLQ (m questions)
+    - SONG (s questions)
+    - PIL (p questions)
+
+## Model 1
+
+In this section, we will start with step one of the MTMM models. You should build, analyze, and summarize the Correlated Traits / Correlated Methods model below. You should save this model as `step1.model` to use later. Save the model output as `step1.fit`. Do not forget that you need to standardize on the latent variable! We will do model comparison after defining each model. 
+
+Sometimes, with a lot of code, the helpful answer cuts off. You can use control + a to highlight all the text, then control + c to copy it, and control + v to paste it in the box to view all of it at once. Don't forget you can go back to the previous page to look at the mappings of traits and methods to each other. 
+
+```{r model1, exercise = TRUE}
+
+```
+
+```{r model1-solution}
+step1.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+'
+step1.fit <- cfa(model = step1.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+summary(step1.fit, 
+        rsquare = TRUE, 
+        fit.measures = TRUE,
+        standardized = TRUE)
+```
+
+## Model 2
+
+In this step, you want to create `step2.fit` for the methods only model. Save the model output as `step2.fit`, and summarize the output.  
+
+```{r model2, exercise = TRUE}
+
+```
+
+```{r model2-solution}
+step2.model <- '
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+'
+step2.fit <- cfa(model = step2.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+summary(step2.fit, 
+        rsquare = TRUE, 
+        fit.measures = TRUE,
+        standardized = TRUE)
+```
+
+## Model 3
+
+In this step, you want to create `step3.fit` perfectly correlated traits model. Save the model output as `step3.fit`, and summarize the output.  
+
+```{r model3, exercise = TRUE}
+
+```
+
+```{r model3-solution}
+step3.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##perfect traits
+meaning ~~ 1*purpose
+'
+step3.fit <- cfa(model = step3.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+summary(step3.fit, 
+        rsquare = TRUE, 
+        fit.measures = TRUE,
+        standardized = TRUE)
+```
+
+## Model 4
+
+In this step, you want to create `step4.fit` uncorrelated methods model. Save the model output as `step4.fit`, and summarize the output.  
+
+```{r model4, exercise = TRUE}
+
+```
+
+```{r model4-solution}
+step4.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##methods covariances to zero
+mlq ~~ 0*song
+mlq ~~ 0*pil
+song ~~ 0*pil
+'
+step4.fit <- cfa(model = step4.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+summary(step4.fit, 
+        rsquare = TRUE, 
+        fit.measures = TRUE,
+        standardized = TRUE)
+```
+
+## Model Comparison
+
+We can use `kable()` from the `knitr` library to help us build a table to compare models. You will want to change the `1:5` to the appropriate model step using `fitmeasures` to grab the fit statistics mentioned. An example is provided below. There are lots of ways to make these types of tables, including `broom`. Additionally, `flextable` is a great table package as well. Here's just an example of how one might summarize their models. 
+
+```{r model_table-setup}
+step1.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+'
+step1.fit <- cfa(model = step1.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step2.model <- '
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+'
+step2.fit <- cfa(model = step2.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step3.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##perfect traits
+meaning ~~ 1*purpose
+'
+step3.fit <- cfa(model = step3.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step4.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##methods covariances to zero
+mlq ~~ 0*song
+mlq ~~ 0*pil
+song ~~ 0*pil
+'
+step4.fit <- cfa(model = step4.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+```
+
+```{r model_table, exercise = TRUE}
+library(knitr)
+tableprint <- matrix(NA, nrow = 4, ncol = 6)
+colnames(tableprint) <- c("Model", "Chi-Square", "df", 
+                         "RMSEA", "SRMR", "CFI")
+##replace the 1:5 with the appropriate code
+##the code should be fitmeasures(step1.fit, c("chisq", "df", "rmsea", "srmr", "cfi"))
+##add that code for each section
+tableprint[1, ] = c("Model 1 - Correlated traits and methods", 1:5)
+tableprint[2, ] = c("Model 2 - No traits, correlated methods", 1:5)
+tableprint[3, ] = c("Model 3 - Perfectly correlated traits, correlated methods", 1:5)
+tableprint[4, ] = c("Model 4 - Correlated traits, uncorrelated methods", 1:5)
+
+kable(tableprint)
+```
+
+```{r model_table-solution}
+library(knitr)
+tableprint <- matrix(NA, nrow = 4, ncol = 6)
+colnames(tableprint) <- c("Model", "Chi-Square", "df", 
+                         "RMSEA", "SRMR", "CFI")
+##replace the 1:5 with the appropriate code
+##the code should be fitmeasures(step1.fit, c("chisq", "df", "rmsea", "srmr", "cfi"))
+##add that code for each section
+tableprint[1, ] = c("Model 1 - Correlated traits and methods", fitmeasures(step1.fit, c("chisq", "df", "rmsea", "srmr", "cfi")))
+tableprint[2, ] = c("Model 2 - No traits, correlated methods", fitmeasures(step2.fit, c("chisq", "df", "rmsea", "srmr", "cfi")))
+tableprint[3, ] = c("Model 3 - Perfectly correlated traits, correlated methods", fitmeasures(step3.fit, c("chisq", "df", "rmsea", "srmr", "cfi")))
+tableprint[4, ] = c("Model 4 - Correlated traits, uncorrelated methods", fitmeasures(step4.fit, c("chisq", "df", "rmsea", "srmr", "cfi")))
+
+kable(tableprint)
+```
+
+Using CFI change, what do the model results suggest? For each step note if the models are different, and if that supports/does not support convergent and divergent validity. 
+
+```{r model1-open}
+question_text(
+  "Model 1 versus Model 2: Convergent Validity:",
+  answer("Model 1 is better, which supports convergent validity.", correct = TRUE),
+  incorrect = "Model 1 is better, supporting convergent validity.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r model2-open}
+question_text(
+  "Model 1 versus Model 3: Divergent Validity:",
+    answer("Model 1 is the same as Model 3, which does not support divergent validity.", correct = TRUE),
+  incorrect = "Model 1 is the same as Model 3, which does not support divergent validity.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r model3-open}
+question_text(
+  "Model 1 versus Model 4: Divergent Validity:",
+    answer("Model 1 is better than Model 4, which is not what we want. Therefore, it does not support convergent validity.", correct = TRUE),
+  incorrect = "Model 1 is better than Model 4, which is not what we want. Therefore, it does not support convergent validity.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Interpreting Parmaters
+
+Print out the `parameterestimates` for Model 1 `step1.fit`.
+
+```{r parameters-setup}
+step1.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+'
+step1.fit <- cfa(model = step1.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step2.model <- '
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+'
+step2.fit <- cfa(model = step2.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step3.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##perfect traits
+meaning ~~ 1*purpose
+'
+step3.fit <- cfa(model = step3.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+
+step4.model <- '
+meaning =~ m1 + m2 + m5 + m10 + s1 + s9 + p4 + p17
+purpose =~ m3 + m4 + m6 + m8 + m9 + s2 + s8 + p3 + p20
+mlq =~ m1 + m2 + m5 + m10 + m3 + m4 + m6 + m8 + m9
+song =~ s1 + s9 + s2 + s8
+pil =~ p4 + p17 + p3 + p20
+
+##cross covariances to zero
+meaning ~~ 0*mlq
+meaning ~~ 0*song
+meaning ~~ 0*pil
+purpose ~~ 0*mlq
+purpose ~~ 0*song
+purpose ~~ 0*pil
+
+##methods covariances to zero
+mlq ~~ 0*song
+mlq ~~ 0*pil
+song ~~ 0*pil
+'
+step4.fit <- cfa(model = step4.model, 
+                 data = meaningdata, 
+                 std.lv = TRUE)
+```
+
+```{r parameters, exercise = TRUE}
+
+```
+
+```{r parameters-solution}
+parameterestimates(step1.fit, standardized = TRUE)
+```
+
+```{r parameters1-open}
+question_text(
+  "Are the parameter estimates for the traits higher than the ones for the methods?",
+    answer("About half and half.", correct = TRUE),
+  incorrect = "There is a mix of ones that are higher for traits than methods.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r parameters2-open}
+question_text(
+  "Examine the correlations between traits. Do the correlations support divergent validity of the traits?",
+    answer("Nope! It's nearly one.", correct = TRUE),
+  incorrect = "Nope! It's nearly one.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r parameters3-open}
+question_text(
+  "Examine the correlation between the methods. Do the correlations support the divergent validity of the methods?",
+    answer("The MLQ and SONG are correlated but otherwise they are uncorrelated.", correct = TRUE),
+  incorrect = "The MLQ and SONG are correlated but otherwise they are uncorrelated.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
+```

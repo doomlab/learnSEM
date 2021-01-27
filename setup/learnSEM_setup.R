@@ -19,7 +19,7 @@ library(rio)
 #efa <- import("data/assignment_efa.csv")
 #usethis::use_data(meaningdata, overwrite = T)
 
-#usethis::use_tutorial("mtmm", "MTMM", open = interactive())
+#usethis::use_tutorial("mgcfa", "MGCFA", open = interactive())
 
 
 library(roxygen2)

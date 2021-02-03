@@ -17,9 +17,9 @@ library(usethis)
 
 library(rio)
 #efa <- import("data/assignment_efa.csv")
-#usethis::use_data(meaningdata, overwrite = T)
+#usethis::use_data(resdata, overwrite = T)
 
-#usethis::use_tutorial("mgcfa", "MGCFA", open = interactive())
+#usethis::use_tutorial("irt", "Item Response Theory", open = interactive())
 
 
 library(roxygen2)

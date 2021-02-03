@@ -1,74 +1,238 @@
 ---
-title: "MGCFA"
+title: "Multigroup Confirmatory Factor Analysis"
+tutorial:
+  id: "mgcfa"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: In this tutorial, you will practice a multigroup confirmatory factor analysis exploring the differences in structure and loadings for groups in a CFA.  
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnSEM)
 knitr::opts_chunk$set(echo = FALSE)
+library(lavaan)
+library(semPlot)
+data(resdata)
 ```
 
+## Multigroup Confirmatory Factor Analysis
 
-## Topic 1
+Multigroup confirmatory factor analysis (MGCFA) is a useful tool for examining the fit and structure of latent variable models across groups. You will learn how to test if groups show the same configuration, loadings, intercepts, and residuals. With this information, we can begin to think about how groups may show different results on a measure because of the qualities of the measurement, rather than experimental manipulation. You will learn the following outcomes: 
 
-### Exercise 
+- Learn the new terminology associated with multigroup models.
+- Calculate the steps to a multigroup model and assess for changes in model fit.
+- Discuss the implications of complete and partial invariance for multigroup models.
+- Learn how to examine latent means for overall group differences.
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+## MGCFA Videos
 
-Write the R code required to add two plus two:
+Coming soon. 
 
-```{r two-plus-two, exercise=TRUE}
+## MGCFA Data
 
-```
+What is in the dataset? The Openness to Experience dataset includes the following:
 
-### Exercise with Code
+**Instructions**: Below are some phrases describing people's behaviors. Please use the rating scale below to describe how accurately each statement describes you. Describe yourself as you generally are now, not as you wish to be in the future. Describe yourself as you honestly see yourself in relation to other people of your gender and of roughly your same age.  Please read each statement carefully, and then check the box that corresponds to your response.
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+**Scale**: very inaccurate, moderately inaccurate, neither inaccurate nor accurate, moderately accurate, very accurate
 
-Now write a function that adds any two numbers and then call it:
+**Items**:
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
-```
+1.	Believe in the importance of art.
+2.	Have a vivid imagination.
+3.	Tend to vote for liberal political candidates.
+4.	Carry the conversation to a higher level.
+5.	Enjoy hearing new ideas.
+6.	Enjoy thinking about things.
+7.	Can say things beautifully.
+8.	Enjoy wild flights of fantasy.
+9.	Get excited by new ideas.
+10.	Have a rich vocabulary.
+11.	Am not interested in abstract ideas.
+12.	Do not like art.
+13.	Avoid philosophical discussions.
+14.	Do not enjoy going to art museums.
+15.	Tend to vote for conservative political candidates.
+16.	Do not like poetry.
+17.	Rarely look for a deeper meaning in things.
+18.	Believe that too much tax money goes to support artists.
+19.	Am not interested in theoretical discussions.
+20.	Have difficulty understanding abstract ideas.
 
-## Topic 2
+## Exercises
 
-### Exercise with Hint
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
 
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
 )
 ```
+
+
+## MGCFA Class Assignment
+
+Using the same RS14 dataset from class, examine the multigroup analysis using `Ethnicity` as the grouping variable of interest. 
+
+## Data Libraries
+
+Load the included dataset and libraries for this assignment. 
+
+```{r}
+
+```
+
+## Data Cleanup
+
+In this example, code 1 as Black and 2 as White. Be sure to first change the variable to a factor with labels. 
+
+```{r}
+
+```
+
+## Overall CFA
+
+In this section, build the overall one-factor CFA for the RS14. You can use the example we did in class to get started. Include the `cfa()` and `summary()` of your model here. You should call this model `overall.model`.
+
+```{r}
+
+```
+
+## White Overall Summary
+
+Create a `white.fit` of the model for only White participants. Include the `summary()` of this model. 
+
+```{r}
+
+```
+
+## Black Overall Summary
+
+Create a `black.fit` of the model for only Black participants. Include the `summary()` of this model. 
+
+```{r}
+
+```
+
+## Add the fit to table
+
+In the code below, we've started a table for our fit indices. Fill in the section labeled `#update here` with the same `round(fitmeasures(...))` code used in the first row. 
+
+```{r}
+library(knitr)
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+kable(table_fit)
+
+table_fit[2, ] <- c("White Model", #update here
+                    )
+
+table_fit[3, ] <- c("Black Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+QUESTION: Does your model appear to fit ok overall and within each individual group? 
+ANSWER: 
+
+## Configural Invariance
+
+Create a `configural.fit` model using `Ethnicity` as your group variable. Include a `summary()` of this model. Add in the `configural.fit` to your table. 
+
+```{r}
+
+
+table_fit[4, ] <- c("Configural Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+## Metric Invariance
+
+In this section, create `metric.fit`, summarize the model, and add the model information to your table. 
+
+```{r}
+
+
+table_fit[5, ] <- c("Metric Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+## Scalar Invariance
+
+In this section, create `scalar.fit`, summarize the model, and add the model information to your table.  
+
+```{r}
+
+table_fit[6, ] <- c("Scalar Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+## Strict (Error) Invariance
+
+Last, add `strict.fit` by including error variances in your multigroup model, summarize that model, and include the fit information in the table. 
+
+```{r}
+
+table_fit[7, ] <- c("Strict Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+QUESTION: Looking at your results, do you see anywhere that indicates non-invariance (i.e., has a larger change than CFI = .01)? Where did it appear to break down?
+
+## Partial Invariance
+
+Use the code provided from class to calculate the potential pathway that should be freed to improve our model fit for partial invariance. 
+
+```{r}
+
+```
+
+## Update the Model
+
+Create `partial.fit` by updating your model to allow for the freed parameter. Summarize the model, and add this model's fit information to your table. 
+
+```{r}
+
+table_fit[8, ] <- c("Partial Model", #update here
+                    )
+
+kable(table_fit)
+```
+
+QUESTION: Does the freeing of this one parameter bring your model up to partial invariance for that step? 
+ANSWER:
+
+QUESTION: What does the result of the partial invariance step imply for interpreting this scale? 
+ANSWER:
+
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
+```
+

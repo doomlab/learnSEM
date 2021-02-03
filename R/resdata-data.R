@@ -1,0 +1,61 @@
+#' Multigroup CFA Practice Data
+#'
+#' Study: This dataset has data on gender, ethnicity,
+#' and a resiliency scale for practicing factor analysis
+#' and other structural equation modeling topics
+#' like multigroup CFA.
+#'
+#' The instructions were:
+#'
+#' Please read the following statements. To the right of
+#' each you will find seven numbers, ranging from "1"
+#' (Strongly Disagree) on the left to "7" (Strongly Agree)
+#' on the right. Circle the number which best indicates
+#' your feelings about that statement. For example, if
+#' you strongly disagree with a statement, circle "1".
+#' If you are neutral, circle "4", and if you
+#' strongly agree, circle "7", etc.
+#'
+#' Scale: strongly disagree, moderately disagree,
+#' somewhat disagree, neutral, somewhat agree,
+#' moderately agree, strongly agree
+#'
+#' @docType data
+#'
+#' @usage data(resdata)
+#'
+#' @format A data frame with 516 rows and 16 variables.
+#'
+#'\describe{
+#'   \item{Sex}{A variable for gender where 1 is
+#'   male, 2 is female, and 3 is other/na.}
+#'   \item{Ethnicity}{A variable for ethnicity
+#'   coded as 1 as Black, 2 as White, and 3 as
+#'   other/na.}
+#'   \item{RS1}{I usually manage one way or
+#'   another.}
+#'   \item{RS2}{I feel proud that I have accomplished
+#'   things in life.}
+#'   \item{RS3}{I usually take things in stride.}
+#'   \item{RS4}{I am friends with myself.}
+#'   \item{RS5}{I feel that I can handle many
+#'   things at a time.}
+#'   \item{RS6}{I am determined.}
+#'   \item{RS7}{I can get through difficult times
+#'   because I’ve experienced difficulty before.}
+#'   \item{RS8}{I have self-discipline.}
+#'   \item{RS9}{I keep interested in things.}
+#'   \item{RS10}{I can usually find something to
+#'   laugh about.}
+#'   \item{RS11}{My belief in myself gets me through
+#'   hard times.}
+#'   \item{RS12}{In an emergency, I’m someone people
+#'   can generally rely on.}
+#'   \item{RS13}{My life has meaning.}
+#'   \item{RS14}{When I’m in a difficult situation, I
+#'   can usually find my way out of it.}
+#' }
+#'
+#' @keywords datasets
+"resdata"
+

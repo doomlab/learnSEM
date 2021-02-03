@@ -4,7 +4,7 @@ tutorial:
   id: "cfasecond"
 output: learnr::tutorial
 runtime: shiny_prerendered
-description: In this tutorial, you will how to examine models for a second order confirmatory factor analysis using hierarchical and bi-factor models. 
+description: In this tutorial, you will learn how to examine models for a second order confirmatory factor analysis using hierarchical and bi-factor models. 
 ---
 
 ```{r setup, include=FALSE}

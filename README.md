@@ -30,6 +30,18 @@ As of 15/12/2020 (DD/MM/YYYY), I have finished the following sections:
 
 5. Path Models: `learnr::run_tutorial("path1", "learnSEM")` and `learnr::run_tutorial("path2", "learnSEM")`
 
-6. Path Models: `learnr::run_tutorial("cfabasics", "learnSEM")`
+6. CFA Models: `learnr::run_tutorial("cfabasics", "learnSEM")`
 
-Lecture videos are being updated every Friday - they will become active in the tutorial when they are shared. 
+7. CFA Second Order Models: `learnr::run_tutorial("cfasecond", "learnSEM")`
+
+8. Full Structural Models: `learnr::run_tutorial("fullsem", "learnSEM")`
+
+9. Multitrait Multimethod: `learnr::run_tutorial("mtmm", "learnSEM")`
+
+10. Multigroup CFA: `learnr::run_tutorial("mgcfa", "learnSEM")` **still updating**
+
+11. Latent Growth Models: `learnr::run_tutorial("lgm", "learnSEM")` **still updating**
+
+12. Item Response Theory: `learnr::run_tutorial("irt", "learnSEM")` **still updating**
+
+Lecture videos are being updated every Friday - they will become active in the tutorial when they are shared. Also I've added all the lecture notes as vignettes! Will add the code on how to access them shortly. 

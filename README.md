@@ -18,7 +18,7 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 
 ### Course Schedule and Updates
 
-As of 15/12/2020 (DD/MM/YYYY), I have finished the following sections:
+As of 04/02/2020 (DD/MM/YYYY), I have finished the following sections:
 
 1. Introduction to R: `learnr::run_tutorial("introR", "learnSEM")`
 

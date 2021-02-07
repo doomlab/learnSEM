@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(lavaan)
 library(semPlot)
 data(resdata)
+library(knitr)
 ```
 
 ## Multigroup Confirmatory Factor Analysis
@@ -76,63 +77,156 @@ question_text(
 )
 ```
 
+## Data Cleanup
 
-## MGCFA Class Assignment
+Using the same RS14 dataset from class, examine the multigroup analysis using `Ethnicity` as the grouping variable of interest. In this example, code 1 as Black and 2 as White. Be sure to first change the variable to a factor with labels. 
 
-Using the same RS14 dataset from class, examine the multigroup analysis using `Ethnicity` as the grouping variable of interest. 
-
-## Data Libraries
-
-Load the included dataset and libraries for this assignment. 
-
-```{r}
+```{r cleanup, exercise = TRUE}
 
 ```
 
-## Data Cleanup
-
-In this example, code 1 as Black and 2 as White. Be sure to first change the variable to a factor with labels. 
-
-```{r}
-
+```{r cleanup-solution}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
 ```
 
 ## Overall CFA
 
-In this section, build the overall one-factor CFA for the RS14. You can use the example we did in class to get started. Include the `cfa()` and `summary()` of your model here. You should call this model `overall.model`.
+In this section, build the overall one-factor CFA for the RS14. You can use the example we did in class to get started. Include the `cfa()` and `summary()` of your model here. You should call this model `overall.model` and the latent variable should be labeled `RS`. 
 
-```{r}
+```{r onefactor-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+```
 
+```{r onefactor, exercise = TRUE}
+
+```
+
+```{r onefactor-solution}
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+summary(overall.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
 ```
 
 ## White Overall Summary
 
-Create a `white.fit` of the model for only White participants. Include the `summary()` of this model. 
+Create a `white.fit` of the model for only White participants. Include the `summary()` of this model. Note that all missing data has been excluded for the rest of the analysis. 
 
-```{r}
+```{r white-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+```
+
+```{r white, exercise = TRUE}
+
+```
+
+```{r white-solution}
+#lots of ways to subset here's one
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+summary(white.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
 ```
 
 ## Black Overall Summary
 
 Create a `black.fit` of the model for only Black participants. Include the `summary()` of this model. 
 
-```{r}
+```{r black-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+```
+
+```{r black, exercise = TRUE}
+
+```
+
+```{r black-solution}
+#lots of ways to subset here's one
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+summary(black.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
 ```
 
 ## Add the fit to table
 
 In the code below, we've started a table for our fit indices. Fill in the section labeled `#update here` with the same `round(fitmeasures(...))` code used in the first row. 
 
-```{r}
-library(knitr)
+```{r table1-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
+
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+```
+
+```{r table1, exercise = TRUE}
 table_fit <- matrix(NA, nrow = 8, ncol = 6)
 colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
 table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
                                                  c("chisq", "df", "cfi",
                                                    "rmsea", "srmr")),3))
-kable(table_fit)
 
 table_fit[2, ] <- c("White Model", #update here
                     )
@@ -143,18 +237,106 @@ table_fit[3, ] <- c("Black Model", #update here
 kable(table_fit)
 ```
 
-QUESTION: Does your model appear to fit ok overall and within each individual group? 
-ANSWER: 
+```{r table1-solution}
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+kable(table_fit)
+```
+
+```{r fitgroups-open}
+question_text(
+  "Does your model appear to fit ok overall and within each individual group?",
+  answer("Both models appear to fit ok.", correct = TRUE),
+  incorrect = "Both models appear to fit ok.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
 ## Configural Invariance
 
 Create a `configural.fit` model using `Ethnicity` as your group variable. Include a `summary()` of this model. Add in the `configural.fit` to your table. 
 
-```{r}
+```{r configural-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
 
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+```
+
+```{r configural, exercise = TRUE}
+#put in the cfa
+
+#put in the summary
+
+#add to the table
 table_fit[4, ] <- c("Configural Model", #update here
                     )
+
+kable(table_fit)
+```
+
+```{r configural-solution}
+#put in the cfa
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+#put in the summary
+summary(configural.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
+
+#add to the table
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
 
 kable(table_fit)
 ```
@@ -163,11 +345,84 @@ kable(table_fit)
 
 In this section, create `metric.fit`, summarize the model, and add the model information to your table. 
 
-```{r}
+```{r metric-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
 
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+```
+
+```{r metric, exercise = TRUE}
+#put in the cfa
+
+#put in the summary
+
+#add to the table
 table_fit[5, ] <- c("Metric Model", #update here
                     )
+
+kable(table_fit)
+```
+
+```{r metric-solution}
+#put in the cfa
+metric.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings"))
+
+#put in the summary
+summary(metric.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
+
+#add to the table
+table_fit[5, ] <- c("Metric Model", round(fitmeasures(metric.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
 
 kable(table_fit)
 ```
@@ -176,10 +431,94 @@ kable(table_fit)
 
 In this section, create `scalar.fit`, summarize the model, and add the model information to your table.  
 
-```{r}
+```{r scalar-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+metric.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings"))
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[5, ] <- c("Metric Model", round(fitmeasures(metric.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+```
+
+```{r scalar, exercise = TRUE}
+#put in the cfa
+
+#put in the summary
+
+#add to the table
 table_fit[6, ] <- c("Scalar Model", #update here
                     )
+
+kable(table_fit)
+```
+
+```{r scalar-solution}
+#put in the cfa
+scalar.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts"))
+
+#put in the summary
+summary(metric.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
+
+#add to the table
+table_fit[6, ] <- c("Scalar Model", round(fitmeasures(scalar.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
 
 kable(table_fit)
 ```
@@ -188,41 +527,384 @@ kable(table_fit)
 
 Last, add `strict.fit` by including error variances in your multigroup model, summarize that model, and include the fit information in the table. 
 
-```{r}
+```{r strict-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+metric.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings"))
+
+scalar.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts"))
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[5, ] <- c("Metric Model", round(fitmeasures(metric.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[6, ] <- c("Scalar Model", round(fitmeasures(scalar.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+```
+
+```{r strict, exercise = TRUE}
+#put in the cfa
+
+#put in the summary
+
+#add to the table
 table_fit[7, ] <- c("Strict Model", #update here
                     )
 
 kable(table_fit)
 ```
 
-QUESTION: Looking at your results, do you see anywhere that indicates non-invariance (i.e., has a larger change than CFI = .01)? Where did it appear to break down?
+```{r strict-solution}
+#put in the cfa
+strict.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts", "residuals"))
+
+#put in the summary
+summary(strict.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
+
+#add to the table
+table_fit[7, ] <- c("Strict Model", round(fitmeasures(strict.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+kable(table_fit)
+```
+
+```{r scalar-open}
+question_text(
+  "Looking at your results, do you see anywhere that indicates non-invariance (i.e., has a larger change than CFI = .01)? Where did it appear to break down?",
+  answer("At the strict step!", correct = TRUE),
+  incorrect = "The model stops being invariant at the strict step.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
 ## Partial Invariance
 
-Use the code provided from class to calculate the potential pathway that should be freed to improve our model fit for partial invariance. 
+Use the code provided from class to calculate the potential pathway that should be freed to improve our model fit for partial invariance. The code has been partially provided for you. Fill in the sections labeled `#fill in here` with the appropriate code. For the `partial_synatx` you should fill in the `lavaan` syntax for the step that broken down (i.e., `=~` for loadings, `~1` for intercepts, or `~~` for residuals). In the model section, fill in `group.equal` with the appropriate step for where your model broken down. 
 
-```{r}
+```{r partial-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+metric.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings"))
+
+scalar.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts"))
+
+strict.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts", "residuals"))
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[5, ] <- c("Metric Model", round(fitmeasures(metric.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[6, ] <- c("Scalar Model", round(fitmeasures(scalar.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[7, ] <- c("Strict Model", round(fitmeasures(strict.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
 ```
 
-## Update the Model
+```{r partial, exercise = TRUE}
+##write out partial codes
+partial_syntax <- paste(colnames(res.data)[3:16], #all the columns
+                        ##fill in here
+                        colnames(res.data)[3:16]) #all columns again 
+partial_syntax
+
+CFI_list  <- 1:length(partial_syntax)
+names(CFI_list) <- partial_syntax
+
+for (i in 1:length(partial_syntax)){
+  
+  temp <- cfa(model = overall.model, 
+              data = resdata,
+              meanstructure = TRUE,
+              group = "Ethnicity",
+              group.equal = #fill in here,
+              group.partial = partial_syntax[i])
+  
+  CFI_list[i] <- fitmeasures(temp, "cfi")
+}
+
+which.max(CFI_list)
+```
+
+```{r partial-solution}
+##write out partial codes
+partial_syntax <- paste(colnames(resdata)[3:16], #all the columns
+                        "~~",
+                        colnames(resdata)[3:16]) #all columns again 
+partial_syntax
+
+CFI_list  <- 1:length(partial_syntax)
+names(CFI_list) <- partial_syntax
+
+for (i in 1:length(partial_syntax)){
+  
+  temp <- cfa(model = overall.model, 
+              data = resdata,
+              meanstructure = TRUE,
+              group = "Ethnicity",
+              group.equal = c("loadings", "intercepts", "residuals"),
+              group.partial = partial_syntax[i])
+  
+  CFI_list[i] <- fitmeasures(temp, "cfi")
+}
+
+which.max(CFI_list)
+```
 
 Create `partial.fit` by updating your model to allow for the freed parameter. Summarize the model, and add this model's fit information to your table. 
 
-```{r}
+```{r partial2-setup}
+resdata$Ethnicity <- factor(resdata$Ethnicity,
+                            levels = c(1,2),
+                            labels = c("Black", "White"))
+resdata <- na.omit(resdata)
 
+overall.model <- "
+RS =~ RS1 + RS2 + RS3 + RS4 + RS5 + RS6 + RS7 + RS8 + RS9 + RS10 + RS11 + RS12 + RS13 + RS14
+"
+
+#models
+overall.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE)
+
+white.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "White", ],
+                 meanstructure = TRUE)
+
+black.fit <- cfa(model = overall.model,
+                 data = resdata[resdata$Ethnicity == "Black", ],
+                 meanstructure = TRUE)
+
+configural.fit <- cfa(model = overall.model,
+                      data = resdata,
+                      meanstructure = TRUE,
+                      group = "Ethnicity")
+
+metric.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings"))
+
+scalar.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts"))
+
+strict.fit <- cfa(model = overall.model,
+                  data = resdata,
+                  meanstructure = TRUE,
+                  group = "Ethnicity",
+                  group.equal = c("loadings", "intercepts", "residuals"))
+
+#kable
+table_fit <- matrix(NA, nrow = 8, ncol = 6)
+colnames(table_fit) = c("Model", "X2", "df", "CFI", "RMSEA", "SRMR")
+table_fit[1, ] <- c("Overall Model", round(fitmeasures(overall.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[2, ] <- c("White Model", round(fitmeasures(white.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[3, ] <- c("Black Model", round(fitmeasures(black.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[4, ] <- c("Configural Model", round(fitmeasures(configural.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[5, ] <- c("Metric Model", round(fitmeasures(metric.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[6, ] <- c("Scalar Model", round(fitmeasures(scalar.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+table_fit[7, ] <- c("Strict Model", round(fitmeasures(strict.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+```
+
+```{r partial2, exercise = TRUE}
+#put in the cfa
+
+#put in the summary
+
+#add to the table
 table_fit[8, ] <- c("Partial Model", #update here
                     )
 
 kable(table_fit)
 ```
 
-QUESTION: Does the freeing of this one parameter bring your model up to partial invariance for that step? 
-ANSWER:
+```{r partial2-solution}
+#put in the cfa
+partial.fit <- cfa(model = overall.model,
+                   data = resdata,
+                   meanstructure = TRUE,
+                   group = "Ethnicity",
+                   group.equal = c("loadings", "intercepts", "residuals"),
+                   group.partial = c("RS3 ~~ RS3"))
 
-QUESTION: What does the result of the partial invariance step imply for interpreting this scale? 
-ANSWER:
+#put in the summary
+summary(partial.fit, 
+        rsquare = T, 
+        standardized = T,
+        fit.measures = T)
+
+#add to the table
+table_fit[8, ] <- c("Partial Model", round(fitmeasures(partial.fit, 
+                                                 c("chisq", "df", "cfi",
+                                                   "rmsea", "srmr")),3))
+
+kable(table_fit)
+```
+
+```{r freeparameter-open}
+question_text(
+  "Does the freeing of this one parameter bring your model up to partial invariance for that step?",
+  answer("No not quite. We could run this again and check for another parameter.", correct = TRUE),
+  incorrect = "No not quite. We could run this again and check for another parameter.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r partialinterpret-open}
+question_text(
+  "What does the result of the partial invariance step imply for interpreting this scale? ",
+  answer("Blacks and Whites have different variances for RS3.", correct = TRUE),
+  incorrect = "Blacks and Whites have different variances for RS3 (and maybe one more), otherwise, the scale is invariant.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
 
 ## Submit
 

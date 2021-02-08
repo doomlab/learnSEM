@@ -724,14 +724,11 @@ list-style-type: none;
 <span id="cb3-4"><a href="#cb3-4"></a>traits.fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(<span class="dt">model =</span> traits.model,</span>
 <span id="cb3-5"><a href="#cb3-5"></a>                  <span class="dt">data =</span> meaning.data,</span>
 <span id="cb3-6"><a href="#cb3-6"></a>                  <span class="dt">std.lv =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; Warning in lav_object_post_check(object): lavaan </span><span class="al">WARNING</span><span class="co">: covariance matrix of latent variables</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;                 is not positive definite;</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;                 use lavInspect(fit, &quot;cov.lv&quot;) to investigate.</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="kw">lavInspect</span>(traits.fit, <span class="st">&quot;cor.lv&quot;</span>)</span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt;         meanng purpos</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; meaning  1.000       </span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; purpose -1.011  1.000</span></span></code></pre></div>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="kw">lavInspect</span>(traits.fit, <span class="st">&quot;cor.lv&quot;</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt;         meanng purpos</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; meaning  1.000       </span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; purpose -1.011  1.000</span></span></code></pre></div>
 </div>
 <div id="summarize-the-measurement-models" class="slide section level2">
 <h1>Summarize the Measurement Models</h1>
@@ -791,185 +788,263 @@ list-style-type: none;
 <span id="cb4-54"><a href="#cb4-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb4-55"><a href="#cb4-55"></a><span class="co">#&gt; </span></span>
 <span id="cb4-56"><a href="#cb4-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb4-57"><a href="#cb4-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-58"><a href="#cb4-58"></a><span class="co">#&gt;   mlq =~                                                                </span></span>
-<span id="cb4-59"><a href="#cb4-59"></a><span class="co">#&gt;     m1                1.084    0.048   22.360    0.000    1.084    0.802</span></span>
-<span id="cb4-60"><a href="#cb4-60"></a><span class="co">#&gt;     m2               -0.578    0.076   -7.656    0.000   -0.578   -0.328</span></span>
-<span id="cb4-61"><a href="#cb4-61"></a><span class="co">#&gt;     m3               -0.352    0.075   -4.681    0.000   -0.352   -0.204</span></span>
-<span id="cb4-62"><a href="#cb4-62"></a><span class="co">#&gt;     m4                1.121    0.049   23.095    0.000    1.121    0.819</span></span>
-<span id="cb4-63"><a href="#cb4-63"></a><span class="co">#&gt;     m5                0.977    0.043   22.480    0.000    0.977    0.805</span></span>
-<span id="cb4-64"><a href="#cb4-64"></a><span class="co">#&gt;     m6                1.149    0.052   22.247    0.000    1.149    0.799</span></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="co">#&gt;     m8               -0.454    0.073   -6.212    0.000   -0.454   -0.269</span></span>
-<span id="cb4-66"><a href="#cb4-66"></a><span class="co">#&gt;     m9                0.980    0.057   17.238    0.000    0.980    0.665</span></span>
-<span id="cb4-67"><a href="#cb4-67"></a><span class="co">#&gt;     m10              -0.906    0.078  -11.552    0.000   -0.906   -0.477</span></span>
-<span id="cb4-68"><a href="#cb4-68"></a><span class="co">#&gt;   pil =~                                                                </span></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="co">#&gt;     p3                0.776    0.041   19.140    0.000    0.776    0.725</span></span>
-<span id="cb4-70"><a href="#cb4-70"></a><span class="co">#&gt;     p4                0.799    0.040   20.033    0.000    0.799    0.749</span></span>
-<span id="cb4-71"><a href="#cb4-71"></a><span class="co">#&gt;     p8                0.626    0.040   15.793    0.000    0.626    0.626</span></span>
-<span id="cb4-72"><a href="#cb4-72"></a><span class="co">#&gt;     p12               0.890    0.060   14.819    0.000    0.890    0.595</span></span>
-<span id="cb4-73"><a href="#cb4-73"></a><span class="co">#&gt;     p17               0.663    0.046   14.371    0.000    0.663    0.580</span></span>
-<span id="cb4-74"><a href="#cb4-74"></a><span class="co">#&gt;     p20               0.923    0.038   24.430    0.000    0.923    0.858</span></span>
-<span id="cb4-75"><a href="#cb4-75"></a><span class="co">#&gt; </span></span>
-<span id="cb4-76"><a href="#cb4-76"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb4-77"><a href="#cb4-77"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-78"><a href="#cb4-78"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb4-79"><a href="#cb4-79"></a><span class="co">#&gt;     pil               0.768    0.023   33.098    0.000    0.768    0.768</span></span>
-<span id="cb4-80"><a href="#cb4-80"></a><span class="co">#&gt; </span></span>
-<span id="cb4-81"><a href="#cb4-81"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb4-82"><a href="#cb4-82"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-83"><a href="#cb4-83"></a><span class="co">#&gt;    .m1                0.653    0.048   13.696    0.000    0.653    0.357</span></span>
-<span id="cb4-84"><a href="#cb4-84"></a><span class="co">#&gt;    .m2                2.779    0.167   16.631    0.000    2.779    0.893</span></span>
-<span id="cb4-85"><a href="#cb4-85"></a><span class="co">#&gt;    .m3                2.851    0.170   16.763    0.000    2.851    0.958</span></span>
-<span id="cb4-86"><a href="#cb4-86"></a><span class="co">#&gt;    .m4                0.616    0.046   13.273    0.000    0.616    0.329</span></span>
-<span id="cb4-87"><a href="#cb4-87"></a><span class="co">#&gt;    .m5                0.519    0.038   13.631    0.000    0.519    0.352</span></span>
-<span id="cb4-88"><a href="#cb4-88"></a><span class="co">#&gt;    .m6                0.747    0.054   13.756    0.000    0.747    0.361</span></span>
-<span id="cb4-89"><a href="#cb4-89"></a><span class="co">#&gt;    .m8                2.656    0.159   16.704    0.000    2.656    0.928</span></span>
-<span id="cb4-90"><a href="#cb4-90"></a><span class="co">#&gt;    .m9                1.212    0.078   15.468    0.000    1.212    0.558</span></span>
-<span id="cb4-91"><a href="#cb4-91"></a><span class="co">#&gt;    .m10               2.779    0.170   16.331    0.000    2.779    0.772</span></span>
-<span id="cb4-92"><a href="#cb4-92"></a><span class="co">#&gt;    .p3                0.543    0.038   14.444    0.000    0.543    0.474</span></span>
-<span id="cb4-93"><a href="#cb4-93"></a><span class="co">#&gt;    .p4                0.498    0.035   14.060    0.000    0.498    0.438</span></span>
-<span id="cb4-94"><a href="#cb4-94"></a><span class="co">#&gt;    .p8                0.608    0.039   15.460    0.000    0.608    0.608</span></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="co">#&gt;    .p12               1.444    0.092   15.670    0.000    1.444    0.646</span></span>
-<span id="cb4-96"><a href="#cb4-96"></a><span class="co">#&gt;    .p17               0.867    0.055   15.758    0.000    0.867    0.663</span></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="co">#&gt;    .p20               0.306    0.028   10.814    0.000    0.306    0.264</span></span>
-<span id="cb4-98"><a href="#cb4-98"></a><span class="co">#&gt;     mlq               1.000                               1.000    1.000</span></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="co">#&gt;     pil               1.000                               1.000    1.000</span></span>
-<span id="cb4-100"><a href="#cb4-100"></a><span class="co">#&gt; </span></span>
-<span id="cb4-101"><a href="#cb4-101"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb4-102"><a href="#cb4-102"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb4-103"><a href="#cb4-103"></a><span class="co">#&gt;     m1                0.643</span></span>
-<span id="cb4-104"><a href="#cb4-104"></a><span class="co">#&gt;     m2                0.107</span></span>
-<span id="cb4-105"><a href="#cb4-105"></a><span class="co">#&gt;     m3                0.042</span></span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="co">#&gt;     m4                0.671</span></span>
-<span id="cb4-107"><a href="#cb4-107"></a><span class="co">#&gt;     m5                0.648</span></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="co">#&gt;     m6                0.639</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a><span class="co">#&gt;     m8                0.072</span></span>
-<span id="cb4-110"><a href="#cb4-110"></a><span class="co">#&gt;     m9                0.442</span></span>
-<span id="cb4-111"><a href="#cb4-111"></a><span class="co">#&gt;     m10               0.228</span></span>
-<span id="cb4-112"><a href="#cb4-112"></a><span class="co">#&gt;     p3                0.526</span></span>
-<span id="cb4-113"><a href="#cb4-113"></a><span class="co">#&gt;     p4                0.562</span></span>
-<span id="cb4-114"><a href="#cb4-114"></a><span class="co">#&gt;     p8                0.392</span></span>
-<span id="cb4-115"><a href="#cb4-115"></a><span class="co">#&gt;     p12               0.354</span></span>
-<span id="cb4-116"><a href="#cb4-116"></a><span class="co">#&gt;     p17               0.337</span></span>
-<span id="cb4-117"><a href="#cb4-117"></a><span class="co">#&gt;     p20               0.736</span></span>
-<span id="cb4-118"><a href="#cb4-118"></a></span>
-<span id="cb4-119"><a href="#cb4-119"></a><span class="kw">summary</span>(traits.fit, </span>
-<span id="cb4-120"><a href="#cb4-120"></a>        <span class="dt">rsquare =</span> <span class="ot">TRUE</span>, </span>
-<span id="cb4-121"><a href="#cb4-121"></a>        <span class="dt">standardized =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb4-122"><a href="#cb4-122"></a>        <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="co">#&gt; lavaan 0.6-7 ended normally after 26 iterations</span></span>
-<span id="cb4-124"><a href="#cb4-124"></a><span class="co">#&gt; </span></span>
-<span id="cb4-125"><a href="#cb4-125"></a><span class="co">#&gt;   Estimator                                         ML</span></span>
-<span id="cb4-126"><a href="#cb4-126"></a><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
-<span id="cb4-127"><a href="#cb4-127"></a><span class="co">#&gt;   Number of free parameters                         31</span></span>
-<span id="cb4-128"><a href="#cb4-128"></a><span class="co">#&gt;                                                       </span></span>
-<span id="cb4-129"><a href="#cb4-129"></a><span class="co">#&gt;   Number of observations                           567</span></span>
-<span id="cb4-130"><a href="#cb4-130"></a><span class="co">#&gt;                                                       </span></span>
-<span id="cb4-131"><a href="#cb4-131"></a><span class="co">#&gt; Model Test User Model:</span></span>
-<span id="cb4-132"><a href="#cb4-132"></a><span class="co">#&gt;                                                       </span></span>
-<span id="cb4-133"><a href="#cb4-133"></a><span class="co">#&gt;   Test statistic                              1427.750</span></span>
-<span id="cb4-134"><a href="#cb4-134"></a><span class="co">#&gt;   Degrees of freedom                                89</span></span>
-<span id="cb4-135"><a href="#cb4-135"></a><span class="co">#&gt;   P-value (Chi-square)                           0.000</span></span>
-<span id="cb4-136"><a href="#cb4-136"></a><span class="co">#&gt; </span></span>
-<span id="cb4-137"><a href="#cb4-137"></a><span class="co">#&gt; Model Test Baseline Model:</span></span>
-<span id="cb4-138"><a href="#cb4-138"></a><span class="co">#&gt; </span></span>
-<span id="cb4-139"><a href="#cb4-139"></a><span class="co">#&gt;   Test statistic                              4415.161</span></span>
-<span id="cb4-140"><a href="#cb4-140"></a><span class="co">#&gt;   Degrees of freedom                               105</span></span>
-<span id="cb4-141"><a href="#cb4-141"></a><span class="co">#&gt;   P-value                                        0.000</span></span>
-<span id="cb4-142"><a href="#cb4-142"></a><span class="co">#&gt; </span></span>
-<span id="cb4-143"><a href="#cb4-143"></a><span class="co">#&gt; User Model versus Baseline Model:</span></span>
-<span id="cb4-144"><a href="#cb4-144"></a><span class="co">#&gt; </span></span>
-<span id="cb4-145"><a href="#cb4-145"></a><span class="co">#&gt;   Comparative Fit Index (CFI)                    0.689</span></span>
-<span id="cb4-146"><a href="#cb4-146"></a><span class="co">#&gt;   Tucker-Lewis Index (TLI)                       0.634</span></span>
-<span id="cb4-147"><a href="#cb4-147"></a><span class="co">#&gt; </span></span>
-<span id="cb4-148"><a href="#cb4-148"></a><span class="co">#&gt; Loglikelihood and Information Criteria:</span></span>
-<span id="cb4-149"><a href="#cb4-149"></a><span class="co">#&gt; </span></span>
-<span id="cb4-150"><a href="#cb4-150"></a><span class="co">#&gt;   Loglikelihood user model (H0)             -13172.602</span></span>
-<span id="cb4-151"><a href="#cb4-151"></a><span class="co">#&gt;   Loglikelihood unrestricted model (H1)     -12458.727</span></span>
-<span id="cb4-152"><a href="#cb4-152"></a><span class="co">#&gt;                                                       </span></span>
-<span id="cb4-153"><a href="#cb4-153"></a><span class="co">#&gt;   Akaike (AIC)                               26407.205</span></span>
-<span id="cb4-154"><a href="#cb4-154"></a><span class="co">#&gt;   Bayesian (BIC)                             26541.756</span></span>
-<span id="cb4-155"><a href="#cb4-155"></a><span class="co">#&gt;   Sample-size adjusted Bayesian (BIC)        26443.345</span></span>
-<span id="cb4-156"><a href="#cb4-156"></a><span class="co">#&gt; </span></span>
-<span id="cb4-157"><a href="#cb4-157"></a><span class="co">#&gt; Root Mean Square Error of Approximation:</span></span>
-<span id="cb4-158"><a href="#cb4-158"></a><span class="co">#&gt; </span></span>
-<span id="cb4-159"><a href="#cb4-159"></a><span class="co">#&gt;   RMSEA                                          0.163</span></span>
-<span id="cb4-160"><a href="#cb4-160"></a><span class="co">#&gt;   90 Percent confidence interval - lower         0.155</span></span>
-<span id="cb4-161"><a href="#cb4-161"></a><span class="co">#&gt;   90 Percent confidence interval - upper         0.170</span></span>
-<span id="cb4-162"><a href="#cb4-162"></a><span class="co">#&gt;   P-value RMSEA &lt;= 0.05                          0.000</span></span>
+<span id="cb4-57"><a href="#cb4-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-58"><a href="#cb4-58"></a><span class="co">#&gt;   mlq =~                                                       </span></span>
+<span id="cb4-59"><a href="#cb4-59"></a><span class="co">#&gt;     m1                1.084    0.048   22.360    0.000    1.084</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="co">#&gt;     m2               -0.578    0.076   -7.656    0.000   -0.578</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="co">#&gt;     m3               -0.352    0.075   -4.681    0.000   -0.352</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="co">#&gt;     m4                1.121    0.049   23.095    0.000    1.121</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a><span class="co">#&gt;     m5                0.977    0.043   22.480    0.000    0.977</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="co">#&gt;     m6                1.149    0.052   22.247    0.000    1.149</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a><span class="co">#&gt;     m8               -0.454    0.073   -6.212    0.000   -0.454</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a><span class="co">#&gt;     m9                0.980    0.057   17.238    0.000    0.980</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a><span class="co">#&gt;     m10              -0.906    0.078  -11.552    0.000   -0.906</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a><span class="co">#&gt;   pil =~                                                       </span></span>
+<span id="cb4-69"><a href="#cb4-69"></a><span class="co">#&gt;     p3                0.776    0.041   19.140    0.000    0.776</span></span>
+<span id="cb4-70"><a href="#cb4-70"></a><span class="co">#&gt;     p4                0.799    0.040   20.033    0.000    0.799</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a><span class="co">#&gt;     p8                0.626    0.040   15.793    0.000    0.626</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="co">#&gt;     p12               0.890    0.060   14.819    0.000    0.890</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a><span class="co">#&gt;     p17               0.663    0.046   14.371    0.000    0.663</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a><span class="co">#&gt;     p20               0.923    0.038   24.430    0.000    0.923</span></span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="co">#&gt;     0.802</span></span>
+<span id="cb4-78"><a href="#cb4-78"></a><span class="co">#&gt;    -0.328</span></span>
+<span id="cb4-79"><a href="#cb4-79"></a><span class="co">#&gt;    -0.204</span></span>
+<span id="cb4-80"><a href="#cb4-80"></a><span class="co">#&gt;     0.819</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a><span class="co">#&gt;     0.805</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a><span class="co">#&gt;     0.799</span></span>
+<span id="cb4-83"><a href="#cb4-83"></a><span class="co">#&gt;    -0.269</span></span>
+<span id="cb4-84"><a href="#cb4-84"></a><span class="co">#&gt;     0.665</span></span>
+<span id="cb4-85"><a href="#cb4-85"></a><span class="co">#&gt;    -0.477</span></span>
+<span id="cb4-86"><a href="#cb4-86"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-87"><a href="#cb4-87"></a><span class="co">#&gt;     0.725</span></span>
+<span id="cb4-88"><a href="#cb4-88"></a><span class="co">#&gt;     0.749</span></span>
+<span id="cb4-89"><a href="#cb4-89"></a><span class="co">#&gt;     0.626</span></span>
+<span id="cb4-90"><a href="#cb4-90"></a><span class="co">#&gt;     0.595</span></span>
+<span id="cb4-91"><a href="#cb4-91"></a><span class="co">#&gt;     0.580</span></span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="co">#&gt;     0.858</span></span>
+<span id="cb4-93"><a href="#cb4-93"></a><span class="co">#&gt; </span></span>
+<span id="cb4-94"><a href="#cb4-94"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb4-95"><a href="#cb4-95"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-96"><a href="#cb4-96"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb4-97"><a href="#cb4-97"></a><span class="co">#&gt;     pil               0.768    0.023   33.098    0.000    0.768</span></span>
+<span id="cb4-98"><a href="#cb4-98"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-99"><a href="#cb4-99"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-100"><a href="#cb4-100"></a><span class="co">#&gt;     0.768</span></span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="co">#&gt; </span></span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-104"><a href="#cb4-104"></a><span class="co">#&gt;    .m1                0.653    0.048   13.696    0.000    0.653</span></span>
+<span id="cb4-105"><a href="#cb4-105"></a><span class="co">#&gt;    .m2                2.779    0.167   16.631    0.000    2.779</span></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="co">#&gt;    .m3                2.851    0.170   16.763    0.000    2.851</span></span>
+<span id="cb4-107"><a href="#cb4-107"></a><span class="co">#&gt;    .m4                0.616    0.046   13.273    0.000    0.616</span></span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="co">#&gt;    .m5                0.519    0.038   13.631    0.000    0.519</span></span>
+<span id="cb4-109"><a href="#cb4-109"></a><span class="co">#&gt;    .m6                0.747    0.054   13.756    0.000    0.747</span></span>
+<span id="cb4-110"><a href="#cb4-110"></a><span class="co">#&gt;    .m8                2.656    0.159   16.704    0.000    2.656</span></span>
+<span id="cb4-111"><a href="#cb4-111"></a><span class="co">#&gt;    .m9                1.212    0.078   15.468    0.000    1.212</span></span>
+<span id="cb4-112"><a href="#cb4-112"></a><span class="co">#&gt;    .m10               2.779    0.170   16.331    0.000    2.779</span></span>
+<span id="cb4-113"><a href="#cb4-113"></a><span class="co">#&gt;    .p3                0.543    0.038   14.444    0.000    0.543</span></span>
+<span id="cb4-114"><a href="#cb4-114"></a><span class="co">#&gt;    .p4                0.498    0.035   14.060    0.000    0.498</span></span>
+<span id="cb4-115"><a href="#cb4-115"></a><span class="co">#&gt;    .p8                0.608    0.039   15.460    0.000    0.608</span></span>
+<span id="cb4-116"><a href="#cb4-116"></a><span class="co">#&gt;    .p12               1.444    0.092   15.670    0.000    1.444</span></span>
+<span id="cb4-117"><a href="#cb4-117"></a><span class="co">#&gt;    .p17               0.867    0.055   15.758    0.000    0.867</span></span>
+<span id="cb4-118"><a href="#cb4-118"></a><span class="co">#&gt;    .p20               0.306    0.028   10.814    0.000    0.306</span></span>
+<span id="cb4-119"><a href="#cb4-119"></a><span class="co">#&gt;     mlq               1.000                               1.000</span></span>
+<span id="cb4-120"><a href="#cb4-120"></a><span class="co">#&gt;     pil               1.000                               1.000</span></span>
+<span id="cb4-121"><a href="#cb4-121"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-122"><a href="#cb4-122"></a><span class="co">#&gt;     0.357</span></span>
+<span id="cb4-123"><a href="#cb4-123"></a><span class="co">#&gt;     0.893</span></span>
+<span id="cb4-124"><a href="#cb4-124"></a><span class="co">#&gt;     0.958</span></span>
+<span id="cb4-125"><a href="#cb4-125"></a><span class="co">#&gt;     0.329</span></span>
+<span id="cb4-126"><a href="#cb4-126"></a><span class="co">#&gt;     0.352</span></span>
+<span id="cb4-127"><a href="#cb4-127"></a><span class="co">#&gt;     0.361</span></span>
+<span id="cb4-128"><a href="#cb4-128"></a><span class="co">#&gt;     0.928</span></span>
+<span id="cb4-129"><a href="#cb4-129"></a><span class="co">#&gt;     0.558</span></span>
+<span id="cb4-130"><a href="#cb4-130"></a><span class="co">#&gt;     0.772</span></span>
+<span id="cb4-131"><a href="#cb4-131"></a><span class="co">#&gt;     0.474</span></span>
+<span id="cb4-132"><a href="#cb4-132"></a><span class="co">#&gt;     0.438</span></span>
+<span id="cb4-133"><a href="#cb4-133"></a><span class="co">#&gt;     0.608</span></span>
+<span id="cb4-134"><a href="#cb4-134"></a><span class="co">#&gt;     0.646</span></span>
+<span id="cb4-135"><a href="#cb4-135"></a><span class="co">#&gt;     0.663</span></span>
+<span id="cb4-136"><a href="#cb4-136"></a><span class="co">#&gt;     0.264</span></span>
+<span id="cb4-137"><a href="#cb4-137"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb4-138"><a href="#cb4-138"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb4-139"><a href="#cb4-139"></a><span class="co">#&gt; </span></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb4-141"><a href="#cb4-141"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb4-142"><a href="#cb4-142"></a><span class="co">#&gt;     m1                0.643</span></span>
+<span id="cb4-143"><a href="#cb4-143"></a><span class="co">#&gt;     m2                0.107</span></span>
+<span id="cb4-144"><a href="#cb4-144"></a><span class="co">#&gt;     m3                0.042</span></span>
+<span id="cb4-145"><a href="#cb4-145"></a><span class="co">#&gt;     m4                0.671</span></span>
+<span id="cb4-146"><a href="#cb4-146"></a><span class="co">#&gt;     m5                0.648</span></span>
+<span id="cb4-147"><a href="#cb4-147"></a><span class="co">#&gt;     m6                0.639</span></span>
+<span id="cb4-148"><a href="#cb4-148"></a><span class="co">#&gt;     m8                0.072</span></span>
+<span id="cb4-149"><a href="#cb4-149"></a><span class="co">#&gt;     m9                0.442</span></span>
+<span id="cb4-150"><a href="#cb4-150"></a><span class="co">#&gt;     m10               0.228</span></span>
+<span id="cb4-151"><a href="#cb4-151"></a><span class="co">#&gt;     p3                0.526</span></span>
+<span id="cb4-152"><a href="#cb4-152"></a><span class="co">#&gt;     p4                0.562</span></span>
+<span id="cb4-153"><a href="#cb4-153"></a><span class="co">#&gt;     p8                0.392</span></span>
+<span id="cb4-154"><a href="#cb4-154"></a><span class="co">#&gt;     p12               0.354</span></span>
+<span id="cb4-155"><a href="#cb4-155"></a><span class="co">#&gt;     p17               0.337</span></span>
+<span id="cb4-156"><a href="#cb4-156"></a><span class="co">#&gt;     p20               0.736</span></span>
+<span id="cb4-157"><a href="#cb4-157"></a></span>
+<span id="cb4-158"><a href="#cb4-158"></a><span class="kw">summary</span>(traits.fit, </span>
+<span id="cb4-159"><a href="#cb4-159"></a>        <span class="dt">rsquare =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb4-160"><a href="#cb4-160"></a>        <span class="dt">standardized =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb4-161"><a href="#cb4-161"></a>        <span class="dt">fit.measures =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb4-162"><a href="#cb4-162"></a><span class="co">#&gt; lavaan 0.6-7 ended normally after 26 iterations</span></span>
 <span id="cb4-163"><a href="#cb4-163"></a><span class="co">#&gt; </span></span>
-<span id="cb4-164"><a href="#cb4-164"></a><span class="co">#&gt; Standardized Root Mean Square Residual:</span></span>
-<span id="cb4-165"><a href="#cb4-165"></a><span class="co">#&gt; </span></span>
-<span id="cb4-166"><a href="#cb4-166"></a><span class="co">#&gt;   SRMR                                           0.127</span></span>
-<span id="cb4-167"><a href="#cb4-167"></a><span class="co">#&gt; </span></span>
-<span id="cb4-168"><a href="#cb4-168"></a><span class="co">#&gt; Parameter Estimates:</span></span>
-<span id="cb4-169"><a href="#cb4-169"></a><span class="co">#&gt; </span></span>
-<span id="cb4-170"><a href="#cb4-170"></a><span class="co">#&gt;   Standard errors                             Standard</span></span>
-<span id="cb4-171"><a href="#cb4-171"></a><span class="co">#&gt;   Information                                 Expected</span></span>
-<span id="cb4-172"><a href="#cb4-172"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
-<span id="cb4-173"><a href="#cb4-173"></a><span class="co">#&gt; </span></span>
-<span id="cb4-174"><a href="#cb4-174"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb4-175"><a href="#cb4-175"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-176"><a href="#cb4-176"></a><span class="co">#&gt;   meaning =~                                                            </span></span>
-<span id="cb4-177"><a href="#cb4-177"></a><span class="co">#&gt;     m1                1.041    0.049   21.190    0.000    1.041    0.770</span></span>
-<span id="cb4-178"><a href="#cb4-178"></a><span class="co">#&gt;     m2               -0.572    0.075   -7.637    0.000   -0.572   -0.324</span></span>
-<span id="cb4-179"><a href="#cb4-179"></a><span class="co">#&gt;     m5                0.949    0.044   21.661    0.000    0.949    0.782</span></span>
-<span id="cb4-180"><a href="#cb4-180"></a><span class="co">#&gt;     m10              -0.872    0.078  -11.166    0.000   -0.872   -0.460</span></span>
-<span id="cb4-181"><a href="#cb4-181"></a><span class="co">#&gt;     p4                0.741    0.040   18.398    0.000    0.741    0.695</span></span>
-<span id="cb4-182"><a href="#cb4-182"></a><span class="co">#&gt;     p12               0.887    0.059   15.036    0.000    0.887    0.593</span></span>
-<span id="cb4-183"><a href="#cb4-183"></a><span class="co">#&gt;     p17               0.644    0.046   14.125    0.000    0.644    0.563</span></span>
-<span id="cb4-184"><a href="#cb4-184"></a><span class="co">#&gt;   purpose =~                                                            </span></span>
-<span id="cb4-185"><a href="#cb4-185"></a><span class="co">#&gt;     m3                0.354    0.075    4.756    0.000    0.354    0.205</span></span>
-<span id="cb4-186"><a href="#cb4-186"></a><span class="co">#&gt;     m4               -1.076    0.049  -21.856    0.000   -1.076   -0.786</span></span>
-<span id="cb4-187"><a href="#cb4-187"></a><span class="co">#&gt;     m6               -1.106    0.052  -21.158    0.000   -1.106   -0.769</span></span>
-<span id="cb4-188"><a href="#cb4-188"></a><span class="co">#&gt;     m8                0.437    0.073    6.017    0.000    0.437    0.258</span></span>
-<span id="cb4-189"><a href="#cb4-189"></a><span class="co">#&gt;     m9               -0.950    0.057  -16.676    0.000   -0.950   -0.644</span></span>
-<span id="cb4-190"><a href="#cb4-190"></a><span class="co">#&gt;     p3               -0.623    0.042  -14.694    0.000   -0.623   -0.582</span></span>
-<span id="cb4-191"><a href="#cb4-191"></a><span class="co">#&gt;     p8               -0.536    0.040  -13.301    0.000   -0.536   -0.535</span></span>
-<span id="cb4-192"><a href="#cb4-192"></a><span class="co">#&gt;     p20              -0.800    0.040  -20.170    0.000   -0.800   -0.743</span></span>
-<span id="cb4-193"><a href="#cb4-193"></a><span class="co">#&gt; </span></span>
-<span id="cb4-194"><a href="#cb4-194"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb4-195"><a href="#cb4-195"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-196"><a href="#cb4-196"></a><span class="co">#&gt;   meaning ~~                                                            </span></span>
-<span id="cb4-197"><a href="#cb4-197"></a><span class="co">#&gt;     purpose          -1.011    0.011  -95.053    0.000   -1.011   -1.011</span></span>
-<span id="cb4-198"><a href="#cb4-198"></a><span class="co">#&gt; </span></span>
-<span id="cb4-199"><a href="#cb4-199"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb4-200"><a href="#cb4-200"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb4-201"><a href="#cb4-201"></a><span class="co">#&gt;    .m1                0.744    0.051   14.635    0.000    0.744    0.407</span></span>
-<span id="cb4-202"><a href="#cb4-202"></a><span class="co">#&gt;    .m2                2.786    0.167   16.678    0.000    2.786    0.895</span></span>
-<span id="cb4-203"><a href="#cb4-203"></a><span class="co">#&gt;    .m5                0.573    0.040   14.436    0.000    0.573    0.389</span></span>
-<span id="cb4-204"><a href="#cb4-204"></a><span class="co">#&gt;    .m10               2.839    0.172   16.468    0.000    2.839    0.789</span></span>
-<span id="cb4-205"><a href="#cb4-205"></a><span class="co">#&gt;    .p4                0.588    0.038   15.483    0.000    0.588    0.517</span></span>
-<span id="cb4-206"><a href="#cb4-206"></a><span class="co">#&gt;    .p12               1.449    0.090   16.074    0.000    1.449    0.648</span></span>
-<span id="cb4-207"><a href="#cb4-207"></a><span class="co">#&gt;    .p17               0.893    0.055   16.188    0.000    0.893    0.683</span></span>
-<span id="cb4-208"><a href="#cb4-208"></a><span class="co">#&gt;    .m3                2.850    0.170   16.777    0.000    2.850    0.958</span></span>
-<span id="cb4-209"><a href="#cb4-209"></a><span class="co">#&gt;    .m4                0.716    0.050   14.430    0.000    0.716    0.382</span></span>
-<span id="cb4-210"><a href="#cb4-210"></a><span class="co">#&gt;    .m6                0.846    0.058   14.708    0.000    0.846    0.409</span></span>
-<span id="cb4-211"><a href="#cb4-211"></a><span class="co">#&gt;    .m8                2.672    0.160   16.739    0.000    2.672    0.933</span></span>
-<span id="cb4-212"><a href="#cb4-212"></a><span class="co">#&gt;    .m9                1.270    0.080   15.828    0.000    1.270    0.585</span></span>
-<span id="cb4-213"><a href="#cb4-213"></a><span class="co">#&gt;    .p3                0.758    0.047   16.116    0.000    0.758    0.661</span></span>
-<span id="cb4-214"><a href="#cb4-214"></a><span class="co">#&gt;    .p8                0.714    0.044   16.274    0.000    0.714    0.713</span></span>
-<span id="cb4-215"><a href="#cb4-215"></a><span class="co">#&gt;    .p20               0.518    0.034   15.038    0.000    0.518    0.448</span></span>
-<span id="cb4-216"><a href="#cb4-216"></a><span class="co">#&gt;     meaning           1.000                               1.000    1.000</span></span>
-<span id="cb4-217"><a href="#cb4-217"></a><span class="co">#&gt;     purpose           1.000                               1.000    1.000</span></span>
-<span id="cb4-218"><a href="#cb4-218"></a><span class="co">#&gt; </span></span>
-<span id="cb4-219"><a href="#cb4-219"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb4-220"><a href="#cb4-220"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb4-221"><a href="#cb4-221"></a><span class="co">#&gt;     m1                0.593</span></span>
-<span id="cb4-222"><a href="#cb4-222"></a><span class="co">#&gt;     m2                0.105</span></span>
-<span id="cb4-223"><a href="#cb4-223"></a><span class="co">#&gt;     m5                0.611</span></span>
-<span id="cb4-224"><a href="#cb4-224"></a><span class="co">#&gt;     m10               0.211</span></span>
-<span id="cb4-225"><a href="#cb4-225"></a><span class="co">#&gt;     p4                0.483</span></span>
-<span id="cb4-226"><a href="#cb4-226"></a><span class="co">#&gt;     p12               0.352</span></span>
-<span id="cb4-227"><a href="#cb4-227"></a><span class="co">#&gt;     p17               0.317</span></span>
-<span id="cb4-228"><a href="#cb4-228"></a><span class="co">#&gt;     m3                0.042</span></span>
-<span id="cb4-229"><a href="#cb4-229"></a><span class="co">#&gt;     m4                0.618</span></span>
-<span id="cb4-230"><a href="#cb4-230"></a><span class="co">#&gt;     m6                0.591</span></span>
-<span id="cb4-231"><a href="#cb4-231"></a><span class="co">#&gt;     m8                0.067</span></span>
-<span id="cb4-232"><a href="#cb4-232"></a><span class="co">#&gt;     m9                0.415</span></span>
-<span id="cb4-233"><a href="#cb4-233"></a><span class="co">#&gt;     p3                0.339</span></span>
-<span id="cb4-234"><a href="#cb4-234"></a><span class="co">#&gt;     p8                0.287</span></span>
-<span id="cb4-235"><a href="#cb4-235"></a><span class="co">#&gt;     p20               0.552</span></span></code></pre></div>
+<span id="cb4-164"><a href="#cb4-164"></a><span class="co">#&gt;   Estimator                                         ML</span></span>
+<span id="cb4-165"><a href="#cb4-165"></a><span class="co">#&gt;   Optimization method                           NLMINB</span></span>
+<span id="cb4-166"><a href="#cb4-166"></a><span class="co">#&gt;   Number of free parameters                         31</span></span>
+<span id="cb4-167"><a href="#cb4-167"></a><span class="co">#&gt;                                                       </span></span>
+<span id="cb4-168"><a href="#cb4-168"></a><span class="co">#&gt;   Number of observations                           567</span></span>
+<span id="cb4-169"><a href="#cb4-169"></a><span class="co">#&gt;                                                       </span></span>
+<span id="cb4-170"><a href="#cb4-170"></a><span class="co">#&gt; Model Test User Model:</span></span>
+<span id="cb4-171"><a href="#cb4-171"></a><span class="co">#&gt;                                                       </span></span>
+<span id="cb4-172"><a href="#cb4-172"></a><span class="co">#&gt;   Test statistic                              1427.750</span></span>
+<span id="cb4-173"><a href="#cb4-173"></a><span class="co">#&gt;   Degrees of freedom                                89</span></span>
+<span id="cb4-174"><a href="#cb4-174"></a><span class="co">#&gt;   P-value (Chi-square)                           0.000</span></span>
+<span id="cb4-175"><a href="#cb4-175"></a><span class="co">#&gt; </span></span>
+<span id="cb4-176"><a href="#cb4-176"></a><span class="co">#&gt; Model Test Baseline Model:</span></span>
+<span id="cb4-177"><a href="#cb4-177"></a><span class="co">#&gt; </span></span>
+<span id="cb4-178"><a href="#cb4-178"></a><span class="co">#&gt;   Test statistic                              4415.161</span></span>
+<span id="cb4-179"><a href="#cb4-179"></a><span class="co">#&gt;   Degrees of freedom                               105</span></span>
+<span id="cb4-180"><a href="#cb4-180"></a><span class="co">#&gt;   P-value                                        0.000</span></span>
+<span id="cb4-181"><a href="#cb4-181"></a><span class="co">#&gt; </span></span>
+<span id="cb4-182"><a href="#cb4-182"></a><span class="co">#&gt; User Model versus Baseline Model:</span></span>
+<span id="cb4-183"><a href="#cb4-183"></a><span class="co">#&gt; </span></span>
+<span id="cb4-184"><a href="#cb4-184"></a><span class="co">#&gt;   Comparative Fit Index (CFI)                    0.689</span></span>
+<span id="cb4-185"><a href="#cb4-185"></a><span class="co">#&gt;   Tucker-Lewis Index (TLI)                       0.634</span></span>
+<span id="cb4-186"><a href="#cb4-186"></a><span class="co">#&gt; </span></span>
+<span id="cb4-187"><a href="#cb4-187"></a><span class="co">#&gt; Loglikelihood and Information Criteria:</span></span>
+<span id="cb4-188"><a href="#cb4-188"></a><span class="co">#&gt; </span></span>
+<span id="cb4-189"><a href="#cb4-189"></a><span class="co">#&gt;   Loglikelihood user model (H0)             -13172.602</span></span>
+<span id="cb4-190"><a href="#cb4-190"></a><span class="co">#&gt;   Loglikelihood unrestricted model (H1)     -12458.727</span></span>
+<span id="cb4-191"><a href="#cb4-191"></a><span class="co">#&gt;                                                       </span></span>
+<span id="cb4-192"><a href="#cb4-192"></a><span class="co">#&gt;   Akaike (AIC)                               26407.205</span></span>
+<span id="cb4-193"><a href="#cb4-193"></a><span class="co">#&gt;   Bayesian (BIC)                             26541.756</span></span>
+<span id="cb4-194"><a href="#cb4-194"></a><span class="co">#&gt;   Sample-size adjusted Bayesian (BIC)        26443.345</span></span>
+<span id="cb4-195"><a href="#cb4-195"></a><span class="co">#&gt; </span></span>
+<span id="cb4-196"><a href="#cb4-196"></a><span class="co">#&gt; Root Mean Square Error of Approximation:</span></span>
+<span id="cb4-197"><a href="#cb4-197"></a><span class="co">#&gt; </span></span>
+<span id="cb4-198"><a href="#cb4-198"></a><span class="co">#&gt;   RMSEA                                          0.163</span></span>
+<span id="cb4-199"><a href="#cb4-199"></a><span class="co">#&gt;   90 Percent confidence interval - lower         0.155</span></span>
+<span id="cb4-200"><a href="#cb4-200"></a><span class="co">#&gt;   90 Percent confidence interval - upper         0.170</span></span>
+<span id="cb4-201"><a href="#cb4-201"></a><span class="co">#&gt;   P-value RMSEA &lt;= 0.05                          0.000</span></span>
+<span id="cb4-202"><a href="#cb4-202"></a><span class="co">#&gt; </span></span>
+<span id="cb4-203"><a href="#cb4-203"></a><span class="co">#&gt; Standardized Root Mean Square Residual:</span></span>
+<span id="cb4-204"><a href="#cb4-204"></a><span class="co">#&gt; </span></span>
+<span id="cb4-205"><a href="#cb4-205"></a><span class="co">#&gt;   SRMR                                           0.127</span></span>
+<span id="cb4-206"><a href="#cb4-206"></a><span class="co">#&gt; </span></span>
+<span id="cb4-207"><a href="#cb4-207"></a><span class="co">#&gt; Parameter Estimates:</span></span>
+<span id="cb4-208"><a href="#cb4-208"></a><span class="co">#&gt; </span></span>
+<span id="cb4-209"><a href="#cb4-209"></a><span class="co">#&gt;   Standard errors                             Standard</span></span>
+<span id="cb4-210"><a href="#cb4-210"></a><span class="co">#&gt;   Information                                 Expected</span></span>
+<span id="cb4-211"><a href="#cb4-211"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
+<span id="cb4-212"><a href="#cb4-212"></a><span class="co">#&gt; </span></span>
+<span id="cb4-213"><a href="#cb4-213"></a><span class="co">#&gt; Latent Variables:</span></span>
+<span id="cb4-214"><a href="#cb4-214"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-215"><a href="#cb4-215"></a><span class="co">#&gt;   meaning =~                                                   </span></span>
+<span id="cb4-216"><a href="#cb4-216"></a><span class="co">#&gt;     m1                1.041    0.049   21.190    0.000    1.041</span></span>
+<span id="cb4-217"><a href="#cb4-217"></a><span class="co">#&gt;     m2               -0.572    0.075   -7.637    0.000   -0.572</span></span>
+<span id="cb4-218"><a href="#cb4-218"></a><span class="co">#&gt;     m5                0.949    0.044   21.661    0.000    0.949</span></span>
+<span id="cb4-219"><a href="#cb4-219"></a><span class="co">#&gt;     m10              -0.872    0.078  -11.166    0.000   -0.872</span></span>
+<span id="cb4-220"><a href="#cb4-220"></a><span class="co">#&gt;     p4                0.741    0.040   18.398    0.000    0.741</span></span>
+<span id="cb4-221"><a href="#cb4-221"></a><span class="co">#&gt;     p12               0.887    0.059   15.036    0.000    0.887</span></span>
+<span id="cb4-222"><a href="#cb4-222"></a><span class="co">#&gt;     p17               0.644    0.046   14.125    0.000    0.644</span></span>
+<span id="cb4-223"><a href="#cb4-223"></a><span class="co">#&gt;   purpose =~                                                   </span></span>
+<span id="cb4-224"><a href="#cb4-224"></a><span class="co">#&gt;     m3                0.354    0.075    4.756    0.000    0.354</span></span>
+<span id="cb4-225"><a href="#cb4-225"></a><span class="co">#&gt;     m4               -1.076    0.049  -21.856    0.000   -1.076</span></span>
+<span id="cb4-226"><a href="#cb4-226"></a><span class="co">#&gt;     m6               -1.106    0.052  -21.158    0.000   -1.106</span></span>
+<span id="cb4-227"><a href="#cb4-227"></a><span class="co">#&gt;     m8                0.437    0.073    6.017    0.000    0.437</span></span>
+<span id="cb4-228"><a href="#cb4-228"></a><span class="co">#&gt;     m9               -0.950    0.057  -16.676    0.000   -0.950</span></span>
+<span id="cb4-229"><a href="#cb4-229"></a><span class="co">#&gt;     p3               -0.623    0.042  -14.694    0.000   -0.623</span></span>
+<span id="cb4-230"><a href="#cb4-230"></a><span class="co">#&gt;     p8               -0.536    0.040  -13.301    0.000   -0.536</span></span>
+<span id="cb4-231"><a href="#cb4-231"></a><span class="co">#&gt;     p20              -0.800    0.040  -20.170    0.000   -0.800</span></span>
+<span id="cb4-232"><a href="#cb4-232"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-233"><a href="#cb4-233"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-234"><a href="#cb4-234"></a><span class="co">#&gt;     0.770</span></span>
+<span id="cb4-235"><a href="#cb4-235"></a><span class="co">#&gt;    -0.324</span></span>
+<span id="cb4-236"><a href="#cb4-236"></a><span class="co">#&gt;     0.782</span></span>
+<span id="cb4-237"><a href="#cb4-237"></a><span class="co">#&gt;    -0.460</span></span>
+<span id="cb4-238"><a href="#cb4-238"></a><span class="co">#&gt;     0.695</span></span>
+<span id="cb4-239"><a href="#cb4-239"></a><span class="co">#&gt;     0.593</span></span>
+<span id="cb4-240"><a href="#cb4-240"></a><span class="co">#&gt;     0.563</span></span>
+<span id="cb4-241"><a href="#cb4-241"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-242"><a href="#cb4-242"></a><span class="co">#&gt;     0.205</span></span>
+<span id="cb4-243"><a href="#cb4-243"></a><span class="co">#&gt;    -0.786</span></span>
+<span id="cb4-244"><a href="#cb4-244"></a><span class="co">#&gt;    -0.769</span></span>
+<span id="cb4-245"><a href="#cb4-245"></a><span class="co">#&gt;     0.258</span></span>
+<span id="cb4-246"><a href="#cb4-246"></a><span class="co">#&gt;    -0.644</span></span>
+<span id="cb4-247"><a href="#cb4-247"></a><span class="co">#&gt;    -0.582</span></span>
+<span id="cb4-248"><a href="#cb4-248"></a><span class="co">#&gt;    -0.535</span></span>
+<span id="cb4-249"><a href="#cb4-249"></a><span class="co">#&gt;    -0.743</span></span>
+<span id="cb4-250"><a href="#cb4-250"></a><span class="co">#&gt; </span></span>
+<span id="cb4-251"><a href="#cb4-251"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb4-252"><a href="#cb4-252"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-253"><a href="#cb4-253"></a><span class="co">#&gt;   meaning ~~                                                   </span></span>
+<span id="cb4-254"><a href="#cb4-254"></a><span class="co">#&gt;     purpose          -1.011    0.011  -95.053    0.000   -1.011</span></span>
+<span id="cb4-255"><a href="#cb4-255"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-256"><a href="#cb4-256"></a><span class="co">#&gt;          </span></span>
+<span id="cb4-257"><a href="#cb4-257"></a><span class="co">#&gt;    -1.011</span></span>
+<span id="cb4-258"><a href="#cb4-258"></a><span class="co">#&gt; </span></span>
+<span id="cb4-259"><a href="#cb4-259"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb4-260"><a href="#cb4-260"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb4-261"><a href="#cb4-261"></a><span class="co">#&gt;    .m1                0.744    0.051   14.635    0.000    0.744</span></span>
+<span id="cb4-262"><a href="#cb4-262"></a><span class="co">#&gt;    .m2                2.786    0.167   16.678    0.000    2.786</span></span>
+<span id="cb4-263"><a href="#cb4-263"></a><span class="co">#&gt;    .m5                0.573    0.040   14.436    0.000    0.573</span></span>
+<span id="cb4-264"><a href="#cb4-264"></a><span class="co">#&gt;    .m10               2.839    0.172   16.468    0.000    2.839</span></span>
+<span id="cb4-265"><a href="#cb4-265"></a><span class="co">#&gt;    .p4                0.588    0.038   15.483    0.000    0.588</span></span>
+<span id="cb4-266"><a href="#cb4-266"></a><span class="co">#&gt;    .p12               1.449    0.090   16.074    0.000    1.449</span></span>
+<span id="cb4-267"><a href="#cb4-267"></a><span class="co">#&gt;    .p17               0.893    0.055   16.188    0.000    0.893</span></span>
+<span id="cb4-268"><a href="#cb4-268"></a><span class="co">#&gt;    .m3                2.850    0.170   16.777    0.000    2.850</span></span>
+<span id="cb4-269"><a href="#cb4-269"></a><span class="co">#&gt;    .m4                0.716    0.050   14.430    0.000    0.716</span></span>
+<span id="cb4-270"><a href="#cb4-270"></a><span class="co">#&gt;    .m6                0.846    0.058   14.708    0.000    0.846</span></span>
+<span id="cb4-271"><a href="#cb4-271"></a><span class="co">#&gt;    .m8                2.672    0.160   16.739    0.000    2.672</span></span>
+<span id="cb4-272"><a href="#cb4-272"></a><span class="co">#&gt;    .m9                1.270    0.080   15.828    0.000    1.270</span></span>
+<span id="cb4-273"><a href="#cb4-273"></a><span class="co">#&gt;    .p3                0.758    0.047   16.116    0.000    0.758</span></span>
+<span id="cb4-274"><a href="#cb4-274"></a><span class="co">#&gt;    .p8                0.714    0.044   16.274    0.000    0.714</span></span>
+<span id="cb4-275"><a href="#cb4-275"></a><span class="co">#&gt;    .p20               0.518    0.034   15.038    0.000    0.518</span></span>
+<span id="cb4-276"><a href="#cb4-276"></a><span class="co">#&gt;     meaning           1.000                               1.000</span></span>
+<span id="cb4-277"><a href="#cb4-277"></a><span class="co">#&gt;     purpose           1.000                               1.000</span></span>
+<span id="cb4-278"><a href="#cb4-278"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb4-279"><a href="#cb4-279"></a><span class="co">#&gt;     0.407</span></span>
+<span id="cb4-280"><a href="#cb4-280"></a><span class="co">#&gt;     0.895</span></span>
+<span id="cb4-281"><a href="#cb4-281"></a><span class="co">#&gt;     0.389</span></span>
+<span id="cb4-282"><a href="#cb4-282"></a><span class="co">#&gt;     0.789</span></span>
+<span id="cb4-283"><a href="#cb4-283"></a><span class="co">#&gt;     0.517</span></span>
+<span id="cb4-284"><a href="#cb4-284"></a><span class="co">#&gt;     0.648</span></span>
+<span id="cb4-285"><a href="#cb4-285"></a><span class="co">#&gt;     0.683</span></span>
+<span id="cb4-286"><a href="#cb4-286"></a><span class="co">#&gt;     0.958</span></span>
+<span id="cb4-287"><a href="#cb4-287"></a><span class="co">#&gt;     0.382</span></span>
+<span id="cb4-288"><a href="#cb4-288"></a><span class="co">#&gt;     0.409</span></span>
+<span id="cb4-289"><a href="#cb4-289"></a><span class="co">#&gt;     0.933</span></span>
+<span id="cb4-290"><a href="#cb4-290"></a><span class="co">#&gt;     0.585</span></span>
+<span id="cb4-291"><a href="#cb4-291"></a><span class="co">#&gt;     0.661</span></span>
+<span id="cb4-292"><a href="#cb4-292"></a><span class="co">#&gt;     0.713</span></span>
+<span id="cb4-293"><a href="#cb4-293"></a><span class="co">#&gt;     0.448</span></span>
+<span id="cb4-294"><a href="#cb4-294"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb4-295"><a href="#cb4-295"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb4-296"><a href="#cb4-296"></a><span class="co">#&gt; </span></span>
+<span id="cb4-297"><a href="#cb4-297"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb4-298"><a href="#cb4-298"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb4-299"><a href="#cb4-299"></a><span class="co">#&gt;     m1                0.593</span></span>
+<span id="cb4-300"><a href="#cb4-300"></a><span class="co">#&gt;     m2                0.105</span></span>
+<span id="cb4-301"><a href="#cb4-301"></a><span class="co">#&gt;     m5                0.611</span></span>
+<span id="cb4-302"><a href="#cb4-302"></a><span class="co">#&gt;     m10               0.211</span></span>
+<span id="cb4-303"><a href="#cb4-303"></a><span class="co">#&gt;     p4                0.483</span></span>
+<span id="cb4-304"><a href="#cb4-304"></a><span class="co">#&gt;     p12               0.352</span></span>
+<span id="cb4-305"><a href="#cb4-305"></a><span class="co">#&gt;     p17               0.317</span></span>
+<span id="cb4-306"><a href="#cb4-306"></a><span class="co">#&gt;     m3                0.042</span></span>
+<span id="cb4-307"><a href="#cb4-307"></a><span class="co">#&gt;     m4                0.618</span></span>
+<span id="cb4-308"><a href="#cb4-308"></a><span class="co">#&gt;     m6                0.591</span></span>
+<span id="cb4-309"><a href="#cb4-309"></a><span class="co">#&gt;     m8                0.067</span></span>
+<span id="cb4-310"><a href="#cb4-310"></a><span class="co">#&gt;     m9                0.415</span></span>
+<span id="cb4-311"><a href="#cb4-311"></a><span class="co">#&gt;     p3                0.339</span></span>
+<span id="cb4-312"><a href="#cb4-312"></a><span class="co">#&gt;     p8                0.287</span></span>
+<span id="cb4-313"><a href="#cb4-313"></a><span class="co">#&gt;     p20               0.552</span></span></code></pre></div>
 </div>
 <div id="diagram-the-measurement-models" class="slide section level2">
 <h1>Diagram the Measurement Models</h1>
@@ -1062,96 +1137,164 @@ list-style-type: none;
 <span id="cb8-58"><a href="#cb8-58"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb8-59"><a href="#cb8-59"></a><span class="co">#&gt; </span></span>
 <span id="cb8-60"><a href="#cb8-60"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb8-61"><a href="#cb8-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb8-62"><a href="#cb8-62"></a><span class="co">#&gt;   mlq =~                                                                </span></span>
-<span id="cb8-63"><a href="#cb8-63"></a><span class="co">#&gt;     m1                0.072    0.079    0.912    0.362    0.072    0.053</span></span>
-<span id="cb8-64"><a href="#cb8-64"></a><span class="co">#&gt;     m2               -1.276    0.071  -17.912    0.000   -1.276   -0.723</span></span>
-<span id="cb8-65"><a href="#cb8-65"></a><span class="co">#&gt;     m3               -1.364    0.066  -20.783    0.000   -1.364   -0.791</span></span>
-<span id="cb8-66"><a href="#cb8-66"></a><span class="co">#&gt;     m4               -0.011    0.082   -0.133    0.894   -0.011   -0.008</span></span>
-<span id="cb8-67"><a href="#cb8-67"></a><span class="co">#&gt;     m5                0.044    0.071    0.624    0.533    0.044    0.036</span></span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="co">#&gt;     m6                0.097    0.084    1.146    0.252    0.097    0.067</span></span>
-<span id="cb8-69"><a href="#cb8-69"></a><span class="co">#&gt;     m8               -1.332    0.065  -20.402    0.000   -1.332   -0.787</span></span>
-<span id="cb8-70"><a href="#cb8-70"></a><span class="co">#&gt;     m9                0.066    0.081    0.813    0.416    0.066    0.045</span></span>
-<span id="cb8-71"><a href="#cb8-71"></a><span class="co">#&gt;     m10              -1.302    0.082  -15.838    0.000   -1.302   -0.686</span></span>
-<span id="cb8-72"><a href="#cb8-72"></a><span class="co">#&gt;   pil =~                                                                </span></span>
-<span id="cb8-73"><a href="#cb8-73"></a><span class="co">#&gt;     p3                0.708    0.043   16.321    0.000    0.708    0.660</span></span>
-<span id="cb8-74"><a href="#cb8-74"></a><span class="co">#&gt;     p4                0.441    0.041   10.812    0.000    0.441    0.413</span></span>
-<span id="cb8-75"><a href="#cb8-75"></a><span class="co">#&gt;     p8                0.463    0.042   10.942    0.000    0.463    0.463</span></span>
-<span id="cb8-76"><a href="#cb8-76"></a><span class="co">#&gt;     p12               0.344    0.063    5.456    0.000    0.344    0.230</span></span>
-<span id="cb8-77"><a href="#cb8-77"></a><span class="co">#&gt;     p17               0.255    0.049    5.236    0.000    0.255    0.223</span></span>
-<span id="cb8-78"><a href="#cb8-78"></a><span class="co">#&gt;     p20               0.628    0.038   16.314    0.000    0.628    0.583</span></span>
-<span id="cb8-79"><a href="#cb8-79"></a><span class="co">#&gt;   meaning =~                                                            </span></span>
-<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#&gt;     m1               -1.090    0.049  -22.359    0.000   -1.090   -0.806</span></span>
-<span id="cb8-81"><a href="#cb8-81"></a><span class="co">#&gt;     m2                0.414    0.111    3.728    0.000    0.414    0.234</span></span>
-<span id="cb8-82"><a href="#cb8-82"></a><span class="co">#&gt;     m5               -0.987    0.044  -22.682    0.000   -0.987   -0.813</span></span>
-<span id="cb8-83"><a href="#cb8-83"></a><span class="co">#&gt;     m10               0.745    0.115    6.503    0.000    0.745    0.392</span></span>
-<span id="cb8-84"><a href="#cb8-84"></a><span class="co">#&gt;     p4               -0.658    0.042  -15.527    0.000   -0.658   -0.617</span></span>
-<span id="cb8-85"><a href="#cb8-85"></a><span class="co">#&gt;     p12              -0.824    0.061  -13.569    0.000   -0.824   -0.551</span></span>
-<span id="cb8-86"><a href="#cb8-86"></a><span class="co">#&gt;     p17              -0.609    0.047  -13.032    0.000   -0.609   -0.532</span></span>
-<span id="cb8-87"><a href="#cb8-87"></a><span class="co">#&gt;   purpose =~                                                            </span></span>
-<span id="cb8-88"><a href="#cb8-88"></a><span class="co">#&gt;     m3               -0.157    0.115   -1.369    0.171   -0.157   -0.091</span></span>
-<span id="cb8-89"><a href="#cb8-89"></a><span class="co">#&gt;     m4                1.149    0.048   23.832    0.000    1.149    0.839</span></span>
-<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#&gt;     m6                1.147    0.052   21.965    0.000    1.147    0.798</span></span>
-<span id="cb8-91"><a href="#cb8-91"></a><span class="co">#&gt;     m8               -0.273    0.112   -2.435    0.015   -0.273   -0.161</span></span>
-<span id="cb8-92"><a href="#cb8-92"></a><span class="co">#&gt;     m9                0.980    0.057   17.147    0.000    0.980    0.665</span></span>
-<span id="cb8-93"><a href="#cb8-93"></a><span class="co">#&gt;     p3                0.486    0.045   10.692    0.000    0.486    0.453</span></span>
-<span id="cb8-94"><a href="#cb8-94"></a><span class="co">#&gt;     p8                0.441    0.042   10.443    0.000    0.441    0.441</span></span>
-<span id="cb8-95"><a href="#cb8-95"></a><span class="co">#&gt;     p20               0.693    0.043   16.270    0.000    0.693    0.643</span></span>
-<span id="cb8-96"><a href="#cb8-96"></a><span class="co">#&gt; </span></span>
-<span id="cb8-97"><a href="#cb8-97"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb8-98"><a href="#cb8-98"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb8-99"><a href="#cb8-99"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb8-100"><a href="#cb8-100"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb8-101"><a href="#cb8-101"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb8-102"><a href="#cb8-102"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb8-103"><a href="#cb8-103"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb8-105"><a href="#cb8-105"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb8-106"><a href="#cb8-106"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb8-107"><a href="#cb8-107"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb8-108"><a href="#cb8-108"></a><span class="co">#&gt;     pil               0.147    0.083    1.763    0.078    0.147    0.147</span></span>
-<span id="cb8-109"><a href="#cb8-109"></a><span class="co">#&gt;   meaning ~~                                                            </span></span>
-<span id="cb8-110"><a href="#cb8-110"></a><span class="co">#&gt;     purpose          -0.987    0.011  -92.538    0.000   -0.987   -0.987</span></span>
-<span id="cb8-111"><a href="#cb8-111"></a><span class="co">#&gt; </span></span>
-<span id="cb8-112"><a href="#cb8-112"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb8-113"><a href="#cb8-113"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb8-114"><a href="#cb8-114"></a><span class="co">#&gt;    .m1                0.635    0.048   13.361    0.000    0.635    0.347</span></span>
-<span id="cb8-115"><a href="#cb8-115"></a><span class="co">#&gt;    .m2                1.316    0.100   13.204    0.000    1.316    0.423</span></span>
-<span id="cb8-116"><a href="#cb8-116"></a><span class="co">#&gt;    .m3                1.089    0.094   11.580    0.000    1.089    0.366</span></span>
-<span id="cb8-117"><a href="#cb8-117"></a><span class="co">#&gt;    .m4                0.553    0.045   12.200    0.000    0.553    0.295</span></span>
-<span id="cb8-118"><a href="#cb8-118"></a><span class="co">#&gt;    .m5                0.498    0.038   13.148    0.000    0.498    0.338</span></span>
-<span id="cb8-119"><a href="#cb8-119"></a><span class="co">#&gt;    .m6                0.743    0.055   13.632    0.000    0.743    0.359</span></span>
-<span id="cb8-120"><a href="#cb8-120"></a><span class="co">#&gt;    .m8                1.015    0.088   11.561    0.000    1.015    0.355</span></span>
-<span id="cb8-121"><a href="#cb8-121"></a><span class="co">#&gt;    .m9                1.208    0.078   15.433    0.000    1.208    0.556</span></span>
-<span id="cb8-122"><a href="#cb8-122"></a><span class="co">#&gt;    .m10               1.352    0.104   13.050    0.000    1.352    0.375</span></span>
-<span id="cb8-123"><a href="#cb8-123"></a><span class="co">#&gt;    .p3                0.411    0.041    9.997    0.000    0.411    0.358</span></span>
-<span id="cb8-124"><a href="#cb8-124"></a><span class="co">#&gt;    .p4                0.511    0.035   14.556    0.000    0.511    0.449</span></span>
-<span id="cb8-125"><a href="#cb8-125"></a><span class="co">#&gt;    .p8                0.592    0.039   15.029    0.000    0.592    0.591</span></span>
-<span id="cb8-126"><a href="#cb8-126"></a><span class="co">#&gt;    .p12               1.440    0.090   16.075    0.000    1.440    0.644</span></span>
-<span id="cb8-127"><a href="#cb8-127"></a><span class="co">#&gt;    .p17               0.872    0.054   16.150    0.000    0.872    0.667</span></span>
-<span id="cb8-128"><a href="#cb8-128"></a><span class="co">#&gt;    .p20               0.287    0.030    9.490    0.000    0.287    0.247</span></span>
-<span id="cb8-129"><a href="#cb8-129"></a><span class="co">#&gt;     mlq               1.000                               1.000    1.000</span></span>
-<span id="cb8-130"><a href="#cb8-130"></a><span class="co">#&gt;     pil               1.000                               1.000    1.000</span></span>
-<span id="cb8-131"><a href="#cb8-131"></a><span class="co">#&gt;     meaning           1.000                               1.000    1.000</span></span>
-<span id="cb8-132"><a href="#cb8-132"></a><span class="co">#&gt;     purpose           1.000                               1.000    1.000</span></span>
-<span id="cb8-133"><a href="#cb8-133"></a><span class="co">#&gt; </span></span>
-<span id="cb8-134"><a href="#cb8-134"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb8-135"><a href="#cb8-135"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb8-136"><a href="#cb8-136"></a><span class="co">#&gt;     m1                0.653</span></span>
-<span id="cb8-137"><a href="#cb8-137"></a><span class="co">#&gt;     m2                0.577</span></span>
-<span id="cb8-138"><a href="#cb8-138"></a><span class="co">#&gt;     m3                0.634</span></span>
-<span id="cb8-139"><a href="#cb8-139"></a><span class="co">#&gt;     m4                0.705</span></span>
-<span id="cb8-140"><a href="#cb8-140"></a><span class="co">#&gt;     m5                0.662</span></span>
-<span id="cb8-141"><a href="#cb8-141"></a><span class="co">#&gt;     m6                0.641</span></span>
-<span id="cb8-142"><a href="#cb8-142"></a><span class="co">#&gt;     m8                0.645</span></span>
-<span id="cb8-143"><a href="#cb8-143"></a><span class="co">#&gt;     m9                0.444</span></span>
-<span id="cb8-144"><a href="#cb8-144"></a><span class="co">#&gt;     m10               0.625</span></span>
-<span id="cb8-145"><a href="#cb8-145"></a><span class="co">#&gt;     p3                0.642</span></span>
-<span id="cb8-146"><a href="#cb8-146"></a><span class="co">#&gt;     p4                0.551</span></span>
-<span id="cb8-147"><a href="#cb8-147"></a><span class="co">#&gt;     p8                0.409</span></span>
-<span id="cb8-148"><a href="#cb8-148"></a><span class="co">#&gt;     p12               0.356</span></span>
-<span id="cb8-149"><a href="#cb8-149"></a><span class="co">#&gt;     p17               0.333</span></span>
-<span id="cb8-150"><a href="#cb8-150"></a><span class="co">#&gt;     p20               0.753</span></span></code></pre></div>
+<span id="cb8-61"><a href="#cb8-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb8-62"><a href="#cb8-62"></a><span class="co">#&gt;   mlq =~                                                       </span></span>
+<span id="cb8-63"><a href="#cb8-63"></a><span class="co">#&gt;     m1                0.072    0.079    0.912    0.362    0.072</span></span>
+<span id="cb8-64"><a href="#cb8-64"></a><span class="co">#&gt;     m2               -1.276    0.071  -17.912    0.000   -1.276</span></span>
+<span id="cb8-65"><a href="#cb8-65"></a><span class="co">#&gt;     m3               -1.364    0.066  -20.783    0.000   -1.364</span></span>
+<span id="cb8-66"><a href="#cb8-66"></a><span class="co">#&gt;     m4               -0.011    0.082   -0.133    0.894   -0.011</span></span>
+<span id="cb8-67"><a href="#cb8-67"></a><span class="co">#&gt;     m5                0.044    0.071    0.624    0.533    0.044</span></span>
+<span id="cb8-68"><a href="#cb8-68"></a><span class="co">#&gt;     m6                0.097    0.084    1.146    0.252    0.097</span></span>
+<span id="cb8-69"><a href="#cb8-69"></a><span class="co">#&gt;     m8               -1.332    0.065  -20.402    0.000   -1.332</span></span>
+<span id="cb8-70"><a href="#cb8-70"></a><span class="co">#&gt;     m9                0.066    0.081    0.813    0.416    0.066</span></span>
+<span id="cb8-71"><a href="#cb8-71"></a><span class="co">#&gt;     m10              -1.302    0.082  -15.838    0.000   -1.302</span></span>
+<span id="cb8-72"><a href="#cb8-72"></a><span class="co">#&gt;   pil =~                                                       </span></span>
+<span id="cb8-73"><a href="#cb8-73"></a><span class="co">#&gt;     p3                0.708    0.043   16.321    0.000    0.708</span></span>
+<span id="cb8-74"><a href="#cb8-74"></a><span class="co">#&gt;     p4                0.441    0.041   10.812    0.000    0.441</span></span>
+<span id="cb8-75"><a href="#cb8-75"></a><span class="co">#&gt;     p8                0.463    0.042   10.942    0.000    0.463</span></span>
+<span id="cb8-76"><a href="#cb8-76"></a><span class="co">#&gt;     p12               0.344    0.063    5.456    0.000    0.344</span></span>
+<span id="cb8-77"><a href="#cb8-77"></a><span class="co">#&gt;     p17               0.255    0.049    5.236    0.000    0.255</span></span>
+<span id="cb8-78"><a href="#cb8-78"></a><span class="co">#&gt;     p20               0.628    0.038   16.314    0.000    0.628</span></span>
+<span id="cb8-79"><a href="#cb8-79"></a><span class="co">#&gt;   meaning =~                                                   </span></span>
+<span id="cb8-80"><a href="#cb8-80"></a><span class="co">#&gt;     m1               -1.090    0.049  -22.359    0.000   -1.090</span></span>
+<span id="cb8-81"><a href="#cb8-81"></a><span class="co">#&gt;     m2                0.414    0.111    3.728    0.000    0.414</span></span>
+<span id="cb8-82"><a href="#cb8-82"></a><span class="co">#&gt;     m5               -0.987    0.044  -22.682    0.000   -0.987</span></span>
+<span id="cb8-83"><a href="#cb8-83"></a><span class="co">#&gt;     m10               0.745    0.115    6.503    0.000    0.745</span></span>
+<span id="cb8-84"><a href="#cb8-84"></a><span class="co">#&gt;     p4               -0.658    0.042  -15.527    0.000   -0.658</span></span>
+<span id="cb8-85"><a href="#cb8-85"></a><span class="co">#&gt;     p12              -0.824    0.061  -13.569    0.000   -0.824</span></span>
+<span id="cb8-86"><a href="#cb8-86"></a><span class="co">#&gt;     p17              -0.609    0.047  -13.032    0.000   -0.609</span></span>
+<span id="cb8-87"><a href="#cb8-87"></a><span class="co">#&gt;   purpose =~                                                   </span></span>
+<span id="cb8-88"><a href="#cb8-88"></a><span class="co">#&gt;     m3               -0.157    0.115   -1.369    0.171   -0.157</span></span>
+<span id="cb8-89"><a href="#cb8-89"></a><span class="co">#&gt;     m4                1.149    0.048   23.832    0.000    1.149</span></span>
+<span id="cb8-90"><a href="#cb8-90"></a><span class="co">#&gt;     m6                1.147    0.052   21.965    0.000    1.147</span></span>
+<span id="cb8-91"><a href="#cb8-91"></a><span class="co">#&gt;     m8               -0.273    0.112   -2.435    0.015   -0.273</span></span>
+<span id="cb8-92"><a href="#cb8-92"></a><span class="co">#&gt;     m9                0.980    0.057   17.147    0.000    0.980</span></span>
+<span id="cb8-93"><a href="#cb8-93"></a><span class="co">#&gt;     p3                0.486    0.045   10.692    0.000    0.486</span></span>
+<span id="cb8-94"><a href="#cb8-94"></a><span class="co">#&gt;     p8                0.441    0.042   10.443    0.000    0.441</span></span>
+<span id="cb8-95"><a href="#cb8-95"></a><span class="co">#&gt;     p20               0.693    0.043   16.270    0.000    0.693</span></span>
+<span id="cb8-96"><a href="#cb8-96"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb8-97"><a href="#cb8-97"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-98"><a href="#cb8-98"></a><span class="co">#&gt;     0.053</span></span>
+<span id="cb8-99"><a href="#cb8-99"></a><span class="co">#&gt;    -0.723</span></span>
+<span id="cb8-100"><a href="#cb8-100"></a><span class="co">#&gt;    -0.791</span></span>
+<span id="cb8-101"><a href="#cb8-101"></a><span class="co">#&gt;    -0.008</span></span>
+<span id="cb8-102"><a href="#cb8-102"></a><span class="co">#&gt;     0.036</span></span>
+<span id="cb8-103"><a href="#cb8-103"></a><span class="co">#&gt;     0.067</span></span>
+<span id="cb8-104"><a href="#cb8-104"></a><span class="co">#&gt;    -0.787</span></span>
+<span id="cb8-105"><a href="#cb8-105"></a><span class="co">#&gt;     0.045</span></span>
+<span id="cb8-106"><a href="#cb8-106"></a><span class="co">#&gt;    -0.686</span></span>
+<span id="cb8-107"><a href="#cb8-107"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-108"><a href="#cb8-108"></a><span class="co">#&gt;     0.660</span></span>
+<span id="cb8-109"><a href="#cb8-109"></a><span class="co">#&gt;     0.413</span></span>
+<span id="cb8-110"><a href="#cb8-110"></a><span class="co">#&gt;     0.463</span></span>
+<span id="cb8-111"><a href="#cb8-111"></a><span class="co">#&gt;     0.230</span></span>
+<span id="cb8-112"><a href="#cb8-112"></a><span class="co">#&gt;     0.223</span></span>
+<span id="cb8-113"><a href="#cb8-113"></a><span class="co">#&gt;     0.583</span></span>
+<span id="cb8-114"><a href="#cb8-114"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-115"><a href="#cb8-115"></a><span class="co">#&gt;    -0.806</span></span>
+<span id="cb8-116"><a href="#cb8-116"></a><span class="co">#&gt;     0.234</span></span>
+<span id="cb8-117"><a href="#cb8-117"></a><span class="co">#&gt;    -0.813</span></span>
+<span id="cb8-118"><a href="#cb8-118"></a><span class="co">#&gt;     0.392</span></span>
+<span id="cb8-119"><a href="#cb8-119"></a><span class="co">#&gt;    -0.617</span></span>
+<span id="cb8-120"><a href="#cb8-120"></a><span class="co">#&gt;    -0.551</span></span>
+<span id="cb8-121"><a href="#cb8-121"></a><span class="co">#&gt;    -0.532</span></span>
+<span id="cb8-122"><a href="#cb8-122"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-123"><a href="#cb8-123"></a><span class="co">#&gt;    -0.091</span></span>
+<span id="cb8-124"><a href="#cb8-124"></a><span class="co">#&gt;     0.839</span></span>
+<span id="cb8-125"><a href="#cb8-125"></a><span class="co">#&gt;     0.798</span></span>
+<span id="cb8-126"><a href="#cb8-126"></a><span class="co">#&gt;    -0.161</span></span>
+<span id="cb8-127"><a href="#cb8-127"></a><span class="co">#&gt;     0.665</span></span>
+<span id="cb8-128"><a href="#cb8-128"></a><span class="co">#&gt;     0.453</span></span>
+<span id="cb8-129"><a href="#cb8-129"></a><span class="co">#&gt;     0.441</span></span>
+<span id="cb8-130"><a href="#cb8-130"></a><span class="co">#&gt;     0.643</span></span>
+<span id="cb8-131"><a href="#cb8-131"></a><span class="co">#&gt; </span></span>
+<span id="cb8-132"><a href="#cb8-132"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb8-133"><a href="#cb8-133"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb8-134"><a href="#cb8-134"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb8-135"><a href="#cb8-135"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb8-136"><a href="#cb8-136"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb8-137"><a href="#cb8-137"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb8-138"><a href="#cb8-138"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb8-139"><a href="#cb8-139"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb8-140"><a href="#cb8-140"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb8-141"><a href="#cb8-141"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb8-142"><a href="#cb8-142"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb8-143"><a href="#cb8-143"></a><span class="co">#&gt;     pil               0.147    0.083    1.763    0.078    0.147</span></span>
+<span id="cb8-144"><a href="#cb8-144"></a><span class="co">#&gt;   meaning ~~                                                   </span></span>
+<span id="cb8-145"><a href="#cb8-145"></a><span class="co">#&gt;     purpose          -0.987    0.011  -92.538    0.000   -0.987</span></span>
+<span id="cb8-146"><a href="#cb8-146"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb8-147"><a href="#cb8-147"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-148"><a href="#cb8-148"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb8-149"><a href="#cb8-149"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-150"><a href="#cb8-150"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb8-151"><a href="#cb8-151"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-152"><a href="#cb8-152"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb8-153"><a href="#cb8-153"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-154"><a href="#cb8-154"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb8-155"><a href="#cb8-155"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-156"><a href="#cb8-156"></a><span class="co">#&gt;     0.147</span></span>
+<span id="cb8-157"><a href="#cb8-157"></a><span class="co">#&gt;          </span></span>
+<span id="cb8-158"><a href="#cb8-158"></a><span class="co">#&gt;    -0.987</span></span>
+<span id="cb8-159"><a href="#cb8-159"></a><span class="co">#&gt; </span></span>
+<span id="cb8-160"><a href="#cb8-160"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb8-161"><a href="#cb8-161"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb8-162"><a href="#cb8-162"></a><span class="co">#&gt;    .m1                0.635    0.048   13.361    0.000    0.635</span></span>
+<span id="cb8-163"><a href="#cb8-163"></a><span class="co">#&gt;    .m2                1.316    0.100   13.204    0.000    1.316</span></span>
+<span id="cb8-164"><a href="#cb8-164"></a><span class="co">#&gt;    .m3                1.089    0.094   11.580    0.000    1.089</span></span>
+<span id="cb8-165"><a href="#cb8-165"></a><span class="co">#&gt;    .m4                0.553    0.045   12.200    0.000    0.553</span></span>
+<span id="cb8-166"><a href="#cb8-166"></a><span class="co">#&gt;    .m5                0.498    0.038   13.148    0.000    0.498</span></span>
+<span id="cb8-167"><a href="#cb8-167"></a><span class="co">#&gt;    .m6                0.743    0.055   13.632    0.000    0.743</span></span>
+<span id="cb8-168"><a href="#cb8-168"></a><span class="co">#&gt;    .m8                1.015    0.088   11.561    0.000    1.015</span></span>
+<span id="cb8-169"><a href="#cb8-169"></a><span class="co">#&gt;    .m9                1.208    0.078   15.433    0.000    1.208</span></span>
+<span id="cb8-170"><a href="#cb8-170"></a><span class="co">#&gt;    .m10               1.352    0.104   13.050    0.000    1.352</span></span>
+<span id="cb8-171"><a href="#cb8-171"></a><span class="co">#&gt;    .p3                0.411    0.041    9.997    0.000    0.411</span></span>
+<span id="cb8-172"><a href="#cb8-172"></a><span class="co">#&gt;    .p4                0.511    0.035   14.556    0.000    0.511</span></span>
+<span id="cb8-173"><a href="#cb8-173"></a><span class="co">#&gt;    .p8                0.592    0.039   15.029    0.000    0.592</span></span>
+<span id="cb8-174"><a href="#cb8-174"></a><span class="co">#&gt;    .p12               1.440    0.090   16.075    0.000    1.440</span></span>
+<span id="cb8-175"><a href="#cb8-175"></a><span class="co">#&gt;    .p17               0.872    0.054   16.150    0.000    0.872</span></span>
+<span id="cb8-176"><a href="#cb8-176"></a><span class="co">#&gt;    .p20               0.287    0.030    9.490    0.000    0.287</span></span>
+<span id="cb8-177"><a href="#cb8-177"></a><span class="co">#&gt;     mlq               1.000                               1.000</span></span>
+<span id="cb8-178"><a href="#cb8-178"></a><span class="co">#&gt;     pil               1.000                               1.000</span></span>
+<span id="cb8-179"><a href="#cb8-179"></a><span class="co">#&gt;     meaning           1.000                               1.000</span></span>
+<span id="cb8-180"><a href="#cb8-180"></a><span class="co">#&gt;     purpose           1.000                               1.000</span></span>
+<span id="cb8-181"><a href="#cb8-181"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb8-182"><a href="#cb8-182"></a><span class="co">#&gt;     0.347</span></span>
+<span id="cb8-183"><a href="#cb8-183"></a><span class="co">#&gt;     0.423</span></span>
+<span id="cb8-184"><a href="#cb8-184"></a><span class="co">#&gt;     0.366</span></span>
+<span id="cb8-185"><a href="#cb8-185"></a><span class="co">#&gt;     0.295</span></span>
+<span id="cb8-186"><a href="#cb8-186"></a><span class="co">#&gt;     0.338</span></span>
+<span id="cb8-187"><a href="#cb8-187"></a><span class="co">#&gt;     0.359</span></span>
+<span id="cb8-188"><a href="#cb8-188"></a><span class="co">#&gt;     0.355</span></span>
+<span id="cb8-189"><a href="#cb8-189"></a><span class="co">#&gt;     0.556</span></span>
+<span id="cb8-190"><a href="#cb8-190"></a><span class="co">#&gt;     0.375</span></span>
+<span id="cb8-191"><a href="#cb8-191"></a><span class="co">#&gt;     0.358</span></span>
+<span id="cb8-192"><a href="#cb8-192"></a><span class="co">#&gt;     0.449</span></span>
+<span id="cb8-193"><a href="#cb8-193"></a><span class="co">#&gt;     0.591</span></span>
+<span id="cb8-194"><a href="#cb8-194"></a><span class="co">#&gt;     0.644</span></span>
+<span id="cb8-195"><a href="#cb8-195"></a><span class="co">#&gt;     0.667</span></span>
+<span id="cb8-196"><a href="#cb8-196"></a><span class="co">#&gt;     0.247</span></span>
+<span id="cb8-197"><a href="#cb8-197"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb8-198"><a href="#cb8-198"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb8-199"><a href="#cb8-199"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb8-200"><a href="#cb8-200"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb8-201"><a href="#cb8-201"></a><span class="co">#&gt; </span></span>
+<span id="cb8-202"><a href="#cb8-202"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb8-203"><a href="#cb8-203"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb8-204"><a href="#cb8-204"></a><span class="co">#&gt;     m1                0.653</span></span>
+<span id="cb8-205"><a href="#cb8-205"></a><span class="co">#&gt;     m2                0.577</span></span>
+<span id="cb8-206"><a href="#cb8-206"></a><span class="co">#&gt;     m3                0.634</span></span>
+<span id="cb8-207"><a href="#cb8-207"></a><span class="co">#&gt;     m4                0.705</span></span>
+<span id="cb8-208"><a href="#cb8-208"></a><span class="co">#&gt;     m5                0.662</span></span>
+<span id="cb8-209"><a href="#cb8-209"></a><span class="co">#&gt;     m6                0.641</span></span>
+<span id="cb8-210"><a href="#cb8-210"></a><span class="co">#&gt;     m8                0.645</span></span>
+<span id="cb8-211"><a href="#cb8-211"></a><span class="co">#&gt;     m9                0.444</span></span>
+<span id="cb8-212"><a href="#cb8-212"></a><span class="co">#&gt;     m10               0.625</span></span>
+<span id="cb8-213"><a href="#cb8-213"></a><span class="co">#&gt;     p3                0.642</span></span>
+<span id="cb8-214"><a href="#cb8-214"></a><span class="co">#&gt;     p4                0.551</span></span>
+<span id="cb8-215"><a href="#cb8-215"></a><span class="co">#&gt;     p8                0.409</span></span>
+<span id="cb8-216"><a href="#cb8-216"></a><span class="co">#&gt;     p12               0.356</span></span>
+<span id="cb8-217"><a href="#cb8-217"></a><span class="co">#&gt;     p17               0.333</span></span>
+<span id="cb8-218"><a href="#cb8-218"></a><span class="co">#&gt;     p20               0.753</span></span></code></pre></div>
 </div>
 <div id="model-1-correlated-traits-correlated-methods-7" class="slide section level2">
 <h1>Model 1: Correlated Traits / Correlated Methods</h1>
@@ -1296,96 +1439,164 @@ list-style-type: none;
 <span id="cb12-58"><a href="#cb12-58"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb12-59"><a href="#cb12-59"></a><span class="co">#&gt; </span></span>
 <span id="cb12-60"><a href="#cb12-60"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb12-61"><a href="#cb12-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb12-62"><a href="#cb12-62"></a><span class="co">#&gt;   mlq =~                                                                </span></span>
-<span id="cb12-63"><a href="#cb12-63"></a><span class="co">#&gt;     m1                0.072    0.078    0.922    0.357    0.072    0.053</span></span>
-<span id="cb12-64"><a href="#cb12-64"></a><span class="co">#&gt;     m2               -1.276    0.071  -17.952    0.000   -1.276   -0.723</span></span>
-<span id="cb12-65"><a href="#cb12-65"></a><span class="co">#&gt;     m3               -1.364    0.066  -20.794    0.000   -1.364   -0.791</span></span>
-<span id="cb12-66"><a href="#cb12-66"></a><span class="co">#&gt;     m4               -0.011    0.080   -0.134    0.894   -0.011   -0.008</span></span>
-<span id="cb12-67"><a href="#cb12-67"></a><span class="co">#&gt;     m5                0.045    0.070    0.635    0.525    0.045    0.037</span></span>
-<span id="cb12-68"><a href="#cb12-68"></a><span class="co">#&gt;     m6                0.096    0.083    1.164    0.245    0.096    0.067</span></span>
-<span id="cb12-69"><a href="#cb12-69"></a><span class="co">#&gt;     m8               -1.331    0.065  -20.426    0.000   -1.331   -0.787</span></span>
-<span id="cb12-70"><a href="#cb12-70"></a><span class="co">#&gt;     m9                0.065    0.080    0.818    0.413    0.065    0.044</span></span>
-<span id="cb12-71"><a href="#cb12-71"></a><span class="co">#&gt;     m10              -1.302    0.082  -15.883    0.000   -1.302   -0.686</span></span>
-<span id="cb12-72"><a href="#cb12-72"></a><span class="co">#&gt;   pil =~                                                                </span></span>
-<span id="cb12-73"><a href="#cb12-73"></a><span class="co">#&gt;     p3                0.710    0.043   16.354    0.000    0.710    0.663</span></span>
-<span id="cb12-74"><a href="#cb12-74"></a><span class="co">#&gt;     p4                0.436    0.041   10.710    0.000    0.436    0.409</span></span>
-<span id="cb12-75"><a href="#cb12-75"></a><span class="co">#&gt;     p8                0.464    0.042   10.963    0.000    0.464    0.464</span></span>
-<span id="cb12-76"><a href="#cb12-76"></a><span class="co">#&gt;     p12               0.339    0.063    5.380    0.000    0.339    0.227</span></span>
-<span id="cb12-77"><a href="#cb12-77"></a><span class="co">#&gt;     p17               0.251    0.049    5.152    0.000    0.251    0.220</span></span>
-<span id="cb12-78"><a href="#cb12-78"></a><span class="co">#&gt;     p20               0.627    0.039   16.280    0.000    0.627    0.583</span></span>
-<span id="cb12-79"><a href="#cb12-79"></a><span class="co">#&gt;   meaning =~                                                            </span></span>
-<span id="cb12-80"><a href="#cb12-80"></a><span class="co">#&gt;     m1                1.087    0.049   22.366    0.000    1.087    0.804</span></span>
-<span id="cb12-81"><a href="#cb12-81"></a><span class="co">#&gt;     m2               -0.409    0.110   -3.716    0.000   -0.409   -0.232</span></span>
-<span id="cb12-82"><a href="#cb12-82"></a><span class="co">#&gt;     m5                0.984    0.043   22.665    0.000    0.984    0.810</span></span>
-<span id="cb12-83"><a href="#cb12-83"></a><span class="co">#&gt;     m10              -0.743    0.114   -6.543    0.000   -0.743   -0.391</span></span>
-<span id="cb12-84"><a href="#cb12-84"></a><span class="co">#&gt;     p4                0.654    0.042   15.439    0.000    0.654    0.613</span></span>
-<span id="cb12-85"><a href="#cb12-85"></a><span class="co">#&gt;     p12               0.819    0.061   13.511    0.000    0.819    0.548</span></span>
-<span id="cb12-86"><a href="#cb12-86"></a><span class="co">#&gt;     p17               0.606    0.047   12.981    0.000    0.606    0.530</span></span>
-<span id="cb12-87"><a href="#cb12-87"></a><span class="co">#&gt;   purpose =~                                                            </span></span>
-<span id="cb12-88"><a href="#cb12-88"></a><span class="co">#&gt;     m3               -0.155    0.113   -1.364    0.173   -0.155   -0.090</span></span>
-<span id="cb12-89"><a href="#cb12-89"></a><span class="co">#&gt;     m4                1.145    0.048   23.825    0.000    1.145    0.836</span></span>
-<span id="cb12-90"><a href="#cb12-90"></a><span class="co">#&gt;     m6                1.142    0.052   21.918    0.000    1.142    0.794</span></span>
-<span id="cb12-91"><a href="#cb12-91"></a><span class="co">#&gt;     m8               -0.270    0.111   -2.440    0.015   -0.270   -0.160</span></span>
-<span id="cb12-92"><a href="#cb12-92"></a><span class="co">#&gt;     m9                0.978    0.057   17.147    0.000    0.978    0.664</span></span>
-<span id="cb12-93"><a href="#cb12-93"></a><span class="co">#&gt;     p3                0.482    0.045   10.631    0.000    0.482    0.450</span></span>
-<span id="cb12-94"><a href="#cb12-94"></a><span class="co">#&gt;     p8                0.440    0.042   10.424    0.000    0.440    0.440</span></span>
-<span id="cb12-95"><a href="#cb12-95"></a><span class="co">#&gt;     p20               0.689    0.043   16.198    0.000    0.689    0.640</span></span>
-<span id="cb12-96"><a href="#cb12-96"></a><span class="co">#&gt; </span></span>
-<span id="cb12-97"><a href="#cb12-97"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb12-98"><a href="#cb12-98"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb12-99"><a href="#cb12-99"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb12-100"><a href="#cb12-100"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb12-101"><a href="#cb12-101"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb12-102"><a href="#cb12-102"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb12-103"><a href="#cb12-103"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb12-104"><a href="#cb12-104"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb12-105"><a href="#cb12-105"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb12-106"><a href="#cb12-106"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb12-107"><a href="#cb12-107"></a><span class="co">#&gt;   meaning ~~                                                            </span></span>
-<span id="cb12-108"><a href="#cb12-108"></a><span class="co">#&gt;     purpose           1.000                               1.000    1.000</span></span>
-<span id="cb12-109"><a href="#cb12-109"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb12-110"><a href="#cb12-110"></a><span class="co">#&gt;     pil               0.146    0.082    1.785    0.074    0.146    0.146</span></span>
-<span id="cb12-111"><a href="#cb12-111"></a><span class="co">#&gt; </span></span>
-<span id="cb12-112"><a href="#cb12-112"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb12-113"><a href="#cb12-113"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb12-114"><a href="#cb12-114"></a><span class="co">#&gt;    .m1                0.641    0.047   13.742    0.000    0.641    0.351</span></span>
-<span id="cb12-115"><a href="#cb12-115"></a><span class="co">#&gt;    .m2                1.319    0.100   13.211    0.000    1.319    0.424</span></span>
-<span id="cb12-116"><a href="#cb12-116"></a><span class="co">#&gt;    .m3                1.090    0.094   11.582    0.000    1.090    0.366</span></span>
-<span id="cb12-117"><a href="#cb12-117"></a><span class="co">#&gt;    .m4                0.563    0.044   12.730    0.000    0.563    0.301</span></span>
-<span id="cb12-118"><a href="#cb12-118"></a><span class="co">#&gt;    .m5                0.505    0.037   13.580    0.000    0.505    0.342</span></span>
-<span id="cb12-119"><a href="#cb12-119"></a><span class="co">#&gt;    .m6                0.754    0.054   13.959    0.000    0.754    0.365</span></span>
-<span id="cb12-120"><a href="#cb12-120"></a><span class="co">#&gt;    .m8                1.017    0.088   11.584    0.000    1.017    0.355</span></span>
-<span id="cb12-121"><a href="#cb12-121"></a><span class="co">#&gt;    .m9                1.212    0.078   15.528    0.000    1.212    0.558</span></span>
-<span id="cb12-122"><a href="#cb12-122"></a><span class="co">#&gt;    .m10               1.353    0.103   13.078    0.000    1.353    0.376</span></span>
-<span id="cb12-123"><a href="#cb12-123"></a><span class="co">#&gt;    .p3                0.409    0.041    9.882    0.000    0.409    0.357</span></span>
-<span id="cb12-124"><a href="#cb12-124"></a><span class="co">#&gt;    .p4                0.520    0.035   14.875    0.000    0.520    0.457</span></span>
-<span id="cb12-125"><a href="#cb12-125"></a><span class="co">#&gt;    .p8                0.592    0.039   15.020    0.000    0.592    0.592</span></span>
-<span id="cb12-126"><a href="#cb12-126"></a><span class="co">#&gt;    .p12               1.449    0.090   16.172    0.000    1.449    0.648</span></span>
-<span id="cb12-127"><a href="#cb12-127"></a><span class="co">#&gt;    .p17               0.877    0.054   16.236    0.000    0.877    0.671</span></span>
-<span id="cb12-128"><a href="#cb12-128"></a><span class="co">#&gt;    .p20               0.290    0.030    9.587    0.000    0.290    0.251</span></span>
-<span id="cb12-129"><a href="#cb12-129"></a><span class="co">#&gt;     mlq               1.000                               1.000    1.000</span></span>
-<span id="cb12-130"><a href="#cb12-130"></a><span class="co">#&gt;     pil               1.000                               1.000    1.000</span></span>
-<span id="cb12-131"><a href="#cb12-131"></a><span class="co">#&gt;     meaning           1.000                               1.000    1.000</span></span>
-<span id="cb12-132"><a href="#cb12-132"></a><span class="co">#&gt;     purpose           1.000                               1.000    1.000</span></span>
-<span id="cb12-133"><a href="#cb12-133"></a><span class="co">#&gt; </span></span>
-<span id="cb12-134"><a href="#cb12-134"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb12-135"><a href="#cb12-135"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb12-136"><a href="#cb12-136"></a><span class="co">#&gt;     m1                0.649</span></span>
-<span id="cb12-137"><a href="#cb12-137"></a><span class="co">#&gt;     m2                0.576</span></span>
-<span id="cb12-138"><a href="#cb12-138"></a><span class="co">#&gt;     m3                0.634</span></span>
-<span id="cb12-139"><a href="#cb12-139"></a><span class="co">#&gt;     m4                0.699</span></span>
-<span id="cb12-140"><a href="#cb12-140"></a><span class="co">#&gt;     m5                0.658</span></span>
-<span id="cb12-141"><a href="#cb12-141"></a><span class="co">#&gt;     m6                0.635</span></span>
-<span id="cb12-142"><a href="#cb12-142"></a><span class="co">#&gt;     m8                0.645</span></span>
-<span id="cb12-143"><a href="#cb12-143"></a><span class="co">#&gt;     m9                0.442</span></span>
-<span id="cb12-144"><a href="#cb12-144"></a><span class="co">#&gt;     m10               0.624</span></span>
-<span id="cb12-145"><a href="#cb12-145"></a><span class="co">#&gt;     p3                0.643</span></span>
-<span id="cb12-146"><a href="#cb12-146"></a><span class="co">#&gt;     p4                0.543</span></span>
-<span id="cb12-147"><a href="#cb12-147"></a><span class="co">#&gt;     p8                0.408</span></span>
-<span id="cb12-148"><a href="#cb12-148"></a><span class="co">#&gt;     p12               0.352</span></span>
-<span id="cb12-149"><a href="#cb12-149"></a><span class="co">#&gt;     p17               0.329</span></span>
-<span id="cb12-150"><a href="#cb12-150"></a><span class="co">#&gt;     p20               0.749</span></span></code></pre></div>
+<span id="cb12-61"><a href="#cb12-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb12-62"><a href="#cb12-62"></a><span class="co">#&gt;   mlq =~                                                       </span></span>
+<span id="cb12-63"><a href="#cb12-63"></a><span class="co">#&gt;     m1                0.072    0.078    0.922    0.357    0.072</span></span>
+<span id="cb12-64"><a href="#cb12-64"></a><span class="co">#&gt;     m2               -1.276    0.071  -17.952    0.000   -1.276</span></span>
+<span id="cb12-65"><a href="#cb12-65"></a><span class="co">#&gt;     m3               -1.364    0.066  -20.794    0.000   -1.364</span></span>
+<span id="cb12-66"><a href="#cb12-66"></a><span class="co">#&gt;     m4               -0.011    0.080   -0.134    0.894   -0.011</span></span>
+<span id="cb12-67"><a href="#cb12-67"></a><span class="co">#&gt;     m5                0.045    0.070    0.635    0.525    0.045</span></span>
+<span id="cb12-68"><a href="#cb12-68"></a><span class="co">#&gt;     m6                0.096    0.083    1.164    0.245    0.096</span></span>
+<span id="cb12-69"><a href="#cb12-69"></a><span class="co">#&gt;     m8               -1.331    0.065  -20.426    0.000   -1.331</span></span>
+<span id="cb12-70"><a href="#cb12-70"></a><span class="co">#&gt;     m9                0.065    0.080    0.818    0.413    0.065</span></span>
+<span id="cb12-71"><a href="#cb12-71"></a><span class="co">#&gt;     m10              -1.302    0.082  -15.883    0.000   -1.302</span></span>
+<span id="cb12-72"><a href="#cb12-72"></a><span class="co">#&gt;   pil =~                                                       </span></span>
+<span id="cb12-73"><a href="#cb12-73"></a><span class="co">#&gt;     p3                0.710    0.043   16.354    0.000    0.710</span></span>
+<span id="cb12-74"><a href="#cb12-74"></a><span class="co">#&gt;     p4                0.436    0.041   10.710    0.000    0.436</span></span>
+<span id="cb12-75"><a href="#cb12-75"></a><span class="co">#&gt;     p8                0.464    0.042   10.963    0.000    0.464</span></span>
+<span id="cb12-76"><a href="#cb12-76"></a><span class="co">#&gt;     p12               0.339    0.063    5.380    0.000    0.339</span></span>
+<span id="cb12-77"><a href="#cb12-77"></a><span class="co">#&gt;     p17               0.251    0.049    5.152    0.000    0.251</span></span>
+<span id="cb12-78"><a href="#cb12-78"></a><span class="co">#&gt;     p20               0.627    0.039   16.280    0.000    0.627</span></span>
+<span id="cb12-79"><a href="#cb12-79"></a><span class="co">#&gt;   meaning =~                                                   </span></span>
+<span id="cb12-80"><a href="#cb12-80"></a><span class="co">#&gt;     m1                1.087    0.049   22.366    0.000    1.087</span></span>
+<span id="cb12-81"><a href="#cb12-81"></a><span class="co">#&gt;     m2               -0.409    0.110   -3.716    0.000   -0.409</span></span>
+<span id="cb12-82"><a href="#cb12-82"></a><span class="co">#&gt;     m5                0.984    0.043   22.665    0.000    0.984</span></span>
+<span id="cb12-83"><a href="#cb12-83"></a><span class="co">#&gt;     m10              -0.743    0.114   -6.543    0.000   -0.743</span></span>
+<span id="cb12-84"><a href="#cb12-84"></a><span class="co">#&gt;     p4                0.654    0.042   15.439    0.000    0.654</span></span>
+<span id="cb12-85"><a href="#cb12-85"></a><span class="co">#&gt;     p12               0.819    0.061   13.511    0.000    0.819</span></span>
+<span id="cb12-86"><a href="#cb12-86"></a><span class="co">#&gt;     p17               0.606    0.047   12.981    0.000    0.606</span></span>
+<span id="cb12-87"><a href="#cb12-87"></a><span class="co">#&gt;   purpose =~                                                   </span></span>
+<span id="cb12-88"><a href="#cb12-88"></a><span class="co">#&gt;     m3               -0.155    0.113   -1.364    0.173   -0.155</span></span>
+<span id="cb12-89"><a href="#cb12-89"></a><span class="co">#&gt;     m4                1.145    0.048   23.825    0.000    1.145</span></span>
+<span id="cb12-90"><a href="#cb12-90"></a><span class="co">#&gt;     m6                1.142    0.052   21.918    0.000    1.142</span></span>
+<span id="cb12-91"><a href="#cb12-91"></a><span class="co">#&gt;     m8               -0.270    0.111   -2.440    0.015   -0.270</span></span>
+<span id="cb12-92"><a href="#cb12-92"></a><span class="co">#&gt;     m9                0.978    0.057   17.147    0.000    0.978</span></span>
+<span id="cb12-93"><a href="#cb12-93"></a><span class="co">#&gt;     p3                0.482    0.045   10.631    0.000    0.482</span></span>
+<span id="cb12-94"><a href="#cb12-94"></a><span class="co">#&gt;     p8                0.440    0.042   10.424    0.000    0.440</span></span>
+<span id="cb12-95"><a href="#cb12-95"></a><span class="co">#&gt;     p20               0.689    0.043   16.198    0.000    0.689</span></span>
+<span id="cb12-96"><a href="#cb12-96"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb12-97"><a href="#cb12-97"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-98"><a href="#cb12-98"></a><span class="co">#&gt;     0.053</span></span>
+<span id="cb12-99"><a href="#cb12-99"></a><span class="co">#&gt;    -0.723</span></span>
+<span id="cb12-100"><a href="#cb12-100"></a><span class="co">#&gt;    -0.791</span></span>
+<span id="cb12-101"><a href="#cb12-101"></a><span class="co">#&gt;    -0.008</span></span>
+<span id="cb12-102"><a href="#cb12-102"></a><span class="co">#&gt;     0.037</span></span>
+<span id="cb12-103"><a href="#cb12-103"></a><span class="co">#&gt;     0.067</span></span>
+<span id="cb12-104"><a href="#cb12-104"></a><span class="co">#&gt;    -0.787</span></span>
+<span id="cb12-105"><a href="#cb12-105"></a><span class="co">#&gt;     0.044</span></span>
+<span id="cb12-106"><a href="#cb12-106"></a><span class="co">#&gt;    -0.686</span></span>
+<span id="cb12-107"><a href="#cb12-107"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-108"><a href="#cb12-108"></a><span class="co">#&gt;     0.663</span></span>
+<span id="cb12-109"><a href="#cb12-109"></a><span class="co">#&gt;     0.409</span></span>
+<span id="cb12-110"><a href="#cb12-110"></a><span class="co">#&gt;     0.464</span></span>
+<span id="cb12-111"><a href="#cb12-111"></a><span class="co">#&gt;     0.227</span></span>
+<span id="cb12-112"><a href="#cb12-112"></a><span class="co">#&gt;     0.220</span></span>
+<span id="cb12-113"><a href="#cb12-113"></a><span class="co">#&gt;     0.583</span></span>
+<span id="cb12-114"><a href="#cb12-114"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-115"><a href="#cb12-115"></a><span class="co">#&gt;     0.804</span></span>
+<span id="cb12-116"><a href="#cb12-116"></a><span class="co">#&gt;    -0.232</span></span>
+<span id="cb12-117"><a href="#cb12-117"></a><span class="co">#&gt;     0.810</span></span>
+<span id="cb12-118"><a href="#cb12-118"></a><span class="co">#&gt;    -0.391</span></span>
+<span id="cb12-119"><a href="#cb12-119"></a><span class="co">#&gt;     0.613</span></span>
+<span id="cb12-120"><a href="#cb12-120"></a><span class="co">#&gt;     0.548</span></span>
+<span id="cb12-121"><a href="#cb12-121"></a><span class="co">#&gt;     0.530</span></span>
+<span id="cb12-122"><a href="#cb12-122"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-123"><a href="#cb12-123"></a><span class="co">#&gt;    -0.090</span></span>
+<span id="cb12-124"><a href="#cb12-124"></a><span class="co">#&gt;     0.836</span></span>
+<span id="cb12-125"><a href="#cb12-125"></a><span class="co">#&gt;     0.794</span></span>
+<span id="cb12-126"><a href="#cb12-126"></a><span class="co">#&gt;    -0.160</span></span>
+<span id="cb12-127"><a href="#cb12-127"></a><span class="co">#&gt;     0.664</span></span>
+<span id="cb12-128"><a href="#cb12-128"></a><span class="co">#&gt;     0.450</span></span>
+<span id="cb12-129"><a href="#cb12-129"></a><span class="co">#&gt;     0.440</span></span>
+<span id="cb12-130"><a href="#cb12-130"></a><span class="co">#&gt;     0.640</span></span>
+<span id="cb12-131"><a href="#cb12-131"></a><span class="co">#&gt; </span></span>
+<span id="cb12-132"><a href="#cb12-132"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb12-133"><a href="#cb12-133"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb12-134"><a href="#cb12-134"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb12-135"><a href="#cb12-135"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb12-136"><a href="#cb12-136"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb12-137"><a href="#cb12-137"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb12-138"><a href="#cb12-138"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb12-139"><a href="#cb12-139"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb12-140"><a href="#cb12-140"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb12-141"><a href="#cb12-141"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb12-142"><a href="#cb12-142"></a><span class="co">#&gt;   meaning ~~                                                   </span></span>
+<span id="cb12-143"><a href="#cb12-143"></a><span class="co">#&gt;     purpose           1.000                               1.000</span></span>
+<span id="cb12-144"><a href="#cb12-144"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb12-145"><a href="#cb12-145"></a><span class="co">#&gt;     pil               0.146    0.082    1.785    0.074    0.146</span></span>
+<span id="cb12-146"><a href="#cb12-146"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb12-147"><a href="#cb12-147"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-148"><a href="#cb12-148"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb12-149"><a href="#cb12-149"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-150"><a href="#cb12-150"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb12-151"><a href="#cb12-151"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-152"><a href="#cb12-152"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb12-153"><a href="#cb12-153"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-154"><a href="#cb12-154"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb12-155"><a href="#cb12-155"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-156"><a href="#cb12-156"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb12-157"><a href="#cb12-157"></a><span class="co">#&gt;          </span></span>
+<span id="cb12-158"><a href="#cb12-158"></a><span class="co">#&gt;     0.146</span></span>
+<span id="cb12-159"><a href="#cb12-159"></a><span class="co">#&gt; </span></span>
+<span id="cb12-160"><a href="#cb12-160"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb12-161"><a href="#cb12-161"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb12-162"><a href="#cb12-162"></a><span class="co">#&gt;    .m1                0.641    0.047   13.742    0.000    0.641</span></span>
+<span id="cb12-163"><a href="#cb12-163"></a><span class="co">#&gt;    .m2                1.319    0.100   13.211    0.000    1.319</span></span>
+<span id="cb12-164"><a href="#cb12-164"></a><span class="co">#&gt;    .m3                1.090    0.094   11.582    0.000    1.090</span></span>
+<span id="cb12-165"><a href="#cb12-165"></a><span class="co">#&gt;    .m4                0.563    0.044   12.730    0.000    0.563</span></span>
+<span id="cb12-166"><a href="#cb12-166"></a><span class="co">#&gt;    .m5                0.505    0.037   13.580    0.000    0.505</span></span>
+<span id="cb12-167"><a href="#cb12-167"></a><span class="co">#&gt;    .m6                0.754    0.054   13.959    0.000    0.754</span></span>
+<span id="cb12-168"><a href="#cb12-168"></a><span class="co">#&gt;    .m8                1.017    0.088   11.584    0.000    1.017</span></span>
+<span id="cb12-169"><a href="#cb12-169"></a><span class="co">#&gt;    .m9                1.212    0.078   15.528    0.000    1.212</span></span>
+<span id="cb12-170"><a href="#cb12-170"></a><span class="co">#&gt;    .m10               1.353    0.103   13.078    0.000    1.353</span></span>
+<span id="cb12-171"><a href="#cb12-171"></a><span class="co">#&gt;    .p3                0.409    0.041    9.882    0.000    0.409</span></span>
+<span id="cb12-172"><a href="#cb12-172"></a><span class="co">#&gt;    .p4                0.520    0.035   14.875    0.000    0.520</span></span>
+<span id="cb12-173"><a href="#cb12-173"></a><span class="co">#&gt;    .p8                0.592    0.039   15.020    0.000    0.592</span></span>
+<span id="cb12-174"><a href="#cb12-174"></a><span class="co">#&gt;    .p12               1.449    0.090   16.172    0.000    1.449</span></span>
+<span id="cb12-175"><a href="#cb12-175"></a><span class="co">#&gt;    .p17               0.877    0.054   16.236    0.000    0.877</span></span>
+<span id="cb12-176"><a href="#cb12-176"></a><span class="co">#&gt;    .p20               0.290    0.030    9.587    0.000    0.290</span></span>
+<span id="cb12-177"><a href="#cb12-177"></a><span class="co">#&gt;     mlq               1.000                               1.000</span></span>
+<span id="cb12-178"><a href="#cb12-178"></a><span class="co">#&gt;     pil               1.000                               1.000</span></span>
+<span id="cb12-179"><a href="#cb12-179"></a><span class="co">#&gt;     meaning           1.000                               1.000</span></span>
+<span id="cb12-180"><a href="#cb12-180"></a><span class="co">#&gt;     purpose           1.000                               1.000</span></span>
+<span id="cb12-181"><a href="#cb12-181"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb12-182"><a href="#cb12-182"></a><span class="co">#&gt;     0.351</span></span>
+<span id="cb12-183"><a href="#cb12-183"></a><span class="co">#&gt;     0.424</span></span>
+<span id="cb12-184"><a href="#cb12-184"></a><span class="co">#&gt;     0.366</span></span>
+<span id="cb12-185"><a href="#cb12-185"></a><span class="co">#&gt;     0.301</span></span>
+<span id="cb12-186"><a href="#cb12-186"></a><span class="co">#&gt;     0.342</span></span>
+<span id="cb12-187"><a href="#cb12-187"></a><span class="co">#&gt;     0.365</span></span>
+<span id="cb12-188"><a href="#cb12-188"></a><span class="co">#&gt;     0.355</span></span>
+<span id="cb12-189"><a href="#cb12-189"></a><span class="co">#&gt;     0.558</span></span>
+<span id="cb12-190"><a href="#cb12-190"></a><span class="co">#&gt;     0.376</span></span>
+<span id="cb12-191"><a href="#cb12-191"></a><span class="co">#&gt;     0.357</span></span>
+<span id="cb12-192"><a href="#cb12-192"></a><span class="co">#&gt;     0.457</span></span>
+<span id="cb12-193"><a href="#cb12-193"></a><span class="co">#&gt;     0.592</span></span>
+<span id="cb12-194"><a href="#cb12-194"></a><span class="co">#&gt;     0.648</span></span>
+<span id="cb12-195"><a href="#cb12-195"></a><span class="co">#&gt;     0.671</span></span>
+<span id="cb12-196"><a href="#cb12-196"></a><span class="co">#&gt;     0.251</span></span>
+<span id="cb12-197"><a href="#cb12-197"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb12-198"><a href="#cb12-198"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb12-199"><a href="#cb12-199"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb12-200"><a href="#cb12-200"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb12-201"><a href="#cb12-201"></a><span class="co">#&gt; </span></span>
+<span id="cb12-202"><a href="#cb12-202"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb12-203"><a href="#cb12-203"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb12-204"><a href="#cb12-204"></a><span class="co">#&gt;     m1                0.649</span></span>
+<span id="cb12-205"><a href="#cb12-205"></a><span class="co">#&gt;     m2                0.576</span></span>
+<span id="cb12-206"><a href="#cb12-206"></a><span class="co">#&gt;     m3                0.634</span></span>
+<span id="cb12-207"><a href="#cb12-207"></a><span class="co">#&gt;     m4                0.699</span></span>
+<span id="cb12-208"><a href="#cb12-208"></a><span class="co">#&gt;     m5                0.658</span></span>
+<span id="cb12-209"><a href="#cb12-209"></a><span class="co">#&gt;     m6                0.635</span></span>
+<span id="cb12-210"><a href="#cb12-210"></a><span class="co">#&gt;     m8                0.645</span></span>
+<span id="cb12-211"><a href="#cb12-211"></a><span class="co">#&gt;     m9                0.442</span></span>
+<span id="cb12-212"><a href="#cb12-212"></a><span class="co">#&gt;     m10               0.624</span></span>
+<span id="cb12-213"><a href="#cb12-213"></a><span class="co">#&gt;     p3                0.643</span></span>
+<span id="cb12-214"><a href="#cb12-214"></a><span class="co">#&gt;     p4                0.543</span></span>
+<span id="cb12-215"><a href="#cb12-215"></a><span class="co">#&gt;     p8                0.408</span></span>
+<span id="cb12-216"><a href="#cb12-216"></a><span class="co">#&gt;     p12               0.352</span></span>
+<span id="cb12-217"><a href="#cb12-217"></a><span class="co">#&gt;     p17               0.329</span></span>
+<span id="cb12-218"><a href="#cb12-218"></a><span class="co">#&gt;     p20               0.749</span></span></code></pre></div>
 </div>
 <div id="model-3-perfectly-correlated-traits-freely-correlated-methods-4" class="slide section level2">
 <h1>Model 3: Perfectly Correlated Traits / Freely Correlated Methods</h1>
@@ -1506,96 +1717,164 @@ list-style-type: none;
 <span id="cb16-58"><a href="#cb16-58"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb16-59"><a href="#cb16-59"></a><span class="co">#&gt; </span></span>
 <span id="cb16-60"><a href="#cb16-60"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb16-61"><a href="#cb16-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb16-62"><a href="#cb16-62"></a><span class="co">#&gt;   mlq =~                                                                </span></span>
-<span id="cb16-63"><a href="#cb16-63"></a><span class="co">#&gt;     m1                0.028    0.056    0.494    0.621    0.028    0.020</span></span>
-<span id="cb16-64"><a href="#cb16-64"></a><span class="co">#&gt;     m2                1.235    0.069   18.000    0.000    1.235    0.700</span></span>
-<span id="cb16-65"><a href="#cb16-65"></a><span class="co">#&gt;     m3                1.346    0.066   20.543    0.000    1.346    0.780</span></span>
-<span id="cb16-66"><a href="#cb16-66"></a><span class="co">#&gt;     m4                0.117    0.056    2.067    0.039    0.117    0.085</span></span>
-<span id="cb16-67"><a href="#cb16-67"></a><span class="co">#&gt;     m5                0.045    0.050    0.907    0.365    0.045    0.037</span></span>
-<span id="cb16-68"><a href="#cb16-68"></a><span class="co">#&gt;     m6                0.010    0.060    0.162    0.871    0.010    0.007</span></span>
-<span id="cb16-69"><a href="#cb16-69"></a><span class="co">#&gt;     m8                1.301    0.064   20.254    0.000    1.301    0.769</span></span>
-<span id="cb16-70"><a href="#cb16-70"></a><span class="co">#&gt;     m9                0.025    0.063    0.396    0.692    0.025    0.017</span></span>
-<span id="cb16-71"><a href="#cb16-71"></a><span class="co">#&gt;     m10               1.226    0.074   16.589    0.000    1.226    0.646</span></span>
-<span id="cb16-72"><a href="#cb16-72"></a><span class="co">#&gt;   pil =~                                                                </span></span>
-<span id="cb16-73"><a href="#cb16-73"></a><span class="co">#&gt;     p3                0.703    0.043   16.242    0.000    0.703    0.656</span></span>
-<span id="cb16-74"><a href="#cb16-74"></a><span class="co">#&gt;     p4                0.435    0.040   10.835    0.000    0.435    0.408</span></span>
-<span id="cb16-75"><a href="#cb16-75"></a><span class="co">#&gt;     p8                0.461    0.042   10.945    0.000    0.461    0.461</span></span>
-<span id="cb16-76"><a href="#cb16-76"></a><span class="co">#&gt;     p12               0.332    0.062    5.326    0.000    0.332    0.222</span></span>
-<span id="cb16-77"><a href="#cb16-77"></a><span class="co">#&gt;     p17               0.261    0.049    5.384    0.000    0.261    0.228</span></span>
-<span id="cb16-78"><a href="#cb16-78"></a><span class="co">#&gt;     p20               0.617    0.038   16.364    0.000    0.617    0.573</span></span>
-<span id="cb16-79"><a href="#cb16-79"></a><span class="co">#&gt;   meaning =~                                                            </span></span>
-<span id="cb16-80"><a href="#cb16-80"></a><span class="co">#&gt;     m1                1.092    0.048   22.555    0.000    1.092    0.808</span></span>
-<span id="cb16-81"><a href="#cb16-81"></a><span class="co">#&gt;     m2               -0.528    0.088   -6.002    0.000   -0.528   -0.299</span></span>
-<span id="cb16-82"><a href="#cb16-82"></a><span class="co">#&gt;     m5                0.987    0.043   22.747    0.000    0.987    0.813</span></span>
-<span id="cb16-83"><a href="#cb16-83"></a><span class="co">#&gt;     m10              -0.861    0.091   -9.510    0.000   -0.861   -0.453</span></span>
-<span id="cb16-84"><a href="#cb16-84"></a><span class="co">#&gt;     p4                0.662    0.042   15.744    0.000    0.662    0.620</span></span>
-<span id="cb16-85"><a href="#cb16-85"></a><span class="co">#&gt;     p12               0.828    0.060   13.708    0.000    0.828    0.554</span></span>
-<span id="cb16-86"><a href="#cb16-86"></a><span class="co">#&gt;     p17               0.602    0.047   12.897    0.000    0.602    0.526</span></span>
-<span id="cb16-87"><a href="#cb16-87"></a><span class="co">#&gt;   purpose =~                                                            </span></span>
-<span id="cb16-88"><a href="#cb16-88"></a><span class="co">#&gt;     m3                0.282    0.090    3.134    0.002    0.282    0.163</span></span>
-<span id="cb16-89"><a href="#cb16-89"></a><span class="co">#&gt;     m4               -1.143    0.048  -23.610    0.000   -1.143   -0.835</span></span>
-<span id="cb16-90"><a href="#cb16-90"></a><span class="co">#&gt;     m6               -1.151    0.052  -22.272    0.000   -1.151   -0.800</span></span>
-<span id="cb16-91"><a href="#cb16-91"></a><span class="co">#&gt;     m8                0.394    0.087    4.509    0.000    0.394    0.233</span></span>
-<span id="cb16-92"><a href="#cb16-92"></a><span class="co">#&gt;     m9               -0.982    0.057  -17.277    0.000   -0.982   -0.666</span></span>
-<span id="cb16-93"><a href="#cb16-93"></a><span class="co">#&gt;     p3               -0.493    0.045  -11.050    0.000   -0.493   -0.460</span></span>
-<span id="cb16-94"><a href="#cb16-94"></a><span class="co">#&gt;     p8               -0.445    0.042  -10.624    0.000   -0.445   -0.444</span></span>
-<span id="cb16-95"><a href="#cb16-95"></a><span class="co">#&gt;     p20              -0.701    0.042  -16.729    0.000   -0.701   -0.650</span></span>
-<span id="cb16-96"><a href="#cb16-96"></a><span class="co">#&gt; </span></span>
-<span id="cb16-97"><a href="#cb16-97"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb16-98"><a href="#cb16-98"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb16-99"><a href="#cb16-99"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb16-100"><a href="#cb16-100"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb16-101"><a href="#cb16-101"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb16-102"><a href="#cb16-102"></a><span class="co">#&gt;     meaning           0.000                               0.000    0.000</span></span>
-<span id="cb16-103"><a href="#cb16-103"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb16-104"><a href="#cb16-104"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb16-105"><a href="#cb16-105"></a><span class="co">#&gt;   pil ~~                                                                </span></span>
-<span id="cb16-106"><a href="#cb16-106"></a><span class="co">#&gt;     purpose           0.000                               0.000    0.000</span></span>
-<span id="cb16-107"><a href="#cb16-107"></a><span class="co">#&gt;   mlq ~~                                                                </span></span>
-<span id="cb16-108"><a href="#cb16-108"></a><span class="co">#&gt;     pil               0.000                               0.000    0.000</span></span>
-<span id="cb16-109"><a href="#cb16-109"></a><span class="co">#&gt;   meaning ~~                                                            </span></span>
-<span id="cb16-110"><a href="#cb16-110"></a><span class="co">#&gt;     purpose          -0.988    0.010  -95.659    0.000   -0.988   -0.988</span></span>
-<span id="cb16-111"><a href="#cb16-111"></a><span class="co">#&gt; </span></span>
-<span id="cb16-112"><a href="#cb16-112"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb16-113"><a href="#cb16-113"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all</span></span>
-<span id="cb16-114"><a href="#cb16-114"></a><span class="co">#&gt;    .m1                0.635    0.047   13.375    0.000    0.635    0.347</span></span>
-<span id="cb16-115"><a href="#cb16-115"></a><span class="co">#&gt;    .m2                1.311    0.100   13.172    0.000    1.311    0.421</span></span>
-<span id="cb16-116"><a href="#cb16-116"></a><span class="co">#&gt;    .m3                1.085    0.094   11.539    0.000    1.085    0.365</span></span>
-<span id="cb16-117"><a href="#cb16-117"></a><span class="co">#&gt;    .m4                0.554    0.045   12.225    0.000    0.554    0.295</span></span>
-<span id="cb16-118"><a href="#cb16-118"></a><span class="co">#&gt;    .m5                0.498    0.038   13.172    0.000    0.498    0.338</span></span>
-<span id="cb16-119"><a href="#cb16-119"></a><span class="co">#&gt;    .m6                0.743    0.054   13.632    0.000    0.743    0.359</span></span>
-<span id="cb16-120"><a href="#cb16-120"></a><span class="co">#&gt;    .m8                1.014    0.088   11.541    0.000    1.014    0.354</span></span>
-<span id="cb16-121"><a href="#cb16-121"></a><span class="co">#&gt;    .m9                1.207    0.078   15.432    0.000    1.207    0.556</span></span>
-<span id="cb16-122"><a href="#cb16-122"></a><span class="co">#&gt;    .m10               1.359    0.104   13.072    0.000    1.359    0.377</span></span>
-<span id="cb16-123"><a href="#cb16-123"></a><span class="co">#&gt;    .p3                0.410    0.041    9.904    0.000    0.410    0.357</span></span>
-<span id="cb16-124"><a href="#cb16-124"></a><span class="co">#&gt;    .p4                0.512    0.035   14.562    0.000    0.512    0.449</span></span>
-<span id="cb16-125"><a href="#cb16-125"></a><span class="co">#&gt;    .p8                0.591    0.039   14.988    0.000    0.591    0.590</span></span>
-<span id="cb16-126"><a href="#cb16-126"></a><span class="co">#&gt;    .p12               1.440    0.089   16.097    0.000    1.440    0.644</span></span>
-<span id="cb16-127"><a href="#cb16-127"></a><span class="co">#&gt;    .p17               0.878    0.054   16.167    0.000    0.878    0.671</span></span>
-<span id="cb16-128"><a href="#cb16-128"></a><span class="co">#&gt;    .p20               0.289    0.030    9.567    0.000    0.289    0.249</span></span>
-<span id="cb16-129"><a href="#cb16-129"></a><span class="co">#&gt;     mlq               1.000                               1.000    1.000</span></span>
-<span id="cb16-130"><a href="#cb16-130"></a><span class="co">#&gt;     pil               1.000                               1.000    1.000</span></span>
-<span id="cb16-131"><a href="#cb16-131"></a><span class="co">#&gt;     meaning           1.000                               1.000    1.000</span></span>
-<span id="cb16-132"><a href="#cb16-132"></a><span class="co">#&gt;     purpose           1.000                               1.000    1.000</span></span>
-<span id="cb16-133"><a href="#cb16-133"></a><span class="co">#&gt; </span></span>
-<span id="cb16-134"><a href="#cb16-134"></a><span class="co">#&gt; R-Square:</span></span>
-<span id="cb16-135"><a href="#cb16-135"></a><span class="co">#&gt;                    Estimate</span></span>
-<span id="cb16-136"><a href="#cb16-136"></a><span class="co">#&gt;     m1                0.653</span></span>
-<span id="cb16-137"><a href="#cb16-137"></a><span class="co">#&gt;     m2                0.579</span></span>
-<span id="cb16-138"><a href="#cb16-138"></a><span class="co">#&gt;     m3                0.635</span></span>
-<span id="cb16-139"><a href="#cb16-139"></a><span class="co">#&gt;     m4                0.705</span></span>
-<span id="cb16-140"><a href="#cb16-140"></a><span class="co">#&gt;     m5                0.662</span></span>
-<span id="cb16-141"><a href="#cb16-141"></a><span class="co">#&gt;     m6                0.641</span></span>
-<span id="cb16-142"><a href="#cb16-142"></a><span class="co">#&gt;     m8                0.646</span></span>
-<span id="cb16-143"><a href="#cb16-143"></a><span class="co">#&gt;     m9                0.444</span></span>
-<span id="cb16-144"><a href="#cb16-144"></a><span class="co">#&gt;     m10               0.623</span></span>
-<span id="cb16-145"><a href="#cb16-145"></a><span class="co">#&gt;     p3                0.643</span></span>
-<span id="cb16-146"><a href="#cb16-146"></a><span class="co">#&gt;     p4                0.551</span></span>
-<span id="cb16-147"><a href="#cb16-147"></a><span class="co">#&gt;     p8                0.410</span></span>
-<span id="cb16-148"><a href="#cb16-148"></a><span class="co">#&gt;     p12               0.356</span></span>
-<span id="cb16-149"><a href="#cb16-149"></a><span class="co">#&gt;     p17               0.329</span></span>
-<span id="cb16-150"><a href="#cb16-150"></a><span class="co">#&gt;     p20               0.751</span></span></code></pre></div>
+<span id="cb16-61"><a href="#cb16-61"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb16-62"><a href="#cb16-62"></a><span class="co">#&gt;   mlq =~                                                       </span></span>
+<span id="cb16-63"><a href="#cb16-63"></a><span class="co">#&gt;     m1                0.028    0.056    0.494    0.621    0.028</span></span>
+<span id="cb16-64"><a href="#cb16-64"></a><span class="co">#&gt;     m2                1.235    0.069   18.000    0.000    1.235</span></span>
+<span id="cb16-65"><a href="#cb16-65"></a><span class="co">#&gt;     m3                1.346    0.066   20.543    0.000    1.346</span></span>
+<span id="cb16-66"><a href="#cb16-66"></a><span class="co">#&gt;     m4                0.117    0.056    2.067    0.039    0.117</span></span>
+<span id="cb16-67"><a href="#cb16-67"></a><span class="co">#&gt;     m5                0.045    0.050    0.907    0.365    0.045</span></span>
+<span id="cb16-68"><a href="#cb16-68"></a><span class="co">#&gt;     m6                0.010    0.060    0.162    0.871    0.010</span></span>
+<span id="cb16-69"><a href="#cb16-69"></a><span class="co">#&gt;     m8                1.301    0.064   20.254    0.000    1.301</span></span>
+<span id="cb16-70"><a href="#cb16-70"></a><span class="co">#&gt;     m9                0.025    0.063    0.396    0.692    0.025</span></span>
+<span id="cb16-71"><a href="#cb16-71"></a><span class="co">#&gt;     m10               1.226    0.074   16.589    0.000    1.226</span></span>
+<span id="cb16-72"><a href="#cb16-72"></a><span class="co">#&gt;   pil =~                                                       </span></span>
+<span id="cb16-73"><a href="#cb16-73"></a><span class="co">#&gt;     p3                0.703    0.043   16.242    0.000    0.703</span></span>
+<span id="cb16-74"><a href="#cb16-74"></a><span class="co">#&gt;     p4                0.435    0.040   10.835    0.000    0.435</span></span>
+<span id="cb16-75"><a href="#cb16-75"></a><span class="co">#&gt;     p8                0.461    0.042   10.945    0.000    0.461</span></span>
+<span id="cb16-76"><a href="#cb16-76"></a><span class="co">#&gt;     p12               0.332    0.062    5.326    0.000    0.332</span></span>
+<span id="cb16-77"><a href="#cb16-77"></a><span class="co">#&gt;     p17               0.261    0.049    5.384    0.000    0.261</span></span>
+<span id="cb16-78"><a href="#cb16-78"></a><span class="co">#&gt;     p20               0.617    0.038   16.364    0.000    0.617</span></span>
+<span id="cb16-79"><a href="#cb16-79"></a><span class="co">#&gt;   meaning =~                                                   </span></span>
+<span id="cb16-80"><a href="#cb16-80"></a><span class="co">#&gt;     m1                1.092    0.048   22.555    0.000    1.092</span></span>
+<span id="cb16-81"><a href="#cb16-81"></a><span class="co">#&gt;     m2               -0.528    0.088   -6.002    0.000   -0.528</span></span>
+<span id="cb16-82"><a href="#cb16-82"></a><span class="co">#&gt;     m5                0.987    0.043   22.747    0.000    0.987</span></span>
+<span id="cb16-83"><a href="#cb16-83"></a><span class="co">#&gt;     m10              -0.861    0.091   -9.510    0.000   -0.861</span></span>
+<span id="cb16-84"><a href="#cb16-84"></a><span class="co">#&gt;     p4                0.662    0.042   15.744    0.000    0.662</span></span>
+<span id="cb16-85"><a href="#cb16-85"></a><span class="co">#&gt;     p12               0.828    0.060   13.708    0.000    0.828</span></span>
+<span id="cb16-86"><a href="#cb16-86"></a><span class="co">#&gt;     p17               0.602    0.047   12.897    0.000    0.602</span></span>
+<span id="cb16-87"><a href="#cb16-87"></a><span class="co">#&gt;   purpose =~                                                   </span></span>
+<span id="cb16-88"><a href="#cb16-88"></a><span class="co">#&gt;     m3                0.282    0.090    3.134    0.002    0.282</span></span>
+<span id="cb16-89"><a href="#cb16-89"></a><span class="co">#&gt;     m4               -1.143    0.048  -23.610    0.000   -1.143</span></span>
+<span id="cb16-90"><a href="#cb16-90"></a><span class="co">#&gt;     m6               -1.151    0.052  -22.272    0.000   -1.151</span></span>
+<span id="cb16-91"><a href="#cb16-91"></a><span class="co">#&gt;     m8                0.394    0.087    4.509    0.000    0.394</span></span>
+<span id="cb16-92"><a href="#cb16-92"></a><span class="co">#&gt;     m9               -0.982    0.057  -17.277    0.000   -0.982</span></span>
+<span id="cb16-93"><a href="#cb16-93"></a><span class="co">#&gt;     p3               -0.493    0.045  -11.050    0.000   -0.493</span></span>
+<span id="cb16-94"><a href="#cb16-94"></a><span class="co">#&gt;     p8               -0.445    0.042  -10.624    0.000   -0.445</span></span>
+<span id="cb16-95"><a href="#cb16-95"></a><span class="co">#&gt;     p20              -0.701    0.042  -16.729    0.000   -0.701</span></span>
+<span id="cb16-96"><a href="#cb16-96"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb16-97"><a href="#cb16-97"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-98"><a href="#cb16-98"></a><span class="co">#&gt;     0.020</span></span>
+<span id="cb16-99"><a href="#cb16-99"></a><span class="co">#&gt;     0.700</span></span>
+<span id="cb16-100"><a href="#cb16-100"></a><span class="co">#&gt;     0.780</span></span>
+<span id="cb16-101"><a href="#cb16-101"></a><span class="co">#&gt;     0.085</span></span>
+<span id="cb16-102"><a href="#cb16-102"></a><span class="co">#&gt;     0.037</span></span>
+<span id="cb16-103"><a href="#cb16-103"></a><span class="co">#&gt;     0.007</span></span>
+<span id="cb16-104"><a href="#cb16-104"></a><span class="co">#&gt;     0.769</span></span>
+<span id="cb16-105"><a href="#cb16-105"></a><span class="co">#&gt;     0.017</span></span>
+<span id="cb16-106"><a href="#cb16-106"></a><span class="co">#&gt;     0.646</span></span>
+<span id="cb16-107"><a href="#cb16-107"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-108"><a href="#cb16-108"></a><span class="co">#&gt;     0.656</span></span>
+<span id="cb16-109"><a href="#cb16-109"></a><span class="co">#&gt;     0.408</span></span>
+<span id="cb16-110"><a href="#cb16-110"></a><span class="co">#&gt;     0.461</span></span>
+<span id="cb16-111"><a href="#cb16-111"></a><span class="co">#&gt;     0.222</span></span>
+<span id="cb16-112"><a href="#cb16-112"></a><span class="co">#&gt;     0.228</span></span>
+<span id="cb16-113"><a href="#cb16-113"></a><span class="co">#&gt;     0.573</span></span>
+<span id="cb16-114"><a href="#cb16-114"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-115"><a href="#cb16-115"></a><span class="co">#&gt;     0.808</span></span>
+<span id="cb16-116"><a href="#cb16-116"></a><span class="co">#&gt;    -0.299</span></span>
+<span id="cb16-117"><a href="#cb16-117"></a><span class="co">#&gt;     0.813</span></span>
+<span id="cb16-118"><a href="#cb16-118"></a><span class="co">#&gt;    -0.453</span></span>
+<span id="cb16-119"><a href="#cb16-119"></a><span class="co">#&gt;     0.620</span></span>
+<span id="cb16-120"><a href="#cb16-120"></a><span class="co">#&gt;     0.554</span></span>
+<span id="cb16-121"><a href="#cb16-121"></a><span class="co">#&gt;     0.526</span></span>
+<span id="cb16-122"><a href="#cb16-122"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-123"><a href="#cb16-123"></a><span class="co">#&gt;     0.163</span></span>
+<span id="cb16-124"><a href="#cb16-124"></a><span class="co">#&gt;    -0.835</span></span>
+<span id="cb16-125"><a href="#cb16-125"></a><span class="co">#&gt;    -0.800</span></span>
+<span id="cb16-126"><a href="#cb16-126"></a><span class="co">#&gt;     0.233</span></span>
+<span id="cb16-127"><a href="#cb16-127"></a><span class="co">#&gt;    -0.666</span></span>
+<span id="cb16-128"><a href="#cb16-128"></a><span class="co">#&gt;    -0.460</span></span>
+<span id="cb16-129"><a href="#cb16-129"></a><span class="co">#&gt;    -0.444</span></span>
+<span id="cb16-130"><a href="#cb16-130"></a><span class="co">#&gt;    -0.650</span></span>
+<span id="cb16-131"><a href="#cb16-131"></a><span class="co">#&gt; </span></span>
+<span id="cb16-132"><a href="#cb16-132"></a><span class="co">#&gt; Covariances:</span></span>
+<span id="cb16-133"><a href="#cb16-133"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb16-134"><a href="#cb16-134"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb16-135"><a href="#cb16-135"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb16-136"><a href="#cb16-136"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb16-137"><a href="#cb16-137"></a><span class="co">#&gt;     meaning           0.000                               0.000</span></span>
+<span id="cb16-138"><a href="#cb16-138"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb16-139"><a href="#cb16-139"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb16-140"><a href="#cb16-140"></a><span class="co">#&gt;   pil ~~                                                       </span></span>
+<span id="cb16-141"><a href="#cb16-141"></a><span class="co">#&gt;     purpose           0.000                               0.000</span></span>
+<span id="cb16-142"><a href="#cb16-142"></a><span class="co">#&gt;   mlq ~~                                                       </span></span>
+<span id="cb16-143"><a href="#cb16-143"></a><span class="co">#&gt;     pil               0.000                               0.000</span></span>
+<span id="cb16-144"><a href="#cb16-144"></a><span class="co">#&gt;   meaning ~~                                                   </span></span>
+<span id="cb16-145"><a href="#cb16-145"></a><span class="co">#&gt;     purpose          -0.988    0.010  -95.659    0.000   -0.988</span></span>
+<span id="cb16-146"><a href="#cb16-146"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb16-147"><a href="#cb16-147"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-148"><a href="#cb16-148"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb16-149"><a href="#cb16-149"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-150"><a href="#cb16-150"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb16-151"><a href="#cb16-151"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-152"><a href="#cb16-152"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb16-153"><a href="#cb16-153"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-154"><a href="#cb16-154"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb16-155"><a href="#cb16-155"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-156"><a href="#cb16-156"></a><span class="co">#&gt;     0.000</span></span>
+<span id="cb16-157"><a href="#cb16-157"></a><span class="co">#&gt;          </span></span>
+<span id="cb16-158"><a href="#cb16-158"></a><span class="co">#&gt;    -0.988</span></span>
+<span id="cb16-159"><a href="#cb16-159"></a><span class="co">#&gt; </span></span>
+<span id="cb16-160"><a href="#cb16-160"></a><span class="co">#&gt; Variances:</span></span>
+<span id="cb16-161"><a href="#cb16-161"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
+<span id="cb16-162"><a href="#cb16-162"></a><span class="co">#&gt;    .m1                0.635    0.047   13.375    0.000    0.635</span></span>
+<span id="cb16-163"><a href="#cb16-163"></a><span class="co">#&gt;    .m2                1.311    0.100   13.172    0.000    1.311</span></span>
+<span id="cb16-164"><a href="#cb16-164"></a><span class="co">#&gt;    .m3                1.085    0.094   11.539    0.000    1.085</span></span>
+<span id="cb16-165"><a href="#cb16-165"></a><span class="co">#&gt;    .m4                0.554    0.045   12.225    0.000    0.554</span></span>
+<span id="cb16-166"><a href="#cb16-166"></a><span class="co">#&gt;    .m5                0.498    0.038   13.172    0.000    0.498</span></span>
+<span id="cb16-167"><a href="#cb16-167"></a><span class="co">#&gt;    .m6                0.743    0.054   13.632    0.000    0.743</span></span>
+<span id="cb16-168"><a href="#cb16-168"></a><span class="co">#&gt;    .m8                1.014    0.088   11.541    0.000    1.014</span></span>
+<span id="cb16-169"><a href="#cb16-169"></a><span class="co">#&gt;    .m9                1.207    0.078   15.432    0.000    1.207</span></span>
+<span id="cb16-170"><a href="#cb16-170"></a><span class="co">#&gt;    .m10               1.359    0.104   13.072    0.000    1.359</span></span>
+<span id="cb16-171"><a href="#cb16-171"></a><span class="co">#&gt;    .p3                0.410    0.041    9.904    0.000    0.410</span></span>
+<span id="cb16-172"><a href="#cb16-172"></a><span class="co">#&gt;    .p4                0.512    0.035   14.562    0.000    0.512</span></span>
+<span id="cb16-173"><a href="#cb16-173"></a><span class="co">#&gt;    .p8                0.591    0.039   14.988    0.000    0.591</span></span>
+<span id="cb16-174"><a href="#cb16-174"></a><span class="co">#&gt;    .p12               1.440    0.089   16.097    0.000    1.440</span></span>
+<span id="cb16-175"><a href="#cb16-175"></a><span class="co">#&gt;    .p17               0.878    0.054   16.167    0.000    0.878</span></span>
+<span id="cb16-176"><a href="#cb16-176"></a><span class="co">#&gt;    .p20               0.289    0.030    9.567    0.000    0.289</span></span>
+<span id="cb16-177"><a href="#cb16-177"></a><span class="co">#&gt;     mlq               1.000                               1.000</span></span>
+<span id="cb16-178"><a href="#cb16-178"></a><span class="co">#&gt;     pil               1.000                               1.000</span></span>
+<span id="cb16-179"><a href="#cb16-179"></a><span class="co">#&gt;     meaning           1.000                               1.000</span></span>
+<span id="cb16-180"><a href="#cb16-180"></a><span class="co">#&gt;     purpose           1.000                               1.000</span></span>
+<span id="cb16-181"><a href="#cb16-181"></a><span class="co">#&gt;   Std.all</span></span>
+<span id="cb16-182"><a href="#cb16-182"></a><span class="co">#&gt;     0.347</span></span>
+<span id="cb16-183"><a href="#cb16-183"></a><span class="co">#&gt;     0.421</span></span>
+<span id="cb16-184"><a href="#cb16-184"></a><span class="co">#&gt;     0.365</span></span>
+<span id="cb16-185"><a href="#cb16-185"></a><span class="co">#&gt;     0.295</span></span>
+<span id="cb16-186"><a href="#cb16-186"></a><span class="co">#&gt;     0.338</span></span>
+<span id="cb16-187"><a href="#cb16-187"></a><span class="co">#&gt;     0.359</span></span>
+<span id="cb16-188"><a href="#cb16-188"></a><span class="co">#&gt;     0.354</span></span>
+<span id="cb16-189"><a href="#cb16-189"></a><span class="co">#&gt;     0.556</span></span>
+<span id="cb16-190"><a href="#cb16-190"></a><span class="co">#&gt;     0.377</span></span>
+<span id="cb16-191"><a href="#cb16-191"></a><span class="co">#&gt;     0.357</span></span>
+<span id="cb16-192"><a href="#cb16-192"></a><span class="co">#&gt;     0.449</span></span>
+<span id="cb16-193"><a href="#cb16-193"></a><span class="co">#&gt;     0.590</span></span>
+<span id="cb16-194"><a href="#cb16-194"></a><span class="co">#&gt;     0.644</span></span>
+<span id="cb16-195"><a href="#cb16-195"></a><span class="co">#&gt;     0.671</span></span>
+<span id="cb16-196"><a href="#cb16-196"></a><span class="co">#&gt;     0.249</span></span>
+<span id="cb16-197"><a href="#cb16-197"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb16-198"><a href="#cb16-198"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb16-199"><a href="#cb16-199"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb16-200"><a href="#cb16-200"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb16-201"><a href="#cb16-201"></a><span class="co">#&gt; </span></span>
+<span id="cb16-202"><a href="#cb16-202"></a><span class="co">#&gt; R-Square:</span></span>
+<span id="cb16-203"><a href="#cb16-203"></a><span class="co">#&gt;                    Estimate</span></span>
+<span id="cb16-204"><a href="#cb16-204"></a><span class="co">#&gt;     m1                0.653</span></span>
+<span id="cb16-205"><a href="#cb16-205"></a><span class="co">#&gt;     m2                0.579</span></span>
+<span id="cb16-206"><a href="#cb16-206"></a><span class="co">#&gt;     m3                0.635</span></span>
+<span id="cb16-207"><a href="#cb16-207"></a><span class="co">#&gt;     m4                0.705</span></span>
+<span id="cb16-208"><a href="#cb16-208"></a><span class="co">#&gt;     m5                0.662</span></span>
+<span id="cb16-209"><a href="#cb16-209"></a><span class="co">#&gt;     m6                0.641</span></span>
+<span id="cb16-210"><a href="#cb16-210"></a><span class="co">#&gt;     m8                0.646</span></span>
+<span id="cb16-211"><a href="#cb16-211"></a><span class="co">#&gt;     m9                0.444</span></span>
+<span id="cb16-212"><a href="#cb16-212"></a><span class="co">#&gt;     m10               0.623</span></span>
+<span id="cb16-213"><a href="#cb16-213"></a><span class="co">#&gt;     p3                0.643</span></span>
+<span id="cb16-214"><a href="#cb16-214"></a><span class="co">#&gt;     p4                0.551</span></span>
+<span id="cb16-215"><a href="#cb16-215"></a><span class="co">#&gt;     p8                0.410</span></span>
+<span id="cb16-216"><a href="#cb16-216"></a><span class="co">#&gt;     p12               0.356</span></span>
+<span id="cb16-217"><a href="#cb16-217"></a><span class="co">#&gt;     p17               0.329</span></span>
+<span id="cb16-218"><a href="#cb16-218"></a><span class="co">#&gt;     p20               0.751</span></span></code></pre></div>
 </div>
 <div id="model-4-freely-correlated-traits-uncorrelated-methods-4" class="slide section level2">
 <h1>Model 4: Freely Correlated Traits / Uncorrelated Methods</h1>

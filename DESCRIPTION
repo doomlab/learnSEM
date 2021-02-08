@@ -1,7 +1,7 @@
 Package: learnSEM
 Type: Package
 Title: Learning Tutorials for Structural Equation Modeling
-Version: 0.1.0
+Version: 0.5.0
 Authors@R:
     person(given = "Erin M.",
            family = "Buchanan",
@@ -20,19 +20,22 @@ Imports:
     lavaan (>= 0.6.7),
     semPlot (>= 1.1.2),
     learnr (>= 0.10.1),
-    corrplot (>= 0.84),
     shiny (>= 1.5.0),
-    psych (>= 2.0.9),
-    GPArotation (>= 2014.11.1),
-    parameters (>= 0.10.1),
-    broom (>= 0.7.2),
     knitr
 VignetteBuilder: knitr
 Suggests:
+    mirt,
+    ltm,
+    corrplot,
+    MOTE,
     car,
     mice,
     palmerpenguins,
-    rio
+    rio,
+    psych,
+    GPArotation,
+    parameters,
+    broom
 Depends:
     R (>= 2.10)
 RoxygenNote: 7.1.1

@@ -1,24 +1,24 @@
-## ---- include = FALSE---------------------------------------------------
+## ---- include = FALSE-------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----echo = F, message = F, warning = F---------------------------------
+## ----echo = F, message = F, warning = F-------------------------------
 knitr::opts_chunk$set(echo = TRUE)
 library(lavaan)
 library(semPlot)
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"----------------
 knitr::include_graphics("pictures/full_sem2.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"----------------
 knitr::include_graphics("pictures/indicators.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"----------------
 knitr::include_graphics("pictures/kline_model.png")
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 library(lavaan)
 library(semPlot)
 
@@ -34,35 +34,35 @@ rownames(family.cor) <-
 
 family.cov <- cor2cov(family.cor, family.sd)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 family.model <- '
 adjust =~ problems + intimacy
 family =~ father + mother + famo'
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 family.fit <- cfa(model = family.model,
                   sample.cov = family.cov,
                   sample.nobs = 203)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 inspect(family.fit, "cov.lv")
 inspect(family.fit, "cor.lv")
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 family.fit <- cfa(model = family.model,
                   sample.cov = family.cor,
                   sample.nobs = 203)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 summary(family.fit, 
         rsquare = TRUE, 
         standardized = TRUE,
         fit.measures = TRUE)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 modificationindices(family.fit, sort = T)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 family.model2 <- '
 adjust =~ problems + intimacy
 family =~ father + mother + famo
@@ -74,39 +74,39 @@ family.fit2 <- cfa(model = family.model2,
 
 inspect(family.fit2, "cor.lv")
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 semPaths(family.fit, 
          whatLabels="std", 
          layout="tree", 
          edge.label.cex = 1)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 predict.model <- '
 adjust =~ problems + intimacy
 family =~ father + mother + famo
 adjust~family'
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 predict.fit <- sem(model = predict.model,
                    sample.cov = family.cor,
                    sample.nobs = 203)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 summary(predict.fit, 
         rsquare = TRUE, 
         standardized = TRUE,
         fit.measures = TRUE)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 semPaths(predict.fit, 
          whatLabels="std", 
          layout="tree", 
          edge.label.cex = 1)
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"------------------
+## ----echo=FALSE, out.width = "75%", fig.align="center"----------------
 knitr::include_graphics("pictures/full_example.png")
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 family.cor <- lav_matrix_lower2full(c(1.00, 
                                      .42,	1.00, 
                                     -.43,	-.50,	1.00, 
@@ -126,7 +126,7 @@ rownames(family.cor) <-
 
 family.cov <- cor2cov(family.cor, family.sd)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 composite.model <- '
 risk <~ low_SES + parent_psych + verbal
 achieve =~ reading + math + spelling
@@ -134,21 +134,21 @@ adjustment =~ motivation + harmony + stable
 risk =~ achieve + adjustment
 '
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 composite.fit <- sem(model = composite.model, 
                       sample.cov = family.cov, 
                       sample.nobs = 158)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 summary(composite.fit, 
         rsquare = TRUE, 
         standardized = TRUE,
         fit.measures = TRUE)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 modificationindices(composite.fit, sort = T)
 
-## -----------------------------------------------------------------------
+## ---------------------------------------------------------------------
 semPaths(composite.fit, 
          whatLabels="std", 
          layout="tree",

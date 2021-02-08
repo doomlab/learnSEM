@@ -12,12 +12,15 @@ library(usethis)
 #usethis::use_dev_package("GPArotation")
 #usethis::use_dev_package("parameters")
 #usethis::use_dev_package("broom")
+#usethis::use_dev_package("mirt")
+#usethis::use_dev_package("ltm")
+#usethis::use_dev_package("MOTE")
 
 #usethis::build_readme()
 
 library(rio)
 #efa <- import("data/assignment_efa.csv")
-#usethis::use_data(resdata, overwrite = T)
+#usethis::use_data(mirtdata, overwrite = T)
 
 #usethis::use_tutorial("irt", "Item Response Theory", open = interactive())
 

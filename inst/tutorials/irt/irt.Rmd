@@ -1,74 +1,241 @@
 ---
 title: "Item Response Theory"
+tutorial:
+  id: "irt"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: In this tutorial, you will practice running item response theory on dichotomous and polytomous data types. 
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnSEM)
 knitr::opts_chunk$set(echo = FALSE)
+library(mirt)
+library(ltm)
+data(dirtdata)
+data(mirtdata)
+mirtdata$q5 <- 8 - mirtdata$q5
+mirtdata$q8 <- 8 - mirtdata$q8
+mirtdata$q13 <- 8 - mirtdata$q13
 ```
 
+## Item Response Theory
 
-## Topic 1
+Item Response Theory is a latent trait analysis with a different focus traditionally used in understanding how a test performs. We will examine both dichotomous (yes/no) and polytomous (multiple options) scales to determine each item's characteristics. The learning outcomes are:
 
-### Exercise 
+- Compare item response theory to classical test theory.
+- Understand the usage and differences of an IRT model to a CFA model.
+- Estimate 2 and 3 parameter logistic models on dichotomous data.
+- Estimate a graded partial credit model for polytomous data.
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+## IRT Videos
 
-Write the R code required to add two plus two:
+Placeholder screen for videos after they are completed. 
 
-```{r two-plus-two, exercise=TRUE}
+## Exercises
 
-```
+In this next section, you will answer questions using the *R* code blocks provided. Be sure to use the `solution` option to see the answer if you need it!
 
-### Exercise with Code
+Please enter your name for submission. If you do not need to submit, just type anything you'd like in this box. 
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
-
-Now write a function that adds any two numbers and then call it:
-
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
-```
-
-## Topic 2
-
-### Exercise with Hint
-
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
+```{r details}
+question_text(
+  "Student Name:",
+  answer("Your Name", correct = TRUE),
+  incorrect = "Thanks!",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
 )
+```
+
+## Dichotomous IRT
+
+The included dataset includes data from an Educational Psychology Test scored as 0 (answered incorrectly) and 1 (answered correctly). The data has been imported for you. 
+
+```{r echo = T}
+data(dirtdata)
+head(dirtdata)
+```
+
+## Two Parameter Logistic
+
+Include a 2PL calculated on just columns V2 through V5. Save the model as `edu.model`. Use the `coef()` function to examine the difficulty and discrimination parameters. 
+
+```{r twopl, exercise = TRUE}
+
+```
+
+```{r twopl-solution}
+edu.model <- ltm(dirtdata ~ z1, IRT.param = TRUE)
+coef(edu.model)
+```
+
+## 2PL Plots
+
+Include the ICC and TIF plots to view all the items and overall test information at once. 
+```{r twoplplot-setup}
+edu.model <- ltm(dirtdata ~ z1, IRT.param = TRUE)
+```
+
+```{r twoplplot, exercise = TRUE}
+
+```
+
+```{r twoplplot-solution}
+plot(edu.model, type = "IIC")
+plot(edu.model, type = "IIC", items = 0)
+```
+
+## Three Parameter Logistic
+
+Include the 3PL model as `edu2.model`. Use the `coef()` function to examine the difficulty, discrimination, and guessing parameters. Name this model `edu.model2`. 
+
+```{r threepl, exercise = TRUE}
+
+```
+
+```{r threeplot-solution}
+edu.model2 <- tpm(dirtdata, type="latent.trait", IRT.param = TRUE)
+coef(edu.model2)
+```
+
+## 3PL Plots
+
+Include the ICC and TIF plots to view all the items and overall test information at once.
+
+```{r threeplplot-setup}
+edu.model2 <- tpm(dirtdata, type="latent.trait", IRT.param = TRUE)
+```
+
+```{r threeplplot, exercise = TRUE}
+
+```
+
+```{r threeplplot-solution}
+plot(edu.model2, type="ICC")
+plot(edu.model2, type = "IIC", items = 0)
+```
+
+## Compare Models
+
+Use the `anova()` function to compare the two models. 
+
+```{r compare-setup}
+edu.model <- ltm(dirtdata ~ z1, IRT.param = TRUE)
+edu.model2 <- tpm(dirtdata, type="latent.trait", IRT.param = TRUE)
+```
+
+```{r compare, exercise = TRUE}
+
+```
+
+```{r compare-solution}
+anova(edu.model, edu.model2)
+```
+
+```{r best-open}
+question_text(
+  "Which model was better? Does it appear that the guessing parameter adds something useful to the model? ",
+  answer("Nope! The 2PL is a better representation.", correct = TRUE),
+  incorrect = "Nope! The 2PL is a better representation.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r good2pl-open}
+question_text(
+  "Which items would be considered good items based on discrimination?",
+  answer("Nearly all are good discriminators, but pretty easy.", correct = TRUE),
+  incorrect = "Nearly all are good discriminators, but pretty easy.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+## Polytomous IRT 
+
+Load the assignment_mirt data below. You should reverse code items 5, 8, and 13 using `8 - columns` to ensure all items are in the same direction. The scale included examines evaluations of job candidates rated on 15 different qualities. 
+
+```{r echo = T}
+data(mirtdata)
+head(mirtdata)
+```
+
+## Graded Partial Credit Model
+
+Create a graded partial credit model to analyze the scale, and save this model as `gpcm.model`. Include the `coef()` for the model to help you answer the questions below. 
+
+```{r gpcm, exercise = TRUE}
+
+```
+
+```{r gpcm-solution}
+gpcm.model <- mirt(data = mirtdata, 
+                  model = 1, 
+                  itemtype = "gpcm")
+
+coef(gpcm.model, IRTpars = T)
+```
+
+## GPCM Plots
+
+Include the ICC and TIF plots to view all the items and overall test information at once.
+
+```{r gpcmplots-setup}
+gpcm.model <- mirt(data = mirtdata, 
+                  model = 1, 
+                  itemtype = "gpcm")
+```
+
+```{r gpcmplots, exercise = TRUE}
+
+```
+
+```{r gpcmplots-solution}
+plot(gpcm.model, type = "trace") 
+plot(gpcm.model, type = "info")
+```
+
+```{r order-open}
+question_text(
+  "Examine the items. Do they appear ordered where each answer function is ordered correctly from 1 to 7?",
+  answer("Yes, they mostly appear ordered.", correct = TRUE),
+  incorrect = "Yes, they mostly appear ordered.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r allscale-open}
+question_text(
+  "Examine the items. Do we need all 7 items on this scale? (i.e., do they all have the probability of being the most likely answer choice?)",
+  answer("Unlikely, maybe only four points.", correct = TRUE),
+  incorrect = "Unlikely, maybe only four points.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+
+```{r goodquestions-open}
+question_text(
+  "Which items indicate good discrimination?",
+  answer("Pretty much all of them but 8 and 13.", correct = TRUE),
+  incorrect = "Pretty much all of them but 8 and 13.",
+  try_again_button = "Modify your answer",
+  allow_retry = TRUE
+)
+```
+        
+## Submit
+
+On this page, you will create the submission for your instructor (if necessary). Please copy this report and submit using a Word document or paste into the text window of your submission page. Click "Generate Submission" to get your work! 
+
+```{r context="server"}
+encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+encoder_ui()
 ```

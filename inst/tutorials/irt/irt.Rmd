@@ -95,7 +95,7 @@ Include the 3PL model as `edu2.model`. Use the `coef()` function to examine the 
 
 ```
 
-```{r threeplot-solution}
+```{r threepl-solution}
 edu.model2 <- tpm(dirtdata, type="latent.trait", IRT.param = TRUE)
 coef(edu.model2)
 ```

@@ -20,63 +20,63 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 
 1. Introduction to R: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_introR", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("introR", "learnSEM")`
 
 2. Data Screening Practice: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_data_screen", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("datascreen", "learnSEM")`
 
 3. Exploratory Factor Analysis: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_efa", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("efa", "learnSEM")`
 
 4. Terminology: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_terms", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("terms", "learnSEM")`
 
 5. Path Models: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_path", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("path1", "learnSEM")` 
 - Tutorial: `learnr::run_tutorial("path2", "learnSEM")`
 
 6. CFA Models: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_cfa", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("cfabasics", "learnSEM")`
 
 7. CFA Second Order Models: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_secondcfa", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("cfasecond", "learnSEM")`
 
 8. Full Structural Models: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_sem", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("fullsem", "learnSEM")`
 
 9. Multitrait Multimethod: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_mtmm", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("mtmm", "learnSEM")`
 
 10. Multigroup CFA: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_mgcfa", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("mgcfa", "learnSEM")` 
 
 11. Latent Growth Models: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_lgm", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("lgm", "learnSEM")` 
 
 12. Item Response Theory: 
 
-- Lecture: 
+- Lecture: `vignette("lecture_irt", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("irt", "learnSEM")`
 
 Lectures are being added every Friday! Check back if one is not open yet. 

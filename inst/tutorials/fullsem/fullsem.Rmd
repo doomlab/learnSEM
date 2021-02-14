@@ -40,7 +40,10 @@ This section of the course increases your skills by expanding from measurement m
 
 ## Full SEM Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_sem", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vZeqNxgwuac" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Exercises
 

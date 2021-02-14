@@ -40,7 +40,9 @@ In this section, you will learn how to analyze a latent growth model by working 
 
 ## LGM Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_lgm", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GNcrY6izaqA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

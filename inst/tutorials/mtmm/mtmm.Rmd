@@ -26,7 +26,9 @@ This section of the course examines the nature of using multiple scales to asses
 
 ## MTMM Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_mtmm", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2sxn_eX_q9c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

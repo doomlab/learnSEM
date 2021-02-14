@@ -28,7 +28,9 @@ Multigroup confirmatory factor analysis (MGCFA) is a useful tool for examining t
 
 ## MGCFA Videos
 
-Coming soon. 
+You can use `vignette("lecture_mgcfa", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kt2lZxcAGWs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## MGCFA Data
 

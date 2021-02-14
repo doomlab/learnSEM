@@ -574,16 +574,16 @@ list-style-type: none;
 <span id="cb2-3"><a href="#cb2-3"></a></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># fit the model </span></span>
 <span id="cb2-5"><a href="#cb2-5"></a>HS.fit &lt;-<span class="st"> </span><span class="kw">cfa</span>(HS.model, <span class="dt">data =</span> HolzingerSwineford1939)</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; Warning in lav_data_full(data = data, group = group, cluster =</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; cluster, : lavaan </span><span class="al">WARNING</span><span class="co">: all observed variables are exogenous; model</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; may not be identified</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; Warning in lav_data_full(data = data, group = group,</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; cluster = cluster, : lavaan </span><span class="al">WARNING</span><span class="co">: all observed</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; variables are exogenous; model may not be identified</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; Warning in lav_model_vcov(lavmodel = lavmodel, lavsamplestats = lavsamplestats, : lavaan </span><span class="al">WARNING</span><span class="co">:</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;     Could not compute standard errors! The information matrix could</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;     not be inverted. This may be a symptom that the model is not</span></span>
 <span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;     identified.</span></span>
 <span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; Warning in lavaan::lavaan(model = HS.model, data =</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; HolzingerSwineford1939, : lavaan </span><span class="al">WARNING</span><span class="co">: estimation of the baseline</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; model failed.</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; HolzingerSwineford1939, : lavaan </span><span class="al">WARNING</span><span class="co">: estimation of</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; the baseline model failed.</span></span>
 <span id="cb2-16"><a href="#cb2-16"></a></span>
 <span id="cb2-17"><a href="#cb2-17"></a><span class="co"># diagram the model</span></span>
 <span id="cb2-18"><a href="#cb2-18"></a><span class="kw">semPaths</span>(HS.fit, </span>
@@ -823,36 +823,36 @@ list-style-type: none;
 <span id="cb6-54"><a href="#cb6-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb6-55"><a href="#cb6-55"></a><span class="co">#&gt; </span></span>
 <span id="cb6-56"><a href="#cb6-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a><span class="co">#&gt;   g =~                                                         </span></span>
-<span id="cb6-59"><a href="#cb6-59"></a><span class="co">#&gt;     Information       1.000                               2.578</span></span>
-<span id="cb6-60"><a href="#cb6-60"></a><span class="co">#&gt;     Similarities      0.985    0.045   21.708    0.000    2.541</span></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="co">#&gt;     Word.Reasoning    0.860    0.045   18.952    0.000    2.217</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a><span class="co">#&gt;     Matrix.Reasnng    0.647    0.047   13.896    0.000    1.669</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="co">#&gt;     Picture.Cncpts    0.542    0.050   10.937    0.000    1.398</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a><span class="co">#&gt;          </span></span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="co">#&gt;     0.857</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="co">#&gt;     0.839</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="co">#&gt;     0.742</span></span>
-<span id="cb6-69"><a href="#cb6-69"></a><span class="co">#&gt;     0.578</span></span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="co">#&gt;     0.470</span></span>
+<span id="cb6-57"><a href="#cb6-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span id="cb6-58"><a href="#cb6-58"></a><span class="co">#&gt;   g =~                                                </span></span>
+<span id="cb6-59"><a href="#cb6-59"></a><span class="co">#&gt;     Information       1.000                           </span></span>
+<span id="cb6-60"><a href="#cb6-60"></a><span class="co">#&gt;     Similarities      0.985    0.045   21.708    0.000</span></span>
+<span id="cb6-61"><a href="#cb6-61"></a><span class="co">#&gt;     Word.Reasoning    0.860    0.045   18.952    0.000</span></span>
+<span id="cb6-62"><a href="#cb6-62"></a><span class="co">#&gt;     Matrix.Reasnng    0.647    0.047   13.896    0.000</span></span>
+<span id="cb6-63"><a href="#cb6-63"></a><span class="co">#&gt;     Picture.Cncpts    0.542    0.050   10.937    0.000</span></span>
+<span id="cb6-64"><a href="#cb6-64"></a><span class="co">#&gt;    Std.lv  Std.all</span></span>
+<span id="cb6-65"><a href="#cb6-65"></a><span class="co">#&gt;                   </span></span>
+<span id="cb6-66"><a href="#cb6-66"></a><span class="co">#&gt;     2.578    0.857</span></span>
+<span id="cb6-67"><a href="#cb6-67"></a><span class="co">#&gt;     2.541    0.839</span></span>
+<span id="cb6-68"><a href="#cb6-68"></a><span class="co">#&gt;     2.217    0.742</span></span>
+<span id="cb6-69"><a href="#cb6-69"></a><span class="co">#&gt;     1.669    0.578</span></span>
+<span id="cb6-70"><a href="#cb6-70"></a><span class="co">#&gt;     1.398    0.470</span></span>
 <span id="cb6-71"><a href="#cb6-71"></a><span class="co">#&gt; </span></span>
 <span id="cb6-72"><a href="#cb6-72"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="co">#&gt;    .Information       2.395    0.250    9.587    0.000    2.395</span></span>
-<span id="cb6-75"><a href="#cb6-75"></a><span class="co">#&gt;    .Similarities      2.709    0.258   10.482    0.000    2.709</span></span>
-<span id="cb6-76"><a href="#cb6-76"></a><span class="co">#&gt;    .Word.Reasoning    4.009    0.295   13.600    0.000    4.009</span></span>
-<span id="cb6-77"><a href="#cb6-77"></a><span class="co">#&gt;    .Matrix.Reasnng    5.551    0.360   15.400    0.000    5.551</span></span>
-<span id="cb6-78"><a href="#cb6-78"></a><span class="co">#&gt;    .Picture.Cncpts    6.909    0.434   15.922    0.000    6.909</span></span>
-<span id="cb6-79"><a href="#cb6-79"></a><span class="co">#&gt;     g                 6.648    0.564   11.788    0.000    1.000</span></span>
-<span id="cb6-80"><a href="#cb6-80"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb6-81"><a href="#cb6-81"></a><span class="co">#&gt;     0.265</span></span>
-<span id="cb6-82"><a href="#cb6-82"></a><span class="co">#&gt;     0.296</span></span>
-<span id="cb6-83"><a href="#cb6-83"></a><span class="co">#&gt;     0.449</span></span>
-<span id="cb6-84"><a href="#cb6-84"></a><span class="co">#&gt;     0.666</span></span>
-<span id="cb6-85"><a href="#cb6-85"></a><span class="co">#&gt;     0.779</span></span>
-<span id="cb6-86"><a href="#cb6-86"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb6-73"><a href="#cb6-73"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span id="cb6-74"><a href="#cb6-74"></a><span class="co">#&gt;    .Information       2.395    0.250    9.587    0.000</span></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="co">#&gt;    .Similarities      2.709    0.258   10.482    0.000</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a><span class="co">#&gt;    .Word.Reasoning    4.009    0.295   13.600    0.000</span></span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="co">#&gt;    .Matrix.Reasnng    5.551    0.360   15.400    0.000</span></span>
+<span id="cb6-78"><a href="#cb6-78"></a><span class="co">#&gt;    .Picture.Cncpts    6.909    0.434   15.922    0.000</span></span>
+<span id="cb6-79"><a href="#cb6-79"></a><span class="co">#&gt;     g                 6.648    0.564   11.788    0.000</span></span>
+<span id="cb6-80"><a href="#cb6-80"></a><span class="co">#&gt;    Std.lv  Std.all</span></span>
+<span id="cb6-81"><a href="#cb6-81"></a><span class="co">#&gt;     2.395    0.265</span></span>
+<span id="cb6-82"><a href="#cb6-82"></a><span class="co">#&gt;     2.709    0.296</span></span>
+<span id="cb6-83"><a href="#cb6-83"></a><span class="co">#&gt;     4.009    0.449</span></span>
+<span id="cb6-84"><a href="#cb6-84"></a><span class="co">#&gt;     5.551    0.666</span></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="co">#&gt;     6.909    0.779</span></span>
+<span id="cb6-86"><a href="#cb6-86"></a><span class="co">#&gt;     1.000    1.000</span></span>
 <span id="cb6-87"><a href="#cb6-87"></a><span class="co">#&gt; </span></span>
 <span id="cb6-88"><a href="#cb6-88"></a><span class="co">#&gt; R-Square:</span></span>
 <span id="cb6-89"><a href="#cb6-89"></a><span class="co">#&gt;                    Estimate</span></span>
@@ -870,30 +870,30 @@ list-style-type: none;
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">parameterestimates</span>(wisc4.fit,</span>
 <span id="cb7-2"><a href="#cb7-2"></a>                   <span class="dt">standardized=</span><span class="ot">TRUE</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;                 lhs op              rhs   est    se      z pvalue</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; 1                 g =~      Information 1.000 0.000     NA     NA</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; 2                 g =~     Similarities 0.985 0.045 21.708      0</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; 3                 g =~   Word.Reasoning 0.860 0.045 18.952      0</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 4                 g =~ Matrix.Reasoning 0.647 0.047 13.896      0</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; 5                 g =~ Picture.Concepts 0.542 0.050 10.937      0</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 6       Information ~~      Information 2.395 0.250  9.587      0</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 7      Similarities ~~     Similarities 2.709 0.258 10.482      0</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; 8    Word.Reasoning ~~   Word.Reasoning 4.009 0.295 13.600      0</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; 9  Matrix.Reasoning ~~ Matrix.Reasoning 5.551 0.360 15.400      0</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; 10 Picture.Concepts ~~ Picture.Concepts 6.909 0.434 15.922      0</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; 11                g ~~                g 6.648 0.564 11.788      0</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt;    ci.lower ci.upper std.lv std.all std.nox</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt; 1     1.000    1.000  2.578   0.857   0.857</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt; 2     0.896    1.074  2.541   0.839   0.839</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt; 3     0.771    0.949  2.217   0.742   0.742</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt; 4     0.556    0.739  1.669   0.578   0.578</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt; 5     0.445    0.640  1.398   0.470   0.470</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt; 6     1.906    2.885  2.395   0.265   0.265</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a><span class="co">#&gt; 7     2.202    3.215  2.709   0.296   0.296</span></span>
-<span id="cb7-23"><a href="#cb7-23"></a><span class="co">#&gt; 8     3.431    4.587  4.009   0.449   0.449</span></span>
-<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#&gt; 9     4.845    6.258  5.551   0.666   0.666</span></span>
-<span id="cb7-25"><a href="#cb7-25"></a><span class="co">#&gt; 10    6.058    7.759  6.909   0.779   0.779</span></span>
-<span id="cb7-26"><a href="#cb7-26"></a><span class="co">#&gt; 11    5.543    7.754  1.000   1.000   1.000</span></span></code></pre></div>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt;                 lhs op              rhs   est    se</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; 1                 g =~      Information 1.000 0.000</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; 2                 g =~     Similarities 0.985 0.045</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; 3                 g =~   Word.Reasoning 0.860 0.045</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 4                 g =~ Matrix.Reasoning 0.647 0.047</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; 5                 g =~ Picture.Concepts 0.542 0.050</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 6       Information ~~      Information 2.395 0.250</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 7      Similarities ~~     Similarities 2.709 0.258</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; 8    Word.Reasoning ~~   Word.Reasoning 4.009 0.295</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; 9  Matrix.Reasoning ~~ Matrix.Reasoning 5.551 0.360</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; 10 Picture.Concepts ~~ Picture.Concepts 6.909 0.434</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; 11                g ~~                g 6.648 0.564</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt;         z pvalue ci.lower ci.upper std.lv std.all std.nox</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">#&gt; 1      NA     NA    1.000    1.000  2.578   0.857   0.857</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">#&gt; 2  21.708      0    0.896    1.074  2.541   0.839   0.839</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#&gt; 3  18.952      0    0.771    0.949  2.217   0.742   0.742</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">#&gt; 4  13.896      0    0.556    0.739  1.669   0.578   0.578</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">#&gt; 5  10.937      0    0.445    0.640  1.398   0.470   0.470</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">#&gt; 6   9.587      0    1.906    2.885  2.395   0.265   0.265</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co">#&gt; 7  10.482      0    2.202    3.215  2.709   0.296   0.296</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">#&gt; 8  13.600      0    3.431    4.587  4.009   0.449   0.449</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="co">#&gt; 9  15.400      0    4.845    6.258  5.551   0.666   0.666</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">#&gt; 10 15.922      0    6.058    7.759  6.909   0.779   0.779</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="co">#&gt; 11 11.788      0    5.543    7.754  1.000   1.000   1.000</span></span></code></pre></div>
 </div>
 <div id="new-functions-1" class="slide section level2">
 <h1>New Functions</h1>
@@ -922,60 +922,74 @@ list-style-type: none;
 <div id="all-fit-indices" class="slide section level2">
 <h1>All Fit Indices</h1>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">fitmeasures</span>(wisc4.fit)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt;                npar                fmin               chisq </span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;              10.000               0.024              26.775 </span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;                  df              pvalue      baseline.chisq </span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt;               5.000               0.000            1073.427 </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt;         baseline.df     baseline.pvalue                 cfi </span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;              10.000               0.000               0.980 </span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt;                 tli                nnfi                 rfi </span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt;               0.959               0.959               0.950 </span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt;                 nfi                pnfi                 ifi </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt;               0.975               0.488               0.980 </span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt;                 rni                logl   unrestricted.logl </span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt;               0.980           -6378.678           -6365.291 </span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#&gt;                 aic                 bic              ntotal </span></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="co">#&gt;           12777.357           12820.456             550.000 </span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="co">#&gt;                bic2               rmsea      rmsea.ci.lower </span></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="co">#&gt;           12788.712               0.089               0.058 </span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#&gt;      rmsea.ci.upper        rmsea.pvalue                 rmr </span></span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="co">#&gt;               0.123               0.022               0.298 </span></span>
-<span id="cb9-20"><a href="#cb9-20"></a><span class="co">#&gt;          rmr_nomean                srmr        srmr_bentler </span></span>
-<span id="cb9-21"><a href="#cb9-21"></a><span class="co">#&gt;               0.298               0.034               0.034 </span></span>
-<span id="cb9-22"><a href="#cb9-22"></a><span class="co">#&gt; srmr_bentler_nomean                crmr         crmr_nomean </span></span>
-<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt;               0.034               0.042               0.042 </span></span>
-<span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt;          srmr_mplus   srmr_mplus_nomean               cn_05 </span></span>
-<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt;               0.034               0.034             228.408 </span></span>
-<span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt;               cn_01                 gfi                agfi </span></span>
-<span id="cb9-27"><a href="#cb9-27"></a><span class="co">#&gt;             310.899               0.982               0.947 </span></span>
-<span id="cb9-28"><a href="#cb9-28"></a><span class="co">#&gt;                pgfi                 mfi                ecvi </span></span>
-<span id="cb9-29"><a href="#cb9-29"></a><span class="co">#&gt;               0.327               0.980               0.085</span></span></code></pre></div>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt;                npar                fmin </span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt;              10.000               0.024 </span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt;               chisq                  df </span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt;              26.775               5.000 </span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt;              pvalue      baseline.chisq </span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;               0.000            1073.427 </span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt;         baseline.df     baseline.pvalue </span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt;              10.000               0.000 </span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt;                 cfi                 tli </span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt;               0.980               0.959 </span></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt;                nnfi                 rfi </span></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt;               0.959               0.950 </span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="co">#&gt;                 nfi                pnfi </span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="co">#&gt;               0.975               0.488 </span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="co">#&gt;                 ifi                 rni </span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="co">#&gt;               0.980               0.980 </span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="co">#&gt;                logl   unrestricted.logl </span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="co">#&gt;           -6378.678           -6365.291 </span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="co">#&gt;                 aic                 bic </span></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="co">#&gt;           12777.357           12820.456 </span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="co">#&gt;              ntotal                bic2 </span></span>
+<span id="cb9-23"><a href="#cb9-23"></a><span class="co">#&gt;             550.000           12788.712 </span></span>
+<span id="cb9-24"><a href="#cb9-24"></a><span class="co">#&gt;               rmsea      rmsea.ci.lower </span></span>
+<span id="cb9-25"><a href="#cb9-25"></a><span class="co">#&gt;               0.089               0.058 </span></span>
+<span id="cb9-26"><a href="#cb9-26"></a><span class="co">#&gt;      rmsea.ci.upper        rmsea.pvalue </span></span>
+<span id="cb9-27"><a href="#cb9-27"></a><span class="co">#&gt;               0.123               0.022 </span></span>
+<span id="cb9-28"><a href="#cb9-28"></a><span class="co">#&gt;                 rmr          rmr_nomean </span></span>
+<span id="cb9-29"><a href="#cb9-29"></a><span class="co">#&gt;               0.298               0.298 </span></span>
+<span id="cb9-30"><a href="#cb9-30"></a><span class="co">#&gt;                srmr        srmr_bentler </span></span>
+<span id="cb9-31"><a href="#cb9-31"></a><span class="co">#&gt;               0.034               0.034 </span></span>
+<span id="cb9-32"><a href="#cb9-32"></a><span class="co">#&gt; srmr_bentler_nomean                crmr </span></span>
+<span id="cb9-33"><a href="#cb9-33"></a><span class="co">#&gt;               0.034               0.042 </span></span>
+<span id="cb9-34"><a href="#cb9-34"></a><span class="co">#&gt;         crmr_nomean          srmr_mplus </span></span>
+<span id="cb9-35"><a href="#cb9-35"></a><span class="co">#&gt;               0.042               0.034 </span></span>
+<span id="cb9-36"><a href="#cb9-36"></a><span class="co">#&gt;   srmr_mplus_nomean               cn_05 </span></span>
+<span id="cb9-37"><a href="#cb9-37"></a><span class="co">#&gt;               0.034             228.408 </span></span>
+<span id="cb9-38"><a href="#cb9-38"></a><span class="co">#&gt;               cn_01                 gfi </span></span>
+<span id="cb9-39"><a href="#cb9-39"></a><span class="co">#&gt;             310.899               0.982 </span></span>
+<span id="cb9-40"><a href="#cb9-40"></a><span class="co">#&gt;                agfi                pgfi </span></span>
+<span id="cb9-41"><a href="#cb9-41"></a><span class="co">#&gt;               0.947               0.327 </span></span>
+<span id="cb9-42"><a href="#cb9-42"></a><span class="co">#&gt;                 mfi                ecvi </span></span>
+<span id="cb9-43"><a href="#cb9-43"></a><span class="co">#&gt;               0.980               0.085</span></span></code></pre></div>
 </div>
 <div id="modification-indices" class="slide section level2">
 <h1>Modification Indices</h1>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">modificationindices</span>(wisc4.fit, <span class="dt">sort =</span> T)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#&gt;                 lhs op              rhs     mi    epc sepc.lv sepc.all</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; 21 Matrix.Reasoning ~~ Picture.Concepts 14.157  1.058   1.058    0.171</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; 19   Word.Reasoning ~~ Matrix.Reasoning  8.931 -0.710  -0.710   -0.151</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; 15      Information ~~ Picture.Concepts  5.493 -0.565  -0.565   -0.139</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 20   Word.Reasoning ~~ Picture.Concepts  2.029  0.365   0.365    0.069</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 14      Information ~~ Matrix.Reasoning  1.447  0.280   0.280    0.077</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; 18     Similarities ~~ Picture.Concepts  0.838 -0.223  -0.223   -0.051</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; 16     Similarities ~~   Word.Reasoning  0.791  0.242   0.242    0.073</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; 13      Information ~~   Word.Reasoning  0.279  0.147   0.147    0.047</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; 17     Similarities ~~ Matrix.Reasoning  0.147 -0.089  -0.089   -0.023</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; 12      Information ~~     Similarities  0.010  0.034   0.034    0.013</span></span>
-<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt;    sepc.nox</span></span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; 21    0.171</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; 19   -0.151</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; 15   -0.139</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; 20    0.069</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; 14    0.077</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; 18   -0.051</span></span>
-<span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; 16    0.073</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; 13    0.047</span></span>
-<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; 17   -0.023</span></span>
-<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 12    0.013</span></span></code></pre></div>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#&gt;                 lhs op              rhs     mi    epc</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; 21 Matrix.Reasoning ~~ Picture.Concepts 14.157  1.058</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; 19   Word.Reasoning ~~ Matrix.Reasoning  8.931 -0.710</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; 15      Information ~~ Picture.Concepts  5.493 -0.565</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 20   Word.Reasoning ~~ Picture.Concepts  2.029  0.365</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 14      Information ~~ Matrix.Reasoning  1.447  0.280</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; 18     Similarities ~~ Picture.Concepts  0.838 -0.223</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="co">#&gt; 16     Similarities ~~   Word.Reasoning  0.791  0.242</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co">#&gt; 13      Information ~~   Word.Reasoning  0.279  0.147</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="co">#&gt; 17     Similarities ~~ Matrix.Reasoning  0.147 -0.089</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; 12      Information ~~     Similarities  0.010  0.034</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt;    sepc.lv sepc.all sepc.nox</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt; 21   1.058    0.171    0.171</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="co">#&gt; 19  -0.710   -0.151   -0.151</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co">#&gt; 15  -0.565   -0.139   -0.139</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co">#&gt; 20   0.365    0.069    0.069</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt; 14   0.280    0.077    0.077</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; 18  -0.223   -0.051   -0.051</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; 16   0.242    0.073    0.073</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; 13   0.147    0.047    0.047</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="co">#&gt; 17  -0.089   -0.023   -0.023</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="co">#&gt; 12   0.034    0.013    0.013</span></span></code></pre></div>
 </div>
 <div id="diagram-the-model" class="slide section level2">
 <h1>Diagram the Model</h1>
@@ -1068,48 +1082,48 @@ list-style-type: none;
 <span id="cb14-54"><a href="#cb14-54"></a><span class="co">#&gt;   Information saturated (h1) model          Structured</span></span>
 <span id="cb14-55"><a href="#cb14-55"></a><span class="co">#&gt; </span></span>
 <span id="cb14-56"><a href="#cb14-56"></a><span class="co">#&gt; Latent Variables:</span></span>
-<span id="cb14-57"><a href="#cb14-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb14-58"><a href="#cb14-58"></a><span class="co">#&gt;   V =~                                                         </span></span>
-<span id="cb14-59"><a href="#cb14-59"></a><span class="co">#&gt;     Information       1.000                               2.587</span></span>
-<span id="cb14-60"><a href="#cb14-60"></a><span class="co">#&gt;     Similarities      0.984    0.046   21.625    0.000    2.545</span></span>
-<span id="cb14-61"><a href="#cb14-61"></a><span class="co">#&gt;     Word.Reasoning    0.858    0.045   18.958    0.000    2.219</span></span>
-<span id="cb14-62"><a href="#cb14-62"></a><span class="co">#&gt;   F =~                                                         </span></span>
-<span id="cb14-63"><a href="#cb14-63"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                               1.989</span></span>
-<span id="cb14-64"><a href="#cb14-64"></a><span class="co">#&gt;     Picture.Cncpts    0.825    0.085    9.747    0.000    1.642</span></span>
-<span id="cb14-65"><a href="#cb14-65"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb14-66"><a href="#cb14-66"></a><span class="co">#&gt;          </span></span>
-<span id="cb14-67"><a href="#cb14-67"></a><span class="co">#&gt;     0.860</span></span>
-<span id="cb14-68"><a href="#cb14-68"></a><span class="co">#&gt;     0.841</span></span>
-<span id="cb14-69"><a href="#cb14-69"></a><span class="co">#&gt;     0.743</span></span>
-<span id="cb14-70"><a href="#cb14-70"></a><span class="co">#&gt;          </span></span>
-<span id="cb14-71"><a href="#cb14-71"></a><span class="co">#&gt;     0.689</span></span>
-<span id="cb14-72"><a href="#cb14-72"></a><span class="co">#&gt;     0.552</span></span>
+<span id="cb14-57"><a href="#cb14-57"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span id="cb14-58"><a href="#cb14-58"></a><span class="co">#&gt;   V =~                                                </span></span>
+<span id="cb14-59"><a href="#cb14-59"></a><span class="co">#&gt;     Information       1.000                           </span></span>
+<span id="cb14-60"><a href="#cb14-60"></a><span class="co">#&gt;     Similarities      0.984    0.046   21.625    0.000</span></span>
+<span id="cb14-61"><a href="#cb14-61"></a><span class="co">#&gt;     Word.Reasoning    0.858    0.045   18.958    0.000</span></span>
+<span id="cb14-62"><a href="#cb14-62"></a><span class="co">#&gt;   F =~                                                </span></span>
+<span id="cb14-63"><a href="#cb14-63"></a><span class="co">#&gt;     Matrix.Reasnng    1.000                           </span></span>
+<span id="cb14-64"><a href="#cb14-64"></a><span class="co">#&gt;     Picture.Cncpts    0.825    0.085    9.747    0.000</span></span>
+<span id="cb14-65"><a href="#cb14-65"></a><span class="co">#&gt;    Std.lv  Std.all</span></span>
+<span id="cb14-66"><a href="#cb14-66"></a><span class="co">#&gt;                   </span></span>
+<span id="cb14-67"><a href="#cb14-67"></a><span class="co">#&gt;     2.587    0.860</span></span>
+<span id="cb14-68"><a href="#cb14-68"></a><span class="co">#&gt;     2.545    0.841</span></span>
+<span id="cb14-69"><a href="#cb14-69"></a><span class="co">#&gt;     2.219    0.743</span></span>
+<span id="cb14-70"><a href="#cb14-70"></a><span class="co">#&gt;                   </span></span>
+<span id="cb14-71"><a href="#cb14-71"></a><span class="co">#&gt;     1.989    0.689</span></span>
+<span id="cb14-72"><a href="#cb14-72"></a><span class="co">#&gt;     1.642    0.552</span></span>
 <span id="cb14-73"><a href="#cb14-73"></a><span class="co">#&gt; </span></span>
 <span id="cb14-74"><a href="#cb14-74"></a><span class="co">#&gt; Covariances:</span></span>
-<span id="cb14-75"><a href="#cb14-75"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb14-76"><a href="#cb14-76"></a><span class="co">#&gt;   V ~~                                                         </span></span>
-<span id="cb14-77"><a href="#cb14-77"></a><span class="co">#&gt;     F                 4.233    0.399   10.604    0.000    0.823</span></span>
-<span id="cb14-78"><a href="#cb14-78"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb14-79"><a href="#cb14-79"></a><span class="co">#&gt;          </span></span>
-<span id="cb14-80"><a href="#cb14-80"></a><span class="co">#&gt;     0.823</span></span>
+<span id="cb14-75"><a href="#cb14-75"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span id="cb14-76"><a href="#cb14-76"></a><span class="co">#&gt;   V ~~                                                </span></span>
+<span id="cb14-77"><a href="#cb14-77"></a><span class="co">#&gt;     F                 4.233    0.399   10.604    0.000</span></span>
+<span id="cb14-78"><a href="#cb14-78"></a><span class="co">#&gt;    Std.lv  Std.all</span></span>
+<span id="cb14-79"><a href="#cb14-79"></a><span class="co">#&gt;                   </span></span>
+<span id="cb14-80"><a href="#cb14-80"></a><span class="co">#&gt;     0.823    0.823</span></span>
 <span id="cb14-81"><a href="#cb14-81"></a><span class="co">#&gt; </span></span>
 <span id="cb14-82"><a href="#cb14-82"></a><span class="co">#&gt; Variances:</span></span>
-<span id="cb14-83"><a href="#cb14-83"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv</span></span>
-<span id="cb14-84"><a href="#cb14-84"></a><span class="co">#&gt;    .Information       2.352    0.253    9.295    0.000    2.352</span></span>
-<span id="cb14-85"><a href="#cb14-85"></a><span class="co">#&gt;    .Similarities      2.685    0.261   10.282    0.000    2.685</span></span>
-<span id="cb14-86"><a href="#cb14-86"></a><span class="co">#&gt;    .Word.Reasoning    4.000    0.295   13.555    0.000    4.000</span></span>
-<span id="cb14-87"><a href="#cb14-87"></a><span class="co">#&gt;    .Matrix.Reasnng    4.380    0.458    9.557    0.000    4.380</span></span>
-<span id="cb14-88"><a href="#cb14-88"></a><span class="co">#&gt;    .Picture.Cncpts    6.168    0.451   13.673    0.000    6.168</span></span>
-<span id="cb14-89"><a href="#cb14-89"></a><span class="co">#&gt;     V                 6.692    0.567   11.807    0.000    1.000</span></span>
-<span id="cb14-90"><a href="#cb14-90"></a><span class="co">#&gt;     F                 3.957    0.569    6.960    0.000    1.000</span></span>
-<span id="cb14-91"><a href="#cb14-91"></a><span class="co">#&gt;   Std.all</span></span>
-<span id="cb14-92"><a href="#cb14-92"></a><span class="co">#&gt;     0.260</span></span>
-<span id="cb14-93"><a href="#cb14-93"></a><span class="co">#&gt;     0.293</span></span>
-<span id="cb14-94"><a href="#cb14-94"></a><span class="co">#&gt;     0.448</span></span>
-<span id="cb14-95"><a href="#cb14-95"></a><span class="co">#&gt;     0.525</span></span>
-<span id="cb14-96"><a href="#cb14-96"></a><span class="co">#&gt;     0.696</span></span>
-<span id="cb14-97"><a href="#cb14-97"></a><span class="co">#&gt;     1.000</span></span>
-<span id="cb14-98"><a href="#cb14-98"></a><span class="co">#&gt;     1.000</span></span>
+<span id="cb14-83"><a href="#cb14-83"></a><span class="co">#&gt;                    Estimate  Std.Err  z-value  P(&gt;|z|)</span></span>
+<span id="cb14-84"><a href="#cb14-84"></a><span class="co">#&gt;    .Information       2.352    0.253    9.295    0.000</span></span>
+<span id="cb14-85"><a href="#cb14-85"></a><span class="co">#&gt;    .Similarities      2.685    0.261   10.282    0.000</span></span>
+<span id="cb14-86"><a href="#cb14-86"></a><span class="co">#&gt;    .Word.Reasoning    4.000    0.295   13.555    0.000</span></span>
+<span id="cb14-87"><a href="#cb14-87"></a><span class="co">#&gt;    .Matrix.Reasnng    4.380    0.458    9.557    0.000</span></span>
+<span id="cb14-88"><a href="#cb14-88"></a><span class="co">#&gt;    .Picture.Cncpts    6.168    0.451   13.673    0.000</span></span>
+<span id="cb14-89"><a href="#cb14-89"></a><span class="co">#&gt;     V                 6.692    0.567   11.807    0.000</span></span>
+<span id="cb14-90"><a href="#cb14-90"></a><span class="co">#&gt;     F                 3.957    0.569    6.960    0.000</span></span>
+<span id="cb14-91"><a href="#cb14-91"></a><span class="co">#&gt;    Std.lv  Std.all</span></span>
+<span id="cb14-92"><a href="#cb14-92"></a><span class="co">#&gt;     2.352    0.260</span></span>
+<span id="cb14-93"><a href="#cb14-93"></a><span class="co">#&gt;     2.685    0.293</span></span>
+<span id="cb14-94"><a href="#cb14-94"></a><span class="co">#&gt;     4.000    0.448</span></span>
+<span id="cb14-95"><a href="#cb14-95"></a><span class="co">#&gt;     4.380    0.525</span></span>
+<span id="cb14-96"><a href="#cb14-96"></a><span class="co">#&gt;     6.168    0.696</span></span>
+<span id="cb14-97"><a href="#cb14-97"></a><span class="co">#&gt;     1.000    1.000</span></span>
+<span id="cb14-98"><a href="#cb14-98"></a><span class="co">#&gt;     1.000    1.000</span></span>
 <span id="cb14-99"><a href="#cb14-99"></a><span class="co">#&gt; </span></span>
 <span id="cb14-100"><a href="#cb14-100"></a><span class="co">#&gt; R-Square:</span></span>
 <span id="cb14-101"><a href="#cb14-101"></a><span class="co">#&gt;                    Estimate</span></span>
@@ -1134,17 +1148,21 @@ list-style-type: none;
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">anova</span>(wisc4.fit, wisc4.fit2)</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="co">#&gt; Chi-Squared Difference Test</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="co">#&gt; </span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff Df diff Pr(&gt;Chisq)    </span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; wisc4.fit2  4 12765 12813 12.687                                  </span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; wisc4.fit   5 12777 12820 26.775     14.088       1  0.0001745 ***</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt; ---</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="kw">fitmeasures</span>(wisc4.fit, <span class="kw">c</span>(<span class="st">&quot;aic&quot;</span>, <span class="st">&quot;ecvi&quot;</span>))</span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#&gt;       aic      ecvi </span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#&gt; 12777.357     0.085</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="kw">fitmeasures</span>(wisc4.fit2, <span class="kw">c</span>(<span class="st">&quot;aic&quot;</span>, <span class="st">&quot;ecvi&quot;</span>))</span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co">#&gt;       aic      ecvi </span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="co">#&gt; 12765.269     0.063</span></span></code></pre></div>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#&gt;            Df   AIC   BIC  Chisq Chisq diff Df diff</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">#&gt; wisc4.fit2  4 12765 12813 12.687                   </span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">#&gt; wisc4.fit   5 12777 12820 26.775     14.088       1</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">#&gt;            Pr(&gt;Chisq)    </span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">#&gt; wisc4.fit2               </span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#&gt; wisc4.fit   0.0001745 ***</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">#&gt; ---</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">#&gt; Signif. codes:  </span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co">#&gt; 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="kw">fitmeasures</span>(wisc4.fit, <span class="kw">c</span>(<span class="st">&quot;aic&quot;</span>, <span class="st">&quot;ecvi&quot;</span>))</span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co">#&gt;       aic      ecvi </span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="co">#&gt; 12777.357     0.085</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="kw">fitmeasures</span>(wisc4.fit2, <span class="kw">c</span>(<span class="st">&quot;aic&quot;</span>, <span class="st">&quot;ecvi&quot;</span>))</span>
+<span id="cb16-17"><a href="#cb16-17"></a><span class="co">#&gt;       aic      ecvi </span></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="co">#&gt; 12765.269     0.063</span></span></code></pre></div>
 </div>
 <div id="how-to-tidy-lavaan-output" class="slide section level2">
 <h1>How to Tidy lavaan Output</h1>
@@ -1169,28 +1187,29 @@ list-style-type: none;
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">library</span>(broom)</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="kw">tidy</span>(wisc4.fit)</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; # A tibble: 11 x 9</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt;    term  op    estimate std.error statistic p.value std.lv std.all</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt;  1 g =~… =~       1        0          NA         NA   2.58   0.857</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt;  2 g =~… =~       0.985    0.0454     21.7        0   2.54   0.839</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt;  3 g =~… =~       0.860    0.0454     19.0        0   2.22   0.742</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt;  4 g =~… =~       0.647    0.0466     13.9        0   1.67   0.578</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt;  5 g =~… =~       0.542    0.0496     10.9        0   1.40   0.470</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt;  6 Info… ~~       2.40     0.250       9.59       0   2.40   0.265</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#&gt;  7 Simi… ~~       2.71     0.258      10.5        0   2.71   0.296</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#&gt;  8 Word… ~~       4.01     0.295      13.6        0   4.01   0.449</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#&gt;  9 Matr… ~~       5.55     0.360      15.4        0   5.55   0.666</span></span>
-<span id="cb18-15"><a href="#cb18-15"></a><span class="co">#&gt; 10 Pict… ~~       6.91     0.434      15.9        0   6.91   0.779</span></span>
-<span id="cb18-16"><a href="#cb18-16"></a><span class="co">#&gt; 11 g ~~… ~~       6.65     0.564      11.8        0   1.00   1.00 </span></span>
-<span id="cb18-17"><a href="#cb18-17"></a><span class="co">#&gt; # … with 1 more variable: std.nox &lt;dbl&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt;    term  op    estimate std.error statistic p.value std.lv</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt;  1 g =~… =~       1        0          NA         NA   2.58</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt;  2 g =~… =~       0.985    0.0454     21.7        0   2.54</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt;  3 g =~… =~       0.860    0.0454     19.0        0   2.22</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt;  4 g =~… =~       0.647    0.0466     13.9        0   1.67</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt;  5 g =~… =~       0.542    0.0496     10.9        0   1.40</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt;  6 Info… ~~       2.40     0.250       9.59       0   2.40</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#&gt;  7 Simi… ~~       2.71     0.258      10.5        0   2.71</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#&gt;  8 Word… ~~       4.01     0.295      13.6        0   4.01</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#&gt;  9 Matr… ~~       5.55     0.360      15.4        0   5.55</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="co">#&gt; 10 Pict… ~~       6.91     0.434      15.9        0   6.91</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="co">#&gt; 11 g ~~… ~~       6.65     0.564      11.8        0   1.00</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="co">#&gt; # … with 2 more variables: std.all &lt;dbl&gt;, std.nox &lt;dbl&gt;</span></span>
 <span id="cb18-18"><a href="#cb18-18"></a><span class="kw">glance</span>(wisc4.fit)</span>
 <span id="cb18-19"><a href="#cb18-19"></a><span class="co">#&gt; # A tibble: 1 x 17</span></span>
-<span id="cb18-20"><a href="#cb18-20"></a><span class="co">#&gt;    agfi    AIC    BIC   cfi chisq  npar  rmsea rmsea.conf.high   srmr</span></span>
-<span id="cb18-21"><a href="#cb18-21"></a><span class="co">#&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb18-22"><a href="#cb18-22"></a><span class="co">#&gt; 1 0.947 12777. 12820. 0.980  26.8    10 0.0890           0.123 0.0345</span></span>
-<span id="cb18-23"><a href="#cb18-23"></a><span class="co">#&gt; # … with 8 more variables: tli &lt;dbl&gt;, converged &lt;lgl&gt;, estimator &lt;chr&gt;,</span></span>
-<span id="cb18-24"><a href="#cb18-24"></a><span class="co">#&gt; #   ngroups &lt;int&gt;, missing_method &lt;chr&gt;, nobs &lt;dbl&gt;, norig &lt;dbl&gt;,</span></span>
-<span id="cb18-25"><a href="#cb18-25"></a><span class="co">#&gt; #   nexcluded &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb18-20"><a href="#cb18-20"></a><span class="co">#&gt;    agfi    AIC    BIC   cfi chisq  npar  rmsea</span></span>
+<span id="cb18-21"><a href="#cb18-21"></a><span class="co">#&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb18-22"><a href="#cb18-22"></a><span class="co">#&gt; 1 0.947 12777. 12820. 0.980  26.8    10 0.0890</span></span>
+<span id="cb18-23"><a href="#cb18-23"></a><span class="co">#&gt; # … with 10 more variables: rmsea.conf.high &lt;dbl&gt;,</span></span>
+<span id="cb18-24"><a href="#cb18-24"></a><span class="co">#&gt; #   srmr &lt;dbl&gt;, tli &lt;dbl&gt;, converged &lt;lgl&gt;,</span></span>
+<span id="cb18-25"><a href="#cb18-25"></a><span class="co">#&gt; #   estimator &lt;chr&gt;, ngroups &lt;int&gt;, missing_method &lt;chr&gt;,</span></span>
+<span id="cb18-26"><a href="#cb18-26"></a><span class="co">#&gt; #   nobs &lt;dbl&gt;, norig &lt;dbl&gt;, nexcluded &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div id="summary" class="slide section level2">
 <h1>Summary</h1>

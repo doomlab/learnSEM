@@ -26,7 +26,9 @@ This section of the course follows our section on confirmatory factor models wit
 
 ## CFA Second Order Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_secondcfa", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/spq2l5C2vlk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

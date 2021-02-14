@@ -20,10 +20,12 @@ This exercise will give you practice working on data screening for multivariate 
 
 - Accuracy: are all the data in range? 
 - Missing Data: are there missing data, and what should I do with them? 
-- Outliers: are there outliers, and what should I do with them? 
+- Outliers: are there outliers, and what should I do with them?
 - Assumptions: additivity, linearity, normality, homogeneity, and homoscedasticity
 
 ## Data Screening Videos
+
+You can use `vignette("lecture_data_screen", "learnSEM")` to view these notes in R.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zs2qY_iRlF0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

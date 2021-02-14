@@ -41,6 +41,8 @@ This section of the course will begin to introduce you to the terminology associ
 
 ## Terminology Videos
 
+You can use `vignette("lecture_terms", "learnSEM")` to view these notes in R. 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GJu-E6PGl8w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises

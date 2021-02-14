@@ -27,7 +27,9 @@ This section of the course expands your knowledge of structural equation modelin
 
 ## CFA Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_cfa", "learnSEM")` to view these notes in R.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zQu_Hsiejys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

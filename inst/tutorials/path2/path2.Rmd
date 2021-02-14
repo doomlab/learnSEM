@@ -37,7 +37,9 @@ This section of the course covers the beginning of `lavaan` syntax by introducin
 
 ## Path Analysis Videos
 
-Placeholder screen for videos after they are completed. 
+You can use `vignette("lecture_path", "learnSEM")` to view these notes in R. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s0Vep97wWak" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercises
 

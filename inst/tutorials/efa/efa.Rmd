@@ -24,6 +24,8 @@ This section should help you begin to think about how structural equation models
 
 ## EFA Videos
 
+You can use `vignette("lecture_efa", "learnSEM")` to view these notes in R.
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EKpYh7lsOf8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## EFA Data

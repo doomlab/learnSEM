@@ -34,34 +34,11 @@ You can use `vignette("lecture_mgcfa", "learnSEM")` to view these notes in R.
 
 ## MGCFA Data
 
-What is in the dataset? The Openness to Experience dataset includes the following:
+What is in the dataset? This dataset has data on gender, ethnicity, and a resiliency scale for practicing factor analysis and other structural equation modeling topics like multigroup CFA. We've used this data in a few class examples. You can remind yourself what the questions were by using `?resdata` in a code block.
 
-**Instructions**: Below are some phrases describing people's behaviors. Please use the rating scale below to describe how accurately each statement describes you. Describe yourself as you generally are now, not as you wish to be in the future. Describe yourself as you honestly see yourself in relation to other people of your gender and of roughly your same age.  Please read each statement carefully, and then check the box that corresponds to your response.
-
-**Scale**: very inaccurate, moderately inaccurate, neither inaccurate nor accurate, moderately accurate, very accurate
-
-**Items**:
-
-1.	Believe in the importance of art.
-2.	Have a vivid imagination.
-3.	Tend to vote for liberal political candidates.
-4.	Carry the conversation to a higher level.
-5.	Enjoy hearing new ideas.
-6.	Enjoy thinking about things.
-7.	Can say things beautifully.
-8.	Enjoy wild flights of fantasy.
-9.	Get excited by new ideas.
-10.	Have a rich vocabulary.
-11.	Am not interested in abstract ideas.
-12.	Do not like art.
-13.	Avoid philosophical discussions.
-14.	Do not enjoy going to art museums.
-15.	Tend to vote for conservative political candidates.
-16.	Do not like poetry.
-17.	Rarely look for a deeper meaning in things.
-18.	Believe that too much tax money goes to support artists.
-19.	Am not interested in theoretical discussions.
-20.	Have difficulty understanding abstract ideas.
+```{r eval = T, echo = T}
+?resdata
+```
 
 ## Exercises
 

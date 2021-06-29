@@ -65,18 +65,18 @@ question_text(
 
 The data is provided for you below, and it has been loaded for you in the background, along with the `lavaan` and `semPlot` libraries. The data contains:
 
-  - University composite (formative): 
-      - Class - perception of the way school work, classes, grades, and other related academic goals are going for a student.
-      - Social - perception of social networks, friendships, support systems, and connectedness on campus.
-      - Learning - perception of student's happiness with the learning environment on campus (professors, academic support, fit with major, etc.).
-  - Psychological factor (reflexive):
-      - Depression
-      - Anxiety
-      - Stress
-  - Health factor (reflexive):
-      - Chronic health issues
-      - Physical fitness and active health
-      - Sexual health
+- University composite (formative): 
+    - Class - perception of the way school work, classes, grades, and other related academic goals are going for a student.
+    - Social - perception of social networks, friendships, support systems, and connectedness on campus.
+    - Learning - perception of student's happiness with the learning environment on campus (professors, academic support, fit with major, etc.).
+- Psychological factor (reflexive):
+    - Depression
+    - Anxiety
+    - Stress
+- Health factor (reflexive):
+    - Chronic health issues
+    - Physical fitness and active health
+    - Sexual health
 
 ```{r}
 university.cov <- lav_matrix_lower2full(

@@ -77,6 +77,8 @@ The data is provided for you below, and it has been loaded for you in the backgr
     - Chronic health issues
     - Physical fitness and active health
     - Sexual health
+    
+The data is called `university.cov`, and we will use *n* = 300 for our model. 
 
 ```{r}
 university.cov <- lav_matrix_lower2full(
@@ -122,7 +124,7 @@ Health ~ University
 
 ## Analyze the Model
 
-Analyze your `composite.model` using the `sem()` function, and name the output `composite.fit`. There are 300 participants in the dataset. 
+Analyze your `composite.model` using the `sem()` function, and name the output `composite.fit`. There are 300 participants in the dataset. Remember the data name is `university.cov`, which is a covariance table. 
 
 ```{r analyze1-setup}
 composite.model <- '

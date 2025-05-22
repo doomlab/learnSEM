@@ -210,7 +210,7 @@ introR$whichhand[introR$whichhand == "Right."] <- "RIGHT"
 ```
 
 ```{r data-wrangle4-solution}
-lefties <- subset(DF, whichhand == "LEFT")
+lefties <- subset(introR, whichhand == "LEFT")
 head(lefties)
 ```
 
@@ -246,7 +246,7 @@ output <- lm(rating ~ finger_switch, data = introR)
 
 ```{r regression-solution}
 # Regression
-output <- lm(rating ~ finger_switch, data = DF)
+output <- lm(rating ~ finger_switch, data = introR)
 # Get only the slope
 coef(output)[2]
 ```

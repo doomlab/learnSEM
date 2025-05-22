@@ -175,7 +175,7 @@ EFA_fit
 
 ```{r simple-solution}
 #run the analysis
-EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", fm = "ml")
 #examine the output 
 EFA_fit
 ```
@@ -189,7 +189,7 @@ nomissing <- na.omit(efa[ , -ncol(efa)])
 library(psych)
 library(GPArotation)
 EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
-EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", fm = "ml")
 ```
 
 ```{r fit, exercise = TRUE}
@@ -223,7 +223,7 @@ nomissing <- na.omit(efa[ , -ncol(efa)])
 library(psych)
 library(GPArotation)
 EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
-EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", fm = "ml")
 ```
 
 ```{r reliability, exercise = TRUE}
@@ -246,7 +246,7 @@ nomissing <- na.omit(efa[ , -ncol(efa)])
 library(psych)
 library(GPArotation)
 EFA_parallel <- suppressMessages(fa.parallel(nomissing, fm = "ml", fa = "fa", plot = F))
-EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", "fm" = "ml")
+EFA_fit <- fa(nomissing[ , -c(3,11,15,16)], nfactors = 2, rotate = "oblimin", fm = "ml")
 ```
 
 ```{r plot, exercise = TRUE}

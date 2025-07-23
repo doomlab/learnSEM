@@ -1,0 +1,17 @@
+pandoc: '3.4'
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  lecture_cfa: lecture_cfa.html
+  lecture_data_screen: lecture_data_screen.html
+  lecture_efa: lecture_efa.html
+  lecture_introR: lecture_introR.html
+  lecture_irt: lecture_irt.html
+  lecture_lgm: lecture_lgm.html
+  lecture_mgcfa: lecture_mgcfa.html
+  lecture_mtmm: lecture_mtmm.html
+  lecture_path: lecture_path.html
+  lecture_secondcfa: lecture_secondcfa.html
+  lecture_sem: lecture_sem.html
+  lecture_terms: lecture_terms.html
+last_built: 2025-07-23T16:21Z

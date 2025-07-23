@@ -348,7 +348,7 @@ question_text(
 )
 ```
 
-## Interpreting Parmaters
+## Interpreting Parameters
 
 Print out the `parameterestimates` for Model 1 `step1.fit`.
 

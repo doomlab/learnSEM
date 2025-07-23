@@ -1,27 +1,27 @@
-## ---- include = FALSE-----------------------------------
+## ----include = FALSE---------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ----echo = F, message = F, warning = F-----------------
+## ----echo = F, message = F, warning = F--------------------
 knitr::opts_chunk$set(echo = TRUE)
 library(lavaan)
 library(semPlot)
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"----
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----
 knitr::include_graphics("pictures/example_lgm.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"----
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----
 knitr::include_graphics("pictures/random_fixed.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"----
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----
 knitr::include_graphics("pictures/random_fixed.png")
 
-## ----echo=FALSE, out.width = "75%", fig.align="center"----
+## ----echo=FALSE, out.width = "75%", fig.align="center"-----
 knitr::include_graphics("pictures/random_fixed.png")
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 ##load the data
 crime.cov <- lav_matrix_lower2full(c(.63, 
                                     .50, .60, 
@@ -34,7 +34,7 @@ names(crime.mean) <-
   rownames(crime.cov) <- 
   colnames(crime.cov) <- c("Time1", "Time2", "Time3", "Time4")
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.model1 <- '
 # intercept
 i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
@@ -46,7 +46,7 @@ Time3~~r*Time3
 Time4~~r*Time4
 '
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.fit1 <- growth(crime.model1,
                     sample.cov=crime.cov, 
                     sample.mean=crime.mean, 
@@ -56,20 +56,20 @@ summary(crime.fit1,
         fit.measures = TRUE,
         rsquare = TRUE)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 semPaths(crime.fit1,
          whatLabels = "par",
          edge.label.cex = 1,
          layout = "tree")
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 library(knitr)
 fit.table <- matrix(NA, nrow = 5, ncol = 6)
 colnames(fit.table) <- c("Model", "X2", "df", "RMSEA", "SRMR", "CFI")
 fit.table[1, ] <- c("Intercept Only", round(fitmeasures(crime.fit1, c("chisq", "df", "rmsea", "srmr", "cfi")),3))
 kable(fit.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 #save the parameter estimates
 crime.fit1.par <- parameterestimates(crime.fit1)
 
@@ -87,7 +87,7 @@ par.table[1, ] <- c("Intercept Only",
                     "X")
 kable(par.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.model2 <- '
 # intercept
 i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
@@ -98,7 +98,7 @@ Time3~~r*Time3
 Time4~~r*Time4
 '
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.fit2 <- growth(crime.model2,
                     sample.cov=crime.cov, 
                     sample.mean=crime.mean, 
@@ -108,11 +108,11 @@ summary(crime.fit2,
         fit.measures = TRUE,
         rsquare = TRUE)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 fit.table[2, ] <- c("Random Intercept", round(fitmeasures(crime.fit2, c("chisq", "df", "rmsea", "srmr", "cfi")),3))
 kable(fit.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 #save the parameter estimates
 crime.fit2.par <- parameterestimates(crime.fit2)
 
@@ -126,7 +126,7 @@ par.table[2, ] <- c("Random Intercept",
                     "X")
 kable(par.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.model3 <- '
 # intercept
 i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
@@ -141,7 +141,7 @@ Time3~~r*Time3
 Time4~~r*Time4
 '
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.fit3 <- growth(crime.model3,
                     sample.cov=crime.cov, 
                     sample.mean=crime.mean, 
@@ -151,11 +151,11 @@ summary(crime.fit3,
         fit.measures = TRUE,
         rsquare = TRUE)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 fit.table[3, ] <- c("Random Slope", round(fitmeasures(crime.fit3, c("chisq", "df", "rmsea", "srmr", "cfi")),3))
 kable(fit.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 #save the parameter estimates
 crime.fit3.par <- parameterestimates(crime.fit3)
 
@@ -169,7 +169,7 @@ par.table[3, ] <- c("Random Slope",
                     "X")
 kable(par.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.model4 <- '
 # intercept
 i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
@@ -182,7 +182,7 @@ Time3~~r*Time3
 Time4~~r*Time4
 '
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.fit4 <- growth(crime.model4,
                     sample.cov=crime.cov, 
                     sample.mean=crime.mean, 
@@ -192,11 +192,11 @@ summary(crime.fit4,
         fit.measures = TRUE,
         rsquare = TRUE)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 fit.table[4, ] <- c("Full Slope", round(fitmeasures(crime.fit4, c("chisq", "df", "rmsea", "srmr", "cfi")),3))
 kable(fit.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 #save the parameter estimates
 crime.fit4.par <- parameterestimates(crime.fit4)
 
@@ -210,7 +210,7 @@ par.table[4, ] <- c("Full Slope",
                     round(crime.fit4.par$est[crime.fit4.par$lhs == "i" & crime.fit4.par$op == "~~" & crime.fit4.par$rhs == "s"], 3))
 kable(par.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.model5 <- '
 # intercept
 i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
@@ -218,7 +218,7 @@ i =~ 1*Time1 + 1*Time2 + 1*Time3 + 1*Time4
 s =~ 0*Time1 + 1*Time2 + 2*Time3 + 3*Time4
 '
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 crime.fit5 <- growth(crime.model5,
                     sample.cov=crime.cov, 
                     sample.mean=crime.mean, 
@@ -228,11 +228,11 @@ summary(crime.fit5,
         fit.measures = TRUE,
         rsquare = TRUE)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 fit.table[5, ] <- c("Unconstrained", round(fitmeasures(crime.fit5, c("chisq", "df", "rmsea", "srmr", "cfi")),3))
 kable(fit.table)
 
-## -------------------------------------------------------
+## ----------------------------------------------------------
 #save the parameter estimates
 crime.fit5.par <- parameterestimates(crime.fit5)
 

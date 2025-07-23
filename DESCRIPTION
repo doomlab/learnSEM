@@ -1,7 +1,7 @@
 Package: learnSEM
 Type: Package
 Title: Learning Tutorials for Structural Equation Modeling
-Version: 0.5.0
+Version: 0.5.1
 Authors@R:
     person(given = "Erin M.",
            family = "Buchanan",
@@ -38,4 +38,4 @@ Suggests:
     broom
 Depends:
     R (>= 2.10)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2

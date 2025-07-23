@@ -610,7 +610,7 @@ kable(table_fit)
 
 ```{r scalar-open}
 question_text(
-  "Looking at your results, do you see anywhere that indicates non-invariance (i.e., has a larger change than CFI = .01)? Where did it appear to break down?",
+  "Looking at your results, do you see anywhere that indicates non-invariance (i.e., has a larger change than CFI = .01)? Where did it appear to break down? (Note: you may get different answers here depending on the number of decimals you use in this tutorial).",
   answer("At the strict step!", correct = TRUE),
   incorrect = "The model stops being invariant at the strict step.",
   try_again_button = "Modify your answer",

@@ -15,6 +15,8 @@ library(usethis)
 #usethis::use_dev_package("mirt")
 #usethis::use_dev_package("ltm")
 #usethis::use_dev_package("MOTE")
+#usethis::use_news_md()
+#usethis::use_pkgdown()
 
 #usethis::build_readme()
 
@@ -33,5 +35,7 @@ tools::buildVignettes(dir = ".", tangle=TRUE)
 #dir.create("inst")
 dir.create("inst/doc")
 file.copy(dir("vignettes", full.names=TRUE), "inst/doc", overwrite=TRUE)
+pkgdown::build_site()
 
+# pull and then reinstall
 devtools::install_github("doomlab/learnSEM")

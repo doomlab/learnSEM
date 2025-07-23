@@ -11,8 +11,8 @@ A data frame with 516 rows and 16 variables.
   \item{Sex}{A variable for gender where 1 is
   male, 2 is female, and 3 is other/na.}
   \item{Ethnicity}{A variable for ethnicity
-  coded as 1 as Black, 2 as White, and 3 as
-  other/na.}
+  coded as 1 as Black, 2 as White, and 0 as
+  other.}
   \item{RS1}{I usually manage one way or
   another.}
   \item{RS2}{I feel proud that I have accomplished

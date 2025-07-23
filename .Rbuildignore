@@ -1,3 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 setup
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

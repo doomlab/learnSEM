@@ -2,7 +2,7 @@
 
 `learnSEM` is a tutorial package to learn structural equation modeling written by Erin M. Buchanan at https://statisticsofdoom.com/.
 
-Current Version: `0.5.0`
+Current Version: `0.5.1`
 
 ### Installation
 
@@ -79,4 +79,3 @@ Be sure to restart your **R** session, as this helps you get the **Tutorial Wind
 - Lecture: `vignette("lecture_irt", "learnSEM")`
 - Tutorial: `learnr::run_tutorial("irt", "learnSEM")`
 
-Lectures are being added every Friday! Check back if one is not open yet. 

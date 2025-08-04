@@ -77,6 +77,7 @@ coef(edu.model)
 ## 2PL Plots
 
 Include the ICC and TIF plots to view all the items and overall test information at once. 
+
 ```{r twoplplot-setup}
 edu.model <- ltm(dirtdata ~ z1, IRT.param = TRUE)
 ```
@@ -86,7 +87,7 @@ edu.model <- ltm(dirtdata ~ z1, IRT.param = TRUE)
 ```
 
 ```{r twoplplot-solution}
-plot(edu.model, type = "IIC")
+plot(edu.model, type = "ICC")
 plot(edu.model, type = "IIC", items = 0)
 ```
 
@@ -159,7 +160,7 @@ question_text(
 
 ## Polytomous IRT 
 
-Load the assignment_mirt data below. You should reverse code items 5, 8, and 13 using `8 - columns` to ensure all items are in the same direction. The scale included examines evaluations of job candidates rated on 15 different qualities. 
+Load the assignment_mirt data below. The scale included examines evaluations of job candidates rated on 15 different qualities. 
 
 ```{r echo = T}
 data(mirtdata)
@@ -224,8 +225,8 @@ question_text(
 ```{r goodquestions-open}
 question_text(
   "Which items indicate good discrimination?",
-  answer("Pretty much all of them but 8 and 13.", correct = TRUE),
-  incorrect = "Pretty much all of them but 8 and 13.",
+  answer("Many are good, but 5, 8, 9, and 13 have low a parameters.", correct = TRUE),
+  incorrect = "Many are good, but 5, 8, 9, and 13 have low a parameters.",
   try_again_button = "Modify your answer",
   allow_retry = TRUE
 )

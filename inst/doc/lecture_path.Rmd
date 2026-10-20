@@ -488,10 +488,7 @@ semPaths(beaujean.fit,
 
 - Standardized root mean residual (SRMR)
 - Want small values, as it's a badness of fit index
-
-```{r echo=FALSE, out.width = "50%", fig.align="center"}
-knitr::include_graphics("pictures/srmr_formula.png")
-```
+- $\sqrt{\left\{\frac{2 \sum_{i=1}^p \sum_{j=1}^i \left[ \frac{(s_{ij} - \hat{s}_{ij})}{(s_i s_j)} \right]^2 }{p(p+1)} \right\} }$
 
 ## Incremental Fit Indices
 
